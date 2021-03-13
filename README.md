@@ -1,4 +1,4 @@
-# im.haugsdal.playground.nettapotek-v2
+# mitt nettapotek
 test av REST jax-rs med jwt OAuth 2.0
 
 Kith standarder hentet fra https://sarepta.ehelse.no/
