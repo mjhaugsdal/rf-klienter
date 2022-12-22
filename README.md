@@ -1,8 +1,8 @@
-# mitt nettapotek
-test av REST jax-rs med jwt OAuth 2.0
+# nettapotek (reseptformidleren)
+
+Bibliotek for genering av meldinger til Reseptformidleren.
 
 Kith standarder hentet fra https://sarepta.ehelse.no/
-
 jaxb2-maven-plugin brukt for å lage javaobjekter av meldingsdefinisjonene.
 
 REST webservice laget med Apache CXF jax-rs http://cxf.apache.org/docs/jax-rs.html

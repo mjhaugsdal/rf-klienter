@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.nettapotek</groupId>
+        <artifactId>meldingsdefinisjoner</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+
+    <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+    <artifactId>er-m9na2-2016-10-26</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>kith</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-xjc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>xsdtojava</goal>
+                        </goals>
+                        <configuration>
+                            <sourceRoot>${basedir}/target/generated-sources/jaxb</sourceRoot>
+                            <xsdOptions>
+                                <xsdOption>
+                                    <xsd>${project.basedir}/src/main/resources/ER-M9NA2-2016-10-26.xsd</xsd>
+                                </xsdOption>
+                            </xsdOptions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -2,30 +2,36 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>im.haugsdal.playground</groupId>
-    <artifactId>im.haugsdal.playground.nettapotek-v2</artifactId>
-    <packaging>jar</packaging>
+    <groupId>io.nettapotek</groupId>
+    <artifactId>reactor</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>Reseptformidleren :: NA2</name>
+    <name>Nettapotek lib</name>
 
     <properties>
         <!-- Maven Configuration -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <jackson.version>2.12.1</jackson.version>
-        <version.cxf>3.4.1</version.cxf>
-        <version.bc>1.60</version.bc>
-        <version.nimbusds.oauth2>9.2.2</version.nimbusds.oauth2>
-        <version.nimbusds.jwt>9.7</version.nimbusds.jwt>
+        <jackson.version>2.14.1</jackson.version>
+        <version.cxf>3.5.5</version.cxf>
+        <version.bc>1.70</version.bc>
+        <version.nimbusds.oauth2>10.4</version.nimbusds.oauth2>
+        <version.nimbusds.jwt>9.25.6</version.nimbusds.jwt>
         <version.jjwt>0.9.1</version.jjwt>
-        <version.slf4j>1.7.30</version.slf4j>
-        <version.swagger>3.37.0</version.swagger>
-        <version.testng>7.1.0</version.testng>
-        <version.jetty>9.4.34.v20201102</version.jetty>
+        <version.slf4j>2.0.6</version.slf4j>
+        <version.swagger>4.15.5</version.swagger>
+        <version.testng>7.7.0</version.testng>
+        <version.jetty>11.0.13</version.jetty>
     </properties>
+
+    <modules>
+        <module>meldingsdefinisjoner</module>
+        <module>soap</module>
+    </modules>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -34,7 +40,22 @@
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-features-logging</artifactId>
+            <version>${version.cxf}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-security-jose-jaxrs</artifactId>
+            <version>${version.cxf}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${version.cxf}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-security</artifactId>
             <version>${version.cxf}</version>
         </dependency>
         <dependency>
@@ -119,91 +140,8 @@
             <artifactId>testng</artifactId>
             <version>${version.testng}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>er-m9na1-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>er-m9na2-2016-10-26</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>er-m9na3-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>er-m9na4-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>apprec-2004-11-21</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.evry.reseptformidleren.xml-schemas</groupId>
-            <artifactId>msghead-2006-05-24</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-
     </dependencies>
 
     <build>
-        <plugins>
-            <!-- <plugin> -->
-                <!-- <groupId>org.apache.maven.plugins</groupId> -->
-                <!-- <artifactId>maven-dependency-plugin</artifactId> -->
-                <!-- <executions> -->
-                    <!-- <execution> -->
-                        <!-- <id>copy-dependencies</id> -->
-                        <!-- <phase>package</phase> -->
-                        <!-- <goals> -->
-                            <!-- <goal>copy-dependencies</goal> -->
-                        <!-- </goals> -->
-                        <!-- <configuration> -->
-                            <!-- <outputDirectory>${project.build.directory}/lib</outputDirectory> -->
-                        <!-- </configuration> -->
-                    <!-- </execution> -->
-                <!-- </executions> -->
-            <!-- </plugin> -->
-            
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.1</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <finalName>${project.artifactId}</finalName>
-                            <outputDirectory>${project.build.directory}/dist</outputDirectory>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>im.haugsdal.playground.Application</mainClass>
-                                </transformer>
-                            </transformers>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 </project>
