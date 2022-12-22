@@ -6,6 +6,7 @@ import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.wss4j.common.ext.WSSecurityException;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -42,20 +43,39 @@ public class SoapClientTest {
     }
 
     @Test
-    void test() throws JAXBException {
+    void testOKResponse() throws JAXBException {
 
         M9Na1 m9Na1 = new M9Na1();
         m9Na1.setDokument("<m9na1>test</m9na1>".getBytes(StandardCharsets.UTF_8));
         try {
-            client.naWebServiceM9Na1(m9Na1);
+            var response = client.naWebServiceM9Na1(m9Na1);
+
         } catch (AppRecFault_Exception e) {
             var apprecDocumentBytes = (byte[]) e.getFaultInfo().getDokument();
             var jaxbContext = JAXBContext.newInstance(AppRec.class);
             var um = jaxbContext.createUnmarshaller();
 
 
-            var doc = (no.kith.xmlstds.apprec._2004_11_21.AppRec) um.unmarshal(new StringReader(new String(apprecDocumentBytes, StandardCharsets.UTF_8)));
-            throw new RuntimeException(e);
+             throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void testNegativeResponse() throws JAXBException {
+
+        M9Na3 m9Na3= new M9Na3();
+        m9Na3.setDokument("<m9na3>test</m9na3>".getBytes(StandardCharsets.UTF_8));
+        try {
+            var response = client.naWebServiceM9Na3(m9Na3);
+
+        } catch (AppRecFault_Exception e) {
+            var apprecDocumentBytes = (byte[]) e.getFaultInfo().getDokument();
+            var jaxbContext = JAXBContext.newInstance(no.kith.xmlstds.apprec._2004_11_21.AppRec.class);
+            var um = jaxbContext.createUnmarshaller();
+
+            no.kith.xmlstds.apprec._2004_11_21.AppRec appRec = (no.kith.xmlstds.apprec._2004_11_21.AppRec) um.unmarshal(new StringReader(new String(apprecDocumentBytes)));
+
+            Assert.assertNotNull(appRec.getId());
         }
     }
 

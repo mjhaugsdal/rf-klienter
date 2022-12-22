@@ -37,6 +37,7 @@ public class WSUtils {
 
         WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
         bean.getOutInterceptors().add(wssOut);
+        bean.getOutFaultInterceptors().add(wssOut);
         bean.getInInterceptors().add(wssIn);
     }
 
