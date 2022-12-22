@@ -5,6 +5,7 @@ import org.apache.cxf.feature.Feature;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
+import org.apache.wss4j.common.ext.WSSecurityException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,7 @@ public class SoapClientTest {
     NAWeb client;
 
     @BeforeClass
-    void setup() {
+    void setup() throws WSSecurityException {
         var factoryBean = new JaxWsServerFactoryBean();
         factoryBean.setServiceBean(new NaWebService());
         factoryBean.setAddress("http://localhost:8888/NA"); //TODO portkonfig

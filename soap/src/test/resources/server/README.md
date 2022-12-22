@@ -1,0 +1,1 @@
+keytool -genkey -alias server -keyalg RSA -validity 36555 -keystore server.keystore -storetype jks
