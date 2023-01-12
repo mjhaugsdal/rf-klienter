@@ -1,4 +1,4 @@
-# nettapotek (reseptformidleren)
+# diverse rf ting (reseptformidleren)
 
 Bibliotek for genering av meldinger til Reseptformidleren.
 
