@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.nettapotek</groupId>
+        <artifactId>meldingsdefinisjoner</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+
+    <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+    <artifactId>er-m9na1-2016-06-06</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>felleskomponent1</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.15.1</version>
+                <configuration>
+                    <schemaIncludes>
+                        <schemaInclude>**/*.xsd</schemaInclude>
+                    </schemaIncludes>
+                    <strict>true</strict>
+                    <verbose>true</verbose>
+                    <extension>true</extension>
+                    <removeOldOutput>true</removeOldOutput>
+                    <plugins>
+                        <plugin>
+                            <groupId>net.codesup.util</groupId>
+                            <artifactId>jaxb2-rich-contract-plugin</artifactId>
+                            <version>2.1.0</version>
+                        </plugin>
+                    </plugins>
+                    <args>
+                        <arg>-Xfluent-builder</arg>
+                        <arg>-rootSelectorClassName=Select</arg>
+                        <arg>-newBuilderMethodName=builder</arg>
+                        <arg>-newCopyBuilderMethodName=newCopyBuilder</arg>
+                        <arg>-copyToMethodName=copyTo</arg>
+                        <arg>-builderFieldSuffix=_Builder</arg>
+                        <arg>-generateTools=y</arg>
+                        <arg>-narrow=n</arg>
+                        <arg>-copyPartial=y</arg>
+                        <arg>-selectorClassName=Selector</arg>
+                        <arg>-builderClassName=Builder</arg>
+                        <arg>-builderInterfaceName=BuildSupport</arg>
+                        <arg>-copyAlways=n</arg>
+                        <arg>-buildMethodName=build</arg>
+                        <arg>-endMethodName=end</arg>
+                        <arg>-generateJavadocFromAnnotations=n</arg>
+                        <arg>-Xgroup-contract</arg>
+                        <arg>-declareSetters=y</arg>
+                        <arg>-declareBuilderInterface=y</arg>
+                        <arg>-supportInterfaceNameSuffix=Lifecycle</arg>
+                        <arg>-upstreamEpisodeFile=META-INF/jaxb-interfaces.episode</arg>
+                        <arg>-downstreamEpisodeFile=/META-INF/jaxb-interfaces.episode</arg>
+                        <arg>-Xmodifier</arg>
+                        <arg>-modifierClassName=Modifier</arg>
+                        <arg>-modifierMethodName=modifier</arg>
+                    </args>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
