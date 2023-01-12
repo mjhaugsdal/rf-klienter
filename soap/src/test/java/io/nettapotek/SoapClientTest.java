@@ -12,6 +12,8 @@ import org.testng.annotations.Test;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.datatype.DatatypeConfigurationException;
+import java.io.IOException;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -43,10 +45,12 @@ public class SoapClientTest {
     }
 
     @Test
-    void testOKResponse() throws JAXBException {
+    void testOKResponse() throws Exception {
 
         M9Na1 m9Na1 = new M9Na1();
-        m9Na1.setDokument("<m9na1>test</m9na1>".getBytes(StandardCharsets.UTF_8));
+        //m9Na1.setDokument("<m9na1>test</m9na1>".getBytes(StandardCharsets.UTF_8));
+        M9na m9na = new M9na();
+        m9Na1.setDokument(m9na.getM9na1().getBytes(StandardCharsets.UTF_8));
         try {
             var response = client.naWebServiceM9Na1(m9Na1);
 
@@ -56,7 +60,7 @@ public class SoapClientTest {
             var um = jaxbContext.createUnmarshaller();
 
 
-             throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 

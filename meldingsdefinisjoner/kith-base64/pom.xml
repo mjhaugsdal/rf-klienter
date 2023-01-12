@@ -1,25 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>io.nettapotek</groupId>
         <artifactId>meldingsdefinisjoner</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-
     <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
-    <artifactId>er-m9na3-2016-06-06</artifactId>
+    <artifactId>kith-base64</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
-            <artifactId>felleskomponent1</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>

@@ -30,6 +30,7 @@
     <modules>
         <module>meldingsdefinisjoner</module>
         <module>soap</module>
+        <module>message-builder</module>
     </modules>
 
     <dependencies>

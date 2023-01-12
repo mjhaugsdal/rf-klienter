@@ -54,6 +54,21 @@
             <version>1.0.1-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>kith-base64</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.nettapotek</groupId>
+            <artifactId>message-builder</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

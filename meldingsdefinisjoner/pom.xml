@@ -22,6 +22,7 @@
 
     <modules>
         <module>kith</module>
+        <module>kith-base64</module>
         <module>felleskomponent1</module>
         <module>msghead-2006-05-24</module>
         <module>apprec-2004-11-21</module>
