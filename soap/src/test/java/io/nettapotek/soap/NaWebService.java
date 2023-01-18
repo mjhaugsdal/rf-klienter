@@ -83,7 +83,7 @@ public class NaWebService implements NAWeb {
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         } catch (IOException | GeneralException | JOSEException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
         }
 
         var byteDokument = (byte[]) parameters.getDokument();
