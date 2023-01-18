@@ -21,10 +21,18 @@ import org.apache.cxf.rs.security.jose.jaxrs.*;
 
 public class NaWebServiceImpl implements NaWebService {
 
-    static {
+    /*static {
+
+    }*/
+
+    public NaWebServiceImpl() {
+        //
+    }
+
+    public NaWebServiceImpl(boolean jwk, String context) {
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(NaWebServiceImpl.class);
-        serverFactoryBean.setAddress("http://localhost:8890/");
+        serverFactoryBean.setAddress("http://localhost:8890/" + context);
         LoggingFeature loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         serverFactoryBean.getFeatures().add(loggingFeature);
@@ -58,31 +66,52 @@ public class NaWebServiceImpl implements NaWebService {
 
         serverFactoryBean.setProviders(providers);
 
-        //ENCRYPTION properties
-        serverFactoryBean.getProperties(true).put(
-            "rs.security.encryption.in.properties",
-            "server/jwk/server.properties"
-        );
+        if(jwk) {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/jwk/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/jwk/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/jwk/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/jwk/server-out-sign.properties"
+            );
 
-        serverFactoryBean.getProperties(true).put(
-            "rs.security.encryption.out.properties",
-            "server/jwk/server-out.properties"
-        );
+            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
+        } else {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/server-out-sign.properties"
+            );
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
 
-        //SIGNATURE IN
-        serverFactoryBean.getProperties(true).put(
-            "rs.security.signature.in.properties",
-            "server/jwk/server-sign.properties"
-        );
-
-        //SIGNATURE OUT
-        serverFactoryBean.getProperties(true).put(
-            "rs.security.signature.out.properties",
-            "server/jwk/server-out-sign.properties"
-        );
-
-        serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-        serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
+        }
 
         serverFactoryBean.getProperties(true).put("jose.debug", true);
         serverFactoryBean.create();
