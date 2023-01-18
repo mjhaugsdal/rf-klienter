@@ -1,4 +1,4 @@
-package io.nettapotek;
+package io.nettapotek.soap;
 
 import org.apache.wss4j.common.ext.WSPasswordCallback;
 

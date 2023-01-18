@@ -12,6 +12,7 @@
     <module>soap</module>
     <module>message-builder</module>
     <module>keycloak</module>
+      <module>rest</module>
   </modules>
   <properties>
     <jackson.version>2.14.1</jackson.version>

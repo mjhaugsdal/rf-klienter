@@ -1,6 +1,7 @@
-package io.nettapotek;
+package io.nettapotek.soap;
 
-import io.nettapotek.interceptor.AuthInterceptor;
+import io.nettapotek.kith.M9na;
+import io.nettapotek.soap.interceptor.AuthInterceptor;
 import no.ergo.reseptformidleren.webservices.na.*;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
 import org.apache.cxf.endpoint.Client;
@@ -20,7 +21,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.io.ByteArrayInputStream;
 import java.io.StringReader;
-import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;

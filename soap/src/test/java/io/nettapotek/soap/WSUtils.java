@@ -1,4 +1,4 @@
-package io.nettapotek;
+package io.nettapotek.soap;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;

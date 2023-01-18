@@ -1,4 +1,4 @@
-package io.nettapotek;
+package io.nettapotek.soap;
 
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.PlainObject;

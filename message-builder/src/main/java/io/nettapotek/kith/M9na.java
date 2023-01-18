@@ -1,4 +1,4 @@
-package io.nettapotek;
+package io.nettapotek.kith;
 
 
 import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
