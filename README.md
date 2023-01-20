@@ -16,8 +16,10 @@ Består av:
   - Tester:
     - Lagt til testcase som viser parsing av SAML token.
     - Lagt til testcase som viser parsing og validering av Bearer token fra trusted issuer.
-
-<!-- REST webservice laget med Apache CXF jax-rs https://cxf.apache.org/docs/jax-rs.html -->
+- rest
+  - RESTful webservice laget med Apache CXF jax-rs https://cxf.apache.org/docs/jax-rs.html 
+  - Sikret med https://www.rfc-editor.org/rfc/rfc7515 og https://www.rfc-editor.org/rfc/rfc7516 implentert med hjelp av https://cxf.apache.org/docs/jax-rs-jose.html
+  - Tested med både JKS (x5c sertifikater i JWS Header) og JWK (Public Key i JWS Header) 
 
 
 
