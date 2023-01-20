@@ -21,6 +21,9 @@ import org.apache.cxf.rs.security.jose.jaxrs.*;
 
 public class NaWebServiceImpl implements NaWebService {
 
+    public static void main(String[]args) {
+        new NaWebServiceImpl(true, "");
+    }
     /*static {
 
     }*/
