@@ -5,6 +5,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
@@ -69,26 +70,25 @@ public class NaWebServiceImpl implements NaWebService {
             //ENCRYPTION properties
             serverFactoryBean.getProperties(true).put(
                     "rs.security.encryption.in.properties",
-                    "server/jwk/server-decryption.properties"
+                    "server/jwk/server.properties"
             );
             serverFactoryBean.getProperties(true).put(
                     "rs.security.encryption.out.properties",
-                    "server/jwk/server-encryption.properties"
+                    "server/jwk/server-out.properties"
             );
             //SIGNATURE IN
             serverFactoryBean.getProperties(true).put(
                     "rs.security.signature.in.properties",
-                    "server/jwk/server-signature-validation.properties"
+                    "server/jwk/server-sign.properties"
             );
             //SIGNATURE OUT
             serverFactoryBean.getProperties(true).put(
                     "rs.security.signature.out.properties",
-                    "server/jwk/server-signature.properties"
+                    "server/jwk/server-out-sign.properties"
             );
 
             serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
             serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-
         } else {
             //ENCRYPTION properties
             serverFactoryBean.getProperties(true).put(
