@@ -1,0 +1,161 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< io.nettapotek:soap >-------------------------
+[INFO] Building soap 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ soap ---
+[INFO] io.nettapotek:soap:jar:1.0.0-SNAPSHOT
+[INFO] +- io.nettapotek.meldingsdefinisjoner:apprec-2004-11-21:jar:1.0.1-SNAPSHOT:compile
+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.0:compile
+[INFO] |  +- org.glassfish.jaxb:jaxb-runtime:jar:4.0.1:compile
+[INFO] |  |  \- org.glassfish.jaxb:jaxb-core:jar:4.0.1:compile
+[INFO] |  |     +- org.eclipse.angus:angus-activation:jar:1.0.0:runtime
+[INFO] |  |     +- org.glassfish.jaxb:txw2:jar:4.0.1:compile
+[INFO] |  |     \- com.sun.istack:istack-commons-runtime:jar:4.1.1:compile
+[INFO] |  +- com.sun.xml.bind:jaxb-xjc:jar:4.0.1:compile
+[INFO] |  |  \- com.sun.xml.bind:jaxb-core:jar:4.0.1:compile
+[INFO] |  \- jakarta.activation:jakarta.activation-api:jar:2.1.0:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:msghead-2006-05-24:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:er-m9na1-2016-06-06:jar:1.0.1-SNAPSHOT:compile
+[INFO] |  \- io.nettapotek.meldingsdefinisjoner:felleskomponent1:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:er-m9na2-2016-10-26:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:er-m9na3-2016-06-06:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:er-m9na4-2016-06-06:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek.meldingsdefinisjoner:kith:jar:1.0.1-SNAPSHOT:test
+[INFO] +- io.nettapotek.meldingsdefinisjoner:kith-base64:jar:1.0.1-SNAPSHOT:compile
+[INFO] +- io.nettapotek:message-builder:jar:1.0.0-SNAPSHOT:compile
+[INFO] |  +- org.opensaml:opensaml-core:jar:4.0.1:compile
+[INFO] |  |  +- com.google.code.findbugs:jsr305:jar:3.0.2:compile
+[INFO] |  |  +- com.google.guava:guava:jar:28.2-jre:compile
+[INFO] |  |  |  +- com.google.guava:failureaccess:jar:1.0.1:compile
+[INFO] |  |  |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:compile
+[INFO] |  |  |  +- org.checkerframework:checker-qual:jar:2.10.0:compile
+[INFO] |  |  |  +- com.google.errorprone:error_prone_annotations:jar:2.3.4:compile
+[INFO] |  |  |  \- com.google.j2objc:j2objc-annotations:jar:1.3:compile
+[INFO] |  |  +- io.dropwizard.metrics:metrics-core:jar:4.1.4:compile
+[INFO] |  |  \- net.shibboleth.utilities:java-support:jar:8.0.0:compile
+[INFO] |  +- org.opensaml:opensaml-saml-api:jar:4.0.1:compile
+[INFO] |  |  +- org.opensaml:opensaml-messaging-api:jar:4.0.1:compile
+[INFO] |  |  +- org.opensaml:opensaml-profile-api:jar:4.0.1:compile
+[INFO] |  |  +- org.opensaml:opensaml-security-api:jar:4.0.1:compile
+[INFO] |  |  |  +- org.cryptacular:cryptacular:jar:1.2.4:compile
+[INFO] |  |  |  +- org.bouncycastle:bcprov-jdk15on:jar:1.64:compile
+[INFO] |  |  |  +- org.bouncycastle:bcpkix-jdk15on:jar:1.64:compile
+[INFO] |  |  |  \- org.springframework:spring-core:jar:5.2.4.RELEASE:compile
+[INFO] |  |  |     \- org.springframework:spring-jcl:jar:5.2.4.RELEASE:compile
+[INFO] |  |  \- org.opensaml:opensaml-soap-api:jar:4.0.1:compile
+[INFO] |  +- org.opensaml:opensaml-xmlsec-api:jar:4.0.1:compile
+[INFO] |  \- org.opensaml:opensaml-saml-impl:jar:4.0.1:compile
+[INFO] |     +- org.opensaml:opensaml-security-impl:jar:4.0.1:compile
+[INFO] |     +- org.opensaml:opensaml-soap-impl:jar:4.0.1:compile
+[INFO] |     +- org.opensaml:opensaml-storage-api:jar:4.0.1:compile
+[INFO] |     +- org.opensaml:opensaml-xmlsec-impl:jar:4.0.1:compile
+[INFO] |     +- org.apache.velocity:velocity-engine-core:jar:2.2:compile
+[INFO] |     |  \- org.apache.commons:commons-lang3:jar:3.9:compile
+[INFO] |     +- org.apache.httpcomponents:httpclient:jar:4.5.12:compile
+[INFO] |     \- org.apache.httpcomponents:httpcore:jar:4.4.13:compile
+[INFO] +- org.apache.santuario:xmlsec:jar:3.0.1:compile
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.36:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.15:compile
+[INFO] |  \- com.fasterxml.woodstox:woodstox-core:jar:6.2.8:compile
+[INFO] +- com.nimbusds:nimbus-jose-jwt:jar:9.28:compile
+[INFO] |  \- com.github.stephenc.jcip:jcip-annotations:jar:1.0-1:compile
+[INFO] +- org.slf4j:slf4j-simple:jar:1.7.30:compile
+[INFO] +- org.apache.cxf:cxf-rt-rs-security-jose:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-core:jar:3.5.5:compile
+[INFO] |  |  \- org.apache.ws.xmlschema:xmlschema-core:jar:2.3.0:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-security:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-rs-json-basic:jar:3.5.5:compile
+[INFO] |  +- jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
+[INFO] |  +- jakarta.xml.ws:jakarta.xml.ws-api:jar:2.3.3:compile
+[INFO] |  +- jakarta.jws:jakarta.jws-api:jar:2.1.0:compile
+[INFO] |  +- jakarta.xml.soap:jakarta.xml.soap-api:jar:1.4.2:compile
+[INFO] |  +- com.sun.activation:jakarta.activation:jar:1.2.2:compile
+[INFO] |  +- com.sun.xml.messaging.saaj:saaj-impl:jar:1.5.3:runtime
+[INFO] |  |  \- org.jvnet.staxex:stax-ex:jar:1.8.3:runtime
+[INFO] |  \- org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1:compile
+[INFO] +- org.apache.cxf:cxf-rt-features-logging:jar:3.5.5:compile
+[INFO] +- org.apache.cxf:cxf-rt-rs-security-jose-jaxrs:jar:3.5.5:compile
+[INFO] +- org.apache.cxf:cxf-rt-frontend-jaxws:jar:3.5.5:compile
+[INFO] |  +- xml-resolver:xml-resolver:jar:1.2:compile
+[INFO] |  +- org.ow2.asm:asm:jar:9.4:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-bindings-soap:jar:3.5.5:compile
+[INFO] |  |  +- org.apache.cxf:cxf-rt-wsdl:jar:3.5.5:compile
+[INFO] |  |  |  \- wsdl4j:wsdl4j:jar:1.6.3:compile
+[INFO] |  |  \- org.apache.cxf:cxf-rt-databinding-jaxb:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-bindings-xml:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-frontend-simple:jar:3.5.5:compile
+[INFO] |  \- org.apache.cxf:cxf-rt-ws-addr:jar:3.5.5:compile
+[INFO] |     \- org.apache.cxf:cxf-rt-ws-policy:jar:3.5.5:compile
+[INFO] +- org.apache.cxf:cxf-rt-ws-security:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-security-saml:jar:3.5.5:compile
+[INFO] |  +- org.ehcache:ehcache:jar:3.9.3:compile
+[INFO] |  +- org.apache.wss4j:wss4j-ws-security-dom:jar:2.4.1:compile
+[INFO] |  |  \- org.apache.wss4j:wss4j-ws-security-common:jar:2.4.1:compile
+[INFO] |  |     +- joda-time:joda-time:jar:2.10.10:compile
+[INFO] |  |     +- org.opensaml:opensaml-xacml-impl:jar:3.4.6:compile
+[INFO] |  |     |  \- org.opensaml:opensaml-xacml-api:jar:3.4.6:compile
+[INFO] |  |     +- org.opensaml:opensaml-xacml-saml-impl:jar:3.4.6:compile
+[INFO] |  |     |  \- org.opensaml:opensaml-xacml-saml-api:jar:3.4.6:compile
+[INFO] |  |     +- org.jasypt:jasypt:jar:1.9.3:compile
+[INFO] |  |     \- org.apache.geronimo.javamail:geronimo-javamail_1.4_mail:jar:1.8.4:compile
+[INFO] |  +- org.apache.wss4j:wss4j-policy:jar:2.4.1:compile
+[INFO] |  |  \- org.apache.neethi:neethi:jar:3.1.1:compile
+[INFO] |  +- org.apache.wss4j:wss4j-ws-security-stax:jar:2.4.1:compile
+[INFO] |  |  \- org.apache.wss4j:wss4j-bindings:jar:2.4.1:compile
+[INFO] |  \- org.apache.wss4j:wss4j-ws-security-policy-stax:jar:2.4.1:compile
+[INFO] +- org.bouncycastle:bcprov-ext-jdk15on:jar:1.70:compile
+[INFO] +- com.nimbusds:oauth2-oidc-sdk:jar:10.4:compile
+[INFO] |  +- com.nimbusds:content-type:jar:2.2:compile
+[INFO] |  +- net.minidev:json-smart:jar:2.4.8:compile (version selected from constraint [1.3.3,2.4.8])
+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.4.8:compile
+[INFO] |  \- com.nimbusds:lang-tag:jar:1.7:compile
+[INFO] +- io.jsonwebtoken:jjwt:jar:0.9.1:compile
+[INFO] +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.14.1:compile
+[INFO] |  +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.14.1:compile
+[INFO] |  \- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.14.1:compile
+[INFO] +- com.fasterxml.jackson.jaxrs:jackson-jaxrs-xml-provider:jar:2.14.1:compile
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.14.1:compile
+[INFO] |  \- org.codehaus.woodstox:stax2-api:jar:4.2.1:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.14.1:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.14.1:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.14.1:compile
+[INFO] +- org.webjars:swagger-ui:jar:4.15.5:compile
+[INFO] +- org.apache.cxf:cxf-rt-rs-service-description-openapi-v3:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-rs-service-description-common-openapi:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-rs-service-description-swagger-ui:jar:3.5.5:compile
+[INFO] |  \- io.swagger.core.v3:swagger-jaxrs2:jar:2.1.13:compile
+[INFO] |     +- io.github.classgraph:classgraph:jar:4.8.138:compile
+[INFO] |     +- org.javassist:javassist:jar:3.25.0-GA:compile
+[INFO] |     +- io.swagger.core.v3:swagger-models:jar:2.1.13:compile
+[INFO] |     +- io.swagger.core.v3:swagger-annotations:jar:2.1.13:compile
+[INFO] |     \- io.swagger.core.v3:swagger-integration:jar:2.1.13:compile
+[INFO] |        \- io.swagger.core.v3:swagger-core:jar:2.1.13:compile
+[INFO] |           +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.12.1:compile
+[INFO] |           |  \- org.yaml:snakeyaml:jar:1.27:compile
+[INFO] |           +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.12.1:compile
+[INFO] |           \- jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
+[INFO] +- org.apache.cxf:cxf-rt-transports-http-jetty:jar:3.5.5:compile
+[INFO] |  +- org.apache.cxf:cxf-rt-transports-http:jar:3.5.5:compile
+[INFO] |  +- org.eclipse.jetty:jetty-server:jar:9.4.49.v20220914:compile
+[INFO] |  |  \- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] |  +- org.eclipse.jetty:jetty-util:jar:9.4.49.v20220914:compile
+[INFO] |  +- org.eclipse.jetty:jetty-io:jar:9.4.49.v20220914:compile
+[INFO] |  +- org.eclipse.jetty:jetty-security:jar:9.4.49.v20220914:compile
+[INFO] |  +- org.eclipse.jetty:jetty-continuation:jar:9.4.49.v20220914:compile
+[INFO] |  \- org.eclipse.jetty:jetty-http:jar:9.4.49.v20220914:compile
+[INFO] +- org.apache.cxf:cxf-rt-frontend-jaxrs:jar:3.5.5:compile
+[INFO] |  \- jakarta.ws.rs:jakarta.ws.rs-api:jar:2.1.6:compile
+[INFO] +- org.eclipse.jetty:jetty-webapp:jar:11.0.13:compile
+[INFO] |  +- org.eclipse.jetty:jetty-servlet:jar:11.0.13:compile
+[INFO] |  \- org.eclipse.jetty:jetty-xml:jar:11.0.13:compile
+[INFO] \- org.testng:testng:jar:7.7.0:compile
+[INFO]    +- com.beust:jcommander:jar:1.82:compile
+[INFO]    \- org.webjars:jquery:jar:3.6.1:runtime
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.872 s
+[INFO] Finished at: 2023-02-23T21:51:22+01:00
+[INFO] ------------------------------------------------------------------------

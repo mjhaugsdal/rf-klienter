@@ -18,6 +18,12 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <immutable-plugin.version>2.0.0</immutable-plugin.version>
+        <cxf-plugin.version>4.0.0</cxf-plugin.version>
+        <jakarta.xml-bind.version>4.0.0</jakarta.xml-bind.version>
+        <jakarta.activation-api.version>2.1.0</jakarta.activation-api.version>
+        <jaxb.version>4.0.1</jaxb.version>
     </properties>
 
     <modules>
@@ -34,9 +40,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.0</version>
         </dependency>
     </dependencies>
 
@@ -46,12 +52,19 @@
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-xjc-plugin</artifactId>
-                    <version>3.3.2</version>
+                    <version>${cxf-plugin.version}</version>
                     <configuration>
                         <extensions>
-                            <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:3.3.2</extension>
+                            <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:${cxf-plugin.version}</extension>
                         </extensions>
                     </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.sabomichal</groupId>
+                            <artifactId>immutable-xjc-plugin</artifactId>
+                            <version>${immutable-plugin.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>

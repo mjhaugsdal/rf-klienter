@@ -24,58 +24,25 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.15.1</version>
-                <configuration>
-                    <schemaIncludes>
-                        <schemaInclude>**/*.xsd</schemaInclude>
-                    </schemaIncludes>
-                    <strict>true</strict>
-                    <verbose>true</verbose>
-                    <extension>true</extension>
-                    <removeOldOutput>true</removeOldOutput>
-                    <plugins>
-                        <plugin>
-                            <groupId>net.codesup.util</groupId>
-                            <artifactId>jaxb2-rich-contract-plugin</artifactId>
-                            <version>2.1.0</version>
-                        </plugin>
-                    </plugins>
-                    <args>
-                        <arg>-Xfluent-builder</arg>
-                        <arg>-rootSelectorClassName=Select</arg>
-                        <arg>-newBuilderMethodName=builder</arg>
-                        <arg>-newCopyBuilderMethodName=newCopyBuilder</arg>
-                        <arg>-copyToMethodName=copyTo</arg>
-                        <arg>-builderFieldSuffix=_Builder</arg>
-                        <arg>-generateTools=y</arg>
-                        <arg>-narrow=n</arg>
-                        <arg>-copyPartial=y</arg>
-                        <arg>-selectorClassName=Selector</arg>
-                        <arg>-builderClassName=Builder</arg>
-                        <arg>-builderInterfaceName=BuildSupport</arg>
-                        <arg>-copyAlways=n</arg>
-                        <arg>-buildMethodName=build</arg>
-                        <arg>-endMethodName=end</arg>
-                        <arg>-generateJavadocFromAnnotations=n</arg>
-                        <arg>-Xgroup-contract</arg>
-                        <arg>-declareSetters=y</arg>
-                        <arg>-declareBuilderInterface=y</arg>
-                        <arg>-supportInterfaceNameSuffix=Lifecycle</arg>
-                        <arg>-upstreamEpisodeFile=META-INF/jaxb-interfaces.episode</arg>
-                        <arg>-downstreamEpisodeFile=/META-INF/jaxb-interfaces.episode</arg>
-                        <arg>-Xmodifier</arg>
-                        <arg>-modifierClassName=Modifier</arg>
-                        <arg>-modifierMethodName=modifier</arg>
-                    </args>
-                </configuration>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-xjc-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>generate</id>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>generate</goal>
+                            <goal>xsdtojava</goal>
                         </goals>
+                        <configuration>
+                            <xsdOptions>
+                                <xsdOption>
+                                    <xsd>${project.basedir}/src/main/resources/ER-M9NA2-2016-10-26.xsd</xsd>
+                                    <extensionArgs>
+                                        <extensionArg>-Ximm</extensionArg>
+                                        <extensionArg>-Ximm-builder</extensionArg>
+                                    </extensionArgs>
+                                </xsdOption>
+                            </xsdOptions>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
