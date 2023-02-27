@@ -17,24 +17,23 @@
         <module>rest</module>
     </modules>
     <properties>
-        <jackson.version>2.14.1</jackson.version>
+        <jackson.version>2.14.2</jackson.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <version.bc>1.70</version.bc>
         <cxf.version>4.0.0</cxf.version>
         <version.jetty>11.0.13</version.jetty>
-        <version.jjwt>0.9.1</version.jjwt>
         <version.nimbusds.jwt>9.25.6</version.nimbusds.jwt>
         <version.nimbusds.oauth2>10.4</version.nimbusds.oauth2>
         <version.slf4j>2.0.6</version.slf4j>
         <version.swagger>4.15.5</version.swagger>
-        <version.testng>7.7.0</version.testng>
+        <version.testng>7.7.1</version.testng>
         <jakarta-xml-bind.version>4.0.0</jakarta-xml-bind.version>
         <jakarta-xml-soap.version>3.0.0</jakarta-xml-soap.version>
         <jakarta-xml-ws.version>4.0.0</jakarta-xml-ws.version>
         <glassfish-jaxb.version>4.0.1</glassfish-jaxb.version>
+        <version.xmlsec>3.0.1</version.xmlsec>
     </properties>
 
     <dependencyManagement>
@@ -71,6 +70,17 @@
             <groupId>jakarta.xml.ws</groupId>
             <artifactId>jakarta.xml.ws-api</artifactId>
             <version>${jakarta-xml-ws.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>${version.xmlsec}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${version.testng}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

@@ -14,11 +14,11 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
-        <!--        <dependency>-->
-        <!--            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>-->
-        <!--            <artifactId>kith</artifactId>-->
-        <!--            <version>1.0.1-SNAPSHOT</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>kith</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

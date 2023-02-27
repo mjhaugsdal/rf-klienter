@@ -15,15 +15,8 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
         <immutable-plugin.version>2.0.0</immutable-plugin.version>
         <cxf-plugin.version>4.0.0</cxf-plugin.version>
-        <jakarta.xml-bind.version>4.0.0</jakarta.xml-bind.version>
-        <jakarta.activation-api.version>2.1.0</jakarta.activation-api.version>
-        <jaxb.version>4.0.1</jaxb.version>
     </properties>
 
     <modules>
@@ -42,7 +35,6 @@
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>4.0.0</version>
         </dependency>
     </dependencies>
 
