@@ -1,7 +1,7 @@
 package io.nettapotek.soap;
 
 //import io.nettapotek.kith.M9na;
-import io.nettapotek.kith.M9na;
+import io.nettapotek.kith.M9NA2Factory;
 import io.nettapotek.soap.interceptor.AuthInterceptor;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -21,7 +21,6 @@ import org.testng.annotations.Test;
 
 
 import java.io.ByteArrayInputStream;
-import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -72,9 +71,10 @@ public class SoapClientTest {
         httpClient.getRequestContext().put(Message.PROTOCOL_HEADERS, headers);
 
         var m9Na1 = new M9Na1();
-        var m9na = new M9na();
+        var m9na = new M9NA2Factory();
 
         m9Na1.setDokument(m9na.getM9na1().getBytes(StandardCharsets.UTF_8));
+
         try {
             var response = client.naWebServiceM9Na1(m9Na1);
             var jaxbContext = JAXBContext.newInstance(M9NA2.class);

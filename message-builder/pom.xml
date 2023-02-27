@@ -26,6 +26,11 @@
     <dependencies>
         <dependency>
             <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>apprec-2004-11-21</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
             <artifactId>msghead-2006-05-24</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>

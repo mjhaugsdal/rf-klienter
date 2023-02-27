@@ -15,14 +15,9 @@ import no.ergo.reseptformidleren.webservices.na.MV;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
 import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
-import no.kith.xmlstds.msghead._2006_05_24.CS;
-import no.kith.xmlstds.msghead._2006_05_24.Document;
 import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
-import no.kith.xmlstds.msghead._2006_05_24.MsgInfo;
-import no.kith.xmlstds.msghead._2006_05_24.RefDoc;
 import org.w3c.dom.Element;
 
-import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +27,6 @@ import java.io.StringWriter;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.GregorianCalendar;
 import java.util.UUID;
 
 public class NaWebService implements NAWeb {
@@ -80,12 +74,13 @@ public class NaWebService implements NAWeb {
 //        } catch (IOException | GeneralException | JOSEException e) {
 //        }
 
+        MsgHead msgHead;
         var byteDokument = (byte[]) parameters.getDokument();
         try {
 
             JAXBContext jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA1.class);
             var um = jaxbContext.createUnmarshaller();
-            var msgHead = (MsgHead) um.unmarshal(new StringReader(new String(byteDokument)));
+            msgHead = (MsgHead) um.unmarshal(new StringReader(new String(byteDokument)));
 
             var vedleggI = msgHead.getDocument().listIterator();
             vedleggI.next();
@@ -106,7 +101,6 @@ public class NaWebService implements NAWeb {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
 
         var m9na2 = M9NA2.m9NA2Builder()
                 .withAntall(0)

@@ -50,6 +50,11 @@
             <version>${jackson.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.nettapotek</groupId>
+            <artifactId>message-builder</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>7.7.1</version>

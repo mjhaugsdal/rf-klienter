@@ -2,7 +2,6 @@ package io.nettapotek.rest;
 
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
