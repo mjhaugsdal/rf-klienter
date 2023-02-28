@@ -1,19 +1,18 @@
 package io.nettapotek.rest;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
 
 import io.nettapotek.rest.hack.types.*;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.core.MediaType;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.rs.security.jose.jaxrs.*;
@@ -120,7 +119,7 @@ public class NaWebServiceImpl implements NaWebService {
     @Override
     @Path("/verify")
     @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public AppRec naWebServiceVerify(MV parameters) {
         return new AppRec();
@@ -128,19 +127,19 @@ public class NaWebServiceImpl implements NaWebService {
 
     @Override
     @Path("/m9na1")
-    @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML)
+    @Consumes(MediaType.APPLICATION_XML + ";charset=utf-8")
+    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public M9Na2 naWebServiceM9Na1(M9Na1 parameters) throws AppRecFault_Exception {
         var m9na2 = new M9Na2();
-        m9na2.setDokument("Hello World!".getBytes(StandardCharsets.UTF_8));
+        m9na2.setDokument(parameters.getDokument());
         return m9na2;
     }
 
     @Override
     @Path("m9na3")
     @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public M9Na4 naWebServiceM9Na3(M9Na3 parameters) throws AppRecFault_Exception {
         return new M9Na4();

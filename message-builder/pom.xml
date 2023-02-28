@@ -6,18 +6,29 @@
     <parent>
         <groupId>io.nettapotek</groupId>
         <artifactId>reactor</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>message-builder</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.opensaml</groupId>
+                <artifactId>opensaml-bom</artifactId>
+                <version>4.0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <artifactId>apprec-2004-11-21</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
             <artifactId>msghead-2006-05-24</artifactId>
@@ -38,32 +49,21 @@
             <artifactId>kith-base64</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.opensaml/opensaml-core -->
         <dependency>
             <groupId>org.opensaml</groupId>
             <artifactId>opensaml-core</artifactId>
-            <version>4.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.opensaml/opensaml-saml-api -->
         <dependency>
             <groupId>org.opensaml</groupId>
             <artifactId>opensaml-saml-api</artifactId>
-            <version>4.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.opensaml/opensaml-xmlsec-api -->
         <dependency>
             <groupId>org.opensaml</groupId>
             <artifactId>opensaml-xmlsec-api</artifactId>
-            <version>4.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.opensaml/opensaml-saml-impl -->
         <dependency>
             <groupId>org.opensaml</groupId>
             <artifactId>opensaml-saml-impl</artifactId>
-            <version>4.0.1</version>
         </dependency>
-
-
     </dependencies>
-
 </project>
