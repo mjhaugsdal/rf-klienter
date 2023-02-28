@@ -18,35 +18,12 @@ public class AppRecFactory {
 
         var apprec = AppRec.appRecBuilder()
                 .withGenDate(getXmlgregorianCalendar())
-                .withMsgType(
-                        CS.CSBuilder()
-                                .withDn("")
-                                .withV("")
-                                .build()
-                )
+                .withMsgType(createCS("", ""))
                 .withId("")
-                .withStatus(
-                        CS.CSBuilder()
-                                .withDn("")
-                                .withV("")
-                                .build()
-                )
-                .withSender(
-                        AppRec.Sender.senderBuilder()
-                                .withHcp(
-                                        HCP.HCPBuilder()
-
-                                                .build()
-                                )
-                                .withRole(CS.CSBuilder()
-                                        .build())
-                                .build()
-                )
+                .withStatus(createCS("", ""))
+                .withSender(createApprecSender())
                 .withReceiver(AppRec.Receiver.receiverBuilder()
-                        .withHcp(
-                                HCP.HCPBuilder()
-                                        .build()
-                        )
+                        .withHcp(createAppRecHCP())
                         .withRole(CS.CSBuilder()
                                 .build())
                         .build())
@@ -65,6 +42,30 @@ public class AppRecFactory {
                 ).build();
 
         return apprec;
+    }
+
+    private static HCP createAppRecHCP() {
+        return HCP.HCPBuilder()
+                .build()
+    }
+
+    private static AppRec.Sender createApprecSender() {
+        return AppRec.Sender.senderBuilder()
+                .withHcp(
+                        HCP.HCPBuilder()
+
+                                .build()
+                )
+                .withRole(CS.CSBuilder()
+                        .build())
+                .build();
+    }
+
+    private static CS createCS(String DN, String V) {
+        return CS.CSBuilder()
+                .withDn(DN)
+                .withV(V)
+                .build();
     }
 
     static XMLGregorianCalendar getXmlgregorianCalendar() {
