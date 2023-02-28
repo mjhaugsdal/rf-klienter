@@ -22,42 +22,39 @@ public class AppRecFactory {
                 .withId("")
                 .withStatus(createCS("", ""))
                 .withSender(createApprecSender())
-                .withReceiver(AppRec.Receiver.receiverBuilder()
-                        .withHcp(createAppRecHCP())
-                        .withRole(CS.CSBuilder()
-                                .build())
-                        .build())
+                .withReceiver(createApprecReceiver())
                 .withSoftwareVersion("")
                 .withMiGversion("migVersion")
-                .withOriginalMsgId(
-                        OriginalMsgId.originalMsgIdBuilder()
-                                .withId(msgHead.getMsgInfo().getMsgId())
-                                .withIssueDate(msgHead.getMsgInfo().getGenDate())
-                                .withMsgType(
-                                        CS.CSBuilder()
-                                                .withV(msgHead.getMsgInfo().getType().getV())
-                                                .withDn(msgHead.getMsgInfo().getType().getDN())
-                                                .build()
-                                ).build()
-                ).build();
+                .withOriginalMsgId(createOriginalMsgId(msgHead))
+                .build();
 
         return apprec;
     }
 
+    private static AppRec.Receiver createApprecReceiver() {
+        return AppRec.Receiver.receiverBuilder()
+                .withHcp(createAppRecHCP())
+                .withRole(createCS("",""))
+                .build();
+    }
+
+    private static OriginalMsgId createOriginalMsgId(MsgHead msgHead) {
+        return OriginalMsgId.originalMsgIdBuilder()
+                .withId(msgHead.getMsgInfo().getMsgId())
+                .withIssueDate(msgHead.getMsgInfo().getGenDate())
+                .withMsgType(createCS(msgHead.getMsgInfo().getType().getDN(), msgHead.getMsgInfo().getType().getV()))
+                .build();
+    }
+
     private static HCP createAppRecHCP() {
         return HCP.HCPBuilder()
-                .build()
+                .build();
     }
 
     private static AppRec.Sender createApprecSender() {
         return AppRec.Sender.senderBuilder()
-                .withHcp(
-                        HCP.HCPBuilder()
-
-                                .build()
-                )
-                .withRole(CS.CSBuilder()
-                        .build())
+                .withHcp(createAppRecHCP())
+                .withRole(createCS("",""))
                 .build();
     }
 
