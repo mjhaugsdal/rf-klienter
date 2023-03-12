@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>io.nettapotek</groupId>
+        <groupId>io.github.mjhaugsdal</groupId>
         <artifactId>meldingsdefinisjoner</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+    <groupId>io.github.mjhaugsdal.meldingsdefinisjoner</groupId>
     <artifactId>kith-base64</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 

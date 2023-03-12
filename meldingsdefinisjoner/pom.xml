@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.nettapotek</groupId>
-        <artifactId>reactor</artifactId>
+        <groupId>io.github.mjhaugsdal</groupId>
+        <artifactId>eresept-meldingsender</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 

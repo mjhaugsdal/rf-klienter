@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>io.nettapotek</groupId>
+        <groupId>io.github.mjhaugsdal</groupId>
         <artifactId>meldingsdefinisjoner</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
 
-    <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+    <groupId>io.github.mjhaugsdal.meldingsdefinisjoner</groupId>
     <artifactId>apprec-2004-11-21</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
