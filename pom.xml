@@ -7,12 +7,12 @@
     <artifactId>eresept-meldingsender</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Nettapotek lib</name>
 
     <modules>
         <module>meldingsdefinisjoner</module>
-        <module>soap</module>
+        <module>fest</module>
         <module>message-builder</module>
+        <module>soap</module>
         <!--    <module>keycloak</module>-->
         <module>rest</module>
     </modules>

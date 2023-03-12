@@ -29,6 +29,7 @@
         <module>er-m9na2-2016-10-26</module>
         <module>er-m9na3-2016-06-06</module>
         <module>er-m9na4-2016-06-06</module>
+        <module>er-m30-2014-12-01</module>
     </modules>
 
     <dependencies>
@@ -46,6 +47,7 @@
                     <artifactId>cxf-xjc-plugin</artifactId>
                     <version>${cxf-plugin.version}</version>
                     <configuration>
+                        <sourceRoot>${project.build.directory}/generated-sources/java</sourceRoot>
                         <extensions>
                             <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:${cxf-plugin.version}</extension>
                         </extensions>
