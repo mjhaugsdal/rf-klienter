@@ -8,16 +8,24 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
+
     <groupId>io.github.mjhaugsdal.meldingsdefinisjoner</groupId>
-    <artifactId>kith</artifactId>
+    <artifactId>er-m30-2014-12-01</artifactId>
     <version>1.0.1-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.mjhaugsdal.meldingsdefinisjoner</groupId>
+            <artifactId>kith</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-xjc-plugin</artifactId>
-                <version>4.0.0</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -27,7 +35,7 @@
                         <configuration>
                             <xsdOptions>
                                 <xsdOption>
-                                    <xsd>${project.basedir}/src/main/resources/kith.xsd</xsd>
+                                    <xsd>${project.basedir}/src/main/resources/ER-M30-2014-12-01.xsd</xsd>
                                     <extensionArgs>
                                         <extensionArg>-Ximm</extensionArg>
                                         <extensionArg>-Ximm-builder</extensionArg>

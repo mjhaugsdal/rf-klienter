@@ -13,6 +13,8 @@ import no.ergo.reseptformidleren.webservices.na.M9Na3;
 import no.ergo.reseptformidleren.webservices.na.M9Na4;
 import no.ergo.reseptformidleren.webservices.na.MV;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
+
+
 import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
 import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
@@ -73,6 +75,9 @@ public class NaWebService implements NAWeb {
 //            e.printStackTrace();
 //        } catch (IOException | GeneralException | JOSEException e) {
 //        }
+
+
+
 
         MsgHead msgHead;
         var byteDokument = (byte[]) parameters.getDokument();
