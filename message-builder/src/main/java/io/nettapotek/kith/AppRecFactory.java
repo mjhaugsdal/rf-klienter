@@ -11,6 +11,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.UUID;
 
 public class AppRecFactory {
 
@@ -19,7 +20,7 @@ public class AppRecFactory {
         var apprec = AppRec.appRecBuilder()
                 .withGenDate(getXmlgregorianCalendar())
                 .withMsgType(createCS("", ""))
-                .withId("")
+                .withId(UUID.randomUUID().toString())
                 .withStatus(createCS("", ""))
                 .withSender(createApprecSender())
                 .withReceiver(createApprecReceiver())

@@ -1,5 +1,6 @@
 package io.nettapotek.soap;
 
+import io.nettapotek.kith.AppRecFactory;
 import jakarta.annotation.Resource;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -17,10 +18,12 @@ import no.ergo.reseptformidleren.webservices.na.NAWeb;
 
 import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
+import no.kith.xmlstds.eresept.m9na3._2016_06_06.M9NA3;
 import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
 import org.w3c.dom.Element;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -128,7 +131,20 @@ public class NaWebService implements NAWeb {
 
     @Override
     public M9Na4 naWebServiceM9Na3(M9Na3 parameters) throws AppRecFault_Exception {
-        var appRec = no.kith.xmlstds.apprec._2004_11_21.AppRec.appRecBuilder().withId(UUID.randomUUID().toString()).build();
+        var byteDokument = (byte[]) parameters.getDokument();
+        MsgHead m9na3Dokument = null;
+        try {
+            var jaxbContext = JAXBContext.newInstance(M9NA3.class, MsgHead.class);
+            var um = jaxbContext.createUnmarshaller();
+            m9na3Dokument = (MsgHead) um.unmarshal(new ByteArrayInputStream(byteDokument));
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+
+        var appRec = AppRecFactory.buildApprec(m9na3Dokument);
+
+        //var appRec = no.kith.xmlstds.apprec._2004_11_21.AppRec.appRecBuilder().withId(UUID.randomUUID().toString()).build();
 
         AppRecFault appRecFault = new AppRecFault();
         String byteDocument;
