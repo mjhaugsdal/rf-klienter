@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>meldingsdefinisjoner</module>-->
         <module>fest</module>
         <module>message-builder</module>
         <module>soap</module>
