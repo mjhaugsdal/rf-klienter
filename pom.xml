@@ -9,7 +9,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>meldingsdefinisjoner</module>
         <module>fest</module>
         <module>message-builder</module>
         <module>soap</module>
@@ -38,6 +37,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- https://mvnrepository.com/artifact/io.github.mjhaugsdal/bom -->
+            <dependency>
+                <groupId>io.github.mjhaugsdal</groupId>
+                <artifactId>bom</artifactId>
+                <version>4.0.0</version>
+                <type>pom</type>
+            </dependency>
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-bom</artifactId>
@@ -75,6 +81,11 @@
             <groupId>org.apache.santuario</groupId>
             <artifactId>xmlsec</artifactId>
             <version>${version.xmlsec}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>2.0.6</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
