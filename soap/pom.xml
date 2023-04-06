@@ -3,84 +3,91 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <groupId>io.nettapotek</groupId>
-        <artifactId>reactor</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <groupId>io.github.mjhaugsdal</groupId>
+        <artifactId>eresept-meldingsender</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>soap</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>apprec-2004-11-21</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
-            <artifactId>msghead-2006-05-24</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>er-m9na1-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>er-m9na2-2016-10-26</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>er-m9na3-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>er-m9na4-2016-06-06</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>kith</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-            <scope>test</scope>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek.meldingsdefinisjoner</groupId>
+            <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>kith-base64</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.mjhaugsdal</groupId>
+            <artifactId>msghead-2006-05-24</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.mjhaugsdal</groupId>
+            <artifactId>message-builder</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>io.nettapotek</groupId>
-            <artifactId>message-builder</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <groupId>com.nimbusds</groupId>
+            <artifactId>nimbus-jose-jwt</artifactId>
+            <version>9.31</version>
         </dependency>
         <dependency>
             <groupId>org.apache.santuario</groupId>
             <artifactId>xmlsec</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
-        <dependency>
-            <groupId>com.nimbusds</groupId>
-            <artifactId>nimbus-jose-jwt</artifactId>
-            <version>9.28</version>
+            <version>${version.xmlsec}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.30</version>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-features-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-ws-security</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -88,7 +95,6 @@
             <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
-                <version>${version.cxf}</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
