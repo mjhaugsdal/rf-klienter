@@ -1,4 +1,4 @@
-package io.nettapotek.soap;
+package io.github.mjhaugsdal.soap;
 
 import jakarta.annotation.Resource;
 import jakarta.xml.bind.JAXBContext;

@@ -1,4 +1,4 @@
-package io.nettapotek.kith;
+package io.github.mjhaugsdal.kith.xml;
 
 import no.kith.xmlstds.apprec._2004_11_21.AppRec;
 import no.kith.xmlstds.apprec._2004_11_21.CS;

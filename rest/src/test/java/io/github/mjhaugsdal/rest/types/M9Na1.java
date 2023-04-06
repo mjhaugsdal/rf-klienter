@@ -1,5 +1,4 @@
-
-package io.nettapotek.rest.hack.types;
+package io.github.mjhaugsdal.rest.types;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 

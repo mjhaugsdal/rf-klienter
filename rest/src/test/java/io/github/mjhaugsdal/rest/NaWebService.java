@@ -1,8 +1,8 @@
-package io.nettapotek.rest;
+package io.github.mjhaugsdal.rest;
 
 
 
-import io.nettapotek.rest.hack.types.*;
+import io.github.mjhaugsdal.rest.types.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;

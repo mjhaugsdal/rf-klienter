@@ -1,4 +1,4 @@
-package io.nettapotek.rest;
+package io.github.mjhaugsdal.rest;
 
 
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Properties;
 
 
-import io.nettapotek.rest.hack.types.*;
+import io.github.mjhaugsdal.rest.types.*;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;

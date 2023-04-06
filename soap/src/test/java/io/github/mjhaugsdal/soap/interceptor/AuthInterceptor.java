@@ -1,4 +1,4 @@
-package io.nettapotek.soap.interceptor;
+package io.github.mjhaugsdal.soap.interceptor;
 
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.interceptor.AbstractSoapInterceptor;

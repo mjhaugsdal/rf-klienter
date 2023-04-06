@@ -1,8 +1,8 @@
-package io.nettapotek.soap;
+package io.github.mjhaugsdal.soap;
 
 //import io.nettapotek.kith.M9na;
-import io.nettapotek.kith.M9NA2Factory;
-import io.nettapotek.soap.interceptor.AuthInterceptor;
+import io.github.mjhaugsdal.soap.interceptor.AuthInterceptor;
+import io.github.mjhaugsdal.kith.xml.M9NA1Factory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import no.ergo.reseptformidleren.webservices.na.*;
@@ -71,7 +71,7 @@ public class SoapClientTest {
         httpClient.getRequestContext().put(Message.PROTOCOL_HEADERS, headers);
 
         var m9Na1 = new M9Na1();
-        var m9na = new M9NA2Factory();
+        var m9na = new M9NA1Factory();
 
         m9Na1.setDokument(m9na.getM9na1().getBytes(StandardCharsets.UTF_8));
 
