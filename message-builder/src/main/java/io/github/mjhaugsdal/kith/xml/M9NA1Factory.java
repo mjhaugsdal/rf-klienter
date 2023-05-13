@@ -1,4 +1,4 @@
-package io.nettapotek.kith;
+package io.github.mjhaugsdal.kith;
 
 
 import jakarta.xml.bind.JAXBContext;

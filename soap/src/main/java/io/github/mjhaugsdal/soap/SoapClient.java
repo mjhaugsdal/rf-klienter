@@ -1,7 +1,7 @@
 package io.github.mjhaugsdal.soap;
 
 
-import io.nettapotek.kith.M9NA1Factory;
+import io.github.mjhaugsdal.kith.M9NA1Factory;
 import no.ergo.reseptformidleren.webservices.na.AppRecFault_Exception;
 import no.ergo.reseptformidleren.webservices.na.M9Na1;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;

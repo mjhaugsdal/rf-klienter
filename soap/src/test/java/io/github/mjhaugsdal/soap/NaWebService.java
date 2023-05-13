@@ -1,6 +1,6 @@
 package io.github.mjhaugsdal.soap;
 
-import io.nettapotek.kith.AppRecFactory;
+import io.github.mjhaugsdal.kith.xml.AppRecFactory;
 import jakarta.annotation.Resource;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -14,8 +14,6 @@ import no.ergo.reseptformidleren.webservices.na.M9Na3;
 import no.ergo.reseptformidleren.webservices.na.M9Na4;
 import no.ergo.reseptformidleren.webservices.na.MV;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
-
-
 import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
 import no.kith.xmlstds.eresept.m9na3._2016_06_06.M9NA3;
@@ -32,7 +30,6 @@ import java.io.StringWriter;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.UUID;
 
 public class NaWebService implements NAWeb {
 
@@ -78,8 +75,6 @@ public class NaWebService implements NAWeb {
 //            e.printStackTrace();
 //        } catch (IOException | GeneralException | JOSEException e) {
 //        }
-
-
 
 
         MsgHead msgHead;
