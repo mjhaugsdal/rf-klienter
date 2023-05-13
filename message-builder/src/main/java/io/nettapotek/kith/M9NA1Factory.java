@@ -10,11 +10,10 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.StringWriter;
 import java.util.GregorianCalendar;
-import java.util.Properties;
 
-public class M9NA2Factory {
+public class M9NA1Factory {
 
-    public String getM9na1() throws Exception {
+    public static String buildM9na1() throws Exception {
 
 //
 //        var msgInfo = MsgInfo.builder()
@@ -56,36 +55,11 @@ public class M9NA2Factory {
 //                .withDocument(document)
 //                .build();
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA1.class);
+        var jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA1.class);
         var um = jaxbContext.createUnmarshaller();
         var m = jaxbContext.createMarshaller();
-        var is = M9NA2Factory.class.getClassLoader().getResourceAsStream("sarepta-eksempler/ERM9NA1");
+        var is = M9NA1Factory.class.getClassLoader().getResourceAsStream("sarepta-eksempler/ERM9NA1");
         var msgHead = (MsgHead) um.unmarshal(is);
-
-        //msgHead.getMsgInfo().setMsgId(UUID.randomUUID().toString());
-        //msgHead.getMsgInfo().setGenDate(getXMLGregorianCalendarNow());
-
-        var properties = new Properties();
-        properties.load(M9NA2Factory.class.getClassLoader().getResourceAsStream("sarepta-eksempler/nettapotek.properties"));
-
-        for (var ident : msgHead.getMsgInfo().getSender().getOrganisation().getIdent()) {
-            switch (ident.getTypeId().getV()) {
-                //case "ENH" -> ident.setId(properties.getProperty("orgnr"));
-                //case "LOK" -> ident.setId(properties.getProperty("lok"));
-                //case "AKO" -> ident.setId(properties.getProperty("ako"));
-                //case "HER" -> ident.setId(properties.getProperty("her"));
-            }
-        }
-        for (var ident : msgHead.getMsgInfo().getPatient().getIdent()) {
-            if (ident.getTypeId().getV().equals("FNR") || ident.getTypeId().getV().equals("DNR")) {
-               // ident.setId(properties.getProperty("identNr"));
-            }
-        }
-
-        var fagmelding = (M9NA1) msgHead.getDocument().get(0).getRefDoc().getContent().getAny().get(0);
-        //fagmelding.getIdKunde().setId(properties.getProperty("idKunde"));
-
-
 
         var sw = new StringWriter();
         m.marshal(msgHead, sw);
@@ -93,14 +67,11 @@ public class M9NA2Factory {
     }
 
 
-
     public static XMLGregorianCalendar getXMLGregorianCalendarNow()
             throws DatatypeConfigurationException {
-        GregorianCalendar gregorianCalendar = new GregorianCalendar();
-        DatatypeFactory datatypeFactory = DatatypeFactory.newInstance();
-        XMLGregorianCalendar now =
-                datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
-        return now;
+        var gregorianCalendar = new GregorianCalendar();
+        var datatypeFactory = DatatypeFactory.newInstance();
+        return datatypeFactory.newXMLGregorianCalendar(gregorianCalendar);
     }
 
 
@@ -108,7 +79,6 @@ public class M9NA2Factory {
 
         return null;
     }
-
 
 
 }

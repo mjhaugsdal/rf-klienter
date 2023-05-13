@@ -1,12 +1,11 @@
 package io.nettapotek.soap;
 
 //import io.nettapotek.kith.M9na;
-import io.nettapotek.kith.M9NA2Factory;
+import io.nettapotek.kith.M9NA1Factory;
 import io.nettapotek.soap.interceptor.AuthInterceptor;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import no.ergo.reseptformidleren.webservices.na.*;
-import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
 import no.kith.xmlstds.eresept.m9na3._2016_06_06.M9NA3;
 import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
@@ -24,7 +23,6 @@ import org.testng.annotations.Test;
 
 
 import java.io.ByteArrayInputStream;
-import java.io.StringReader;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -76,7 +74,7 @@ public class SoapClientTest {
         httpClient.getRequestContext().put(Message.PROTOCOL_HEADERS, headers);
 
         var m9Na1 = new M9Na1();
-        var m9na = new M9NA2Factory();
+        var m9na = new M9NA1Factory();
 
         m9Na1.setDokument(m9na.getM9na1().getBytes(StandardCharsets.UTF_8));
 
@@ -106,7 +104,7 @@ public class SoapClientTest {
         JAXBContext jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA3.class);
         var um = jaxbContext.createUnmarshaller();
         var m = jaxbContext.createMarshaller();
-        var is = M9NA2Factory.class.getClassLoader().getResourceAsStream("M9NA3_eks.xml");
+        var is = M9NA1Factory.class.getClassLoader().getResourceAsStream("M9NA3_eks.xml");
         var msgHead = (MsgHead) um.unmarshal(is);
         var sw = new StringWriter();
         m.marshal(msgHead, sw);
