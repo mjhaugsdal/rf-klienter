@@ -1,8 +1,6 @@
-package io.github.mjhaugsdal.soap;
+package io.nettapotek.soap;
 
 //import io.nettapotek.kith.M9na;
-import io.github.mjhaugsdal.soap.interceptor.AuthInterceptor;
-import io.github.mjhaugsdal.kith.xml.M9NA1Factory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import no.ergo.reseptformidleren.webservices.na.*;
@@ -106,7 +104,7 @@ public class SoapClientTest {
         JAXBContext jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA3.class);
         var um = jaxbContext.createUnmarshaller();
         var m = jaxbContext.createMarshaller();
-        var is = M9NA2Factory.class.getClassLoader().getResourceAsStream("M9NA3_eks.xml");
+        var is = M9NA1Factory.class.getClassLoader().getResourceAsStream("M9NA3_eks.xml");
         var msgHead = (MsgHead) um.unmarshal(is);
         var sw = new StringWriter();
         m.marshal(msgHead, sw);
