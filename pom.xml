@@ -33,6 +33,7 @@
         <jakarta-xml-ws.version>4.0.0</jakarta-xml-ws.version>
         <glassfish-jaxb.version>4.0.1</glassfish-jaxb.version>
         <version.xmlsec>3.0.1</version.xmlsec>
+        <version.xml-schemas>4.0.0</version.xml-schemas>
     </properties>
 
     <dependencyManagement>
@@ -41,7 +42,7 @@
             <dependency>
                 <groupId>io.github.mjhaugsdal</groupId>
                 <artifactId>bom</artifactId>
-                <version>4.0.0</version>
+                <version>${version.xml-schemas}</version>
                 <type>pom</type>
             </dependency>
             <dependency>

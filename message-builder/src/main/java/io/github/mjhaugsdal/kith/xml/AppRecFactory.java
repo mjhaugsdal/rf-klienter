@@ -11,6 +11,7 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.UUID;
 
 public class AppRecFactory {
 
@@ -18,53 +19,51 @@ public class AppRecFactory {
 
         var apprec = AppRec.appRecBuilder()
                 .withGenDate(getXmlgregorianCalendar())
-                .withMsgType(
-                        CS.CSBuilder()
-                                .withDn("")
-                                .withV("")
-                                .build()
-                )
-                .withId("")
-                .withStatus(
-                        CS.CSBuilder()
-                                .withDn("")
-                                .withV("")
-                                .build()
-                )
-                .withSender(
-                        AppRec.Sender.senderBuilder()
-                                .withHcp(
-                                        HCP.HCPBuilder()
-
-                                                .build()
-                                )
-                                .withRole(CS.CSBuilder()
-                                        .build())
-                                .build()
-                )
-                .withReceiver(AppRec.Receiver.receiverBuilder()
-                        .withHcp(
-                                HCP.HCPBuilder()
-                                        .build()
-                        )
-                        .withRole(CS.CSBuilder()
-                                .build())
-                        .build())
+                .withMsgType(createCS("", ""))
+                .withId(UUID.randomUUID().toString())
+                .withStatus(createCS("", ""))
+                .withSender(createApprecSender())
+                .withReceiver(createApprecReceiver())
                 .withSoftwareVersion("")
                 .withMiGversion("migVersion")
-                .withOriginalMsgId(
-                        OriginalMsgId.originalMsgIdBuilder()
-                                .withId(msgHead.getMsgInfo().getMsgId())
-                                .withIssueDate(msgHead.getMsgInfo().getGenDate())
-                                .withMsgType(
-                                        CS.CSBuilder()
-                                                .withV(msgHead.getMsgInfo().getType().getV())
-                                                .withDn(msgHead.getMsgInfo().getType().getDN())
-                                                .build()
-                                ).build()
-                ).build();
+                .withOriginalMsgId(createOriginalMsgId(msgHead))
+                .build();
 
         return apprec;
+    }
+
+    private static AppRec.Receiver createApprecReceiver() {
+        return AppRec.Receiver.receiverBuilder()
+                .withHcp(createAppRecHCP())
+                .withRole(createCS("",""))
+                .build();
+    }
+
+    private static OriginalMsgId createOriginalMsgId(MsgHead msgHead) {
+        return OriginalMsgId.originalMsgIdBuilder()
+                .withId(msgHead.getMsgInfo().getMsgId())
+                .withIssueDate(msgHead.getMsgInfo().getGenDate())
+                .withMsgType(createCS(msgHead.getMsgInfo().getType().getDN(), msgHead.getMsgInfo().getType().getV()))
+                .build();
+    }
+
+    private static HCP createAppRecHCP() {
+        return HCP.HCPBuilder()
+                .build();
+    }
+
+    private static AppRec.Sender createApprecSender() {
+        return AppRec.Sender.senderBuilder()
+                .withHcp(createAppRecHCP())
+                .withRole(createCS("",""))
+                .build();
+    }
+
+    private static CS createCS(String DN, String V) {
+        return CS.CSBuilder()
+                .withDn(DN)
+                .withV(V)
+                .build();
     }
 
     static XMLGregorianCalendar getXmlgregorianCalendar() {

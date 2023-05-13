@@ -1,12 +1,15 @@
 package io.github.mjhaugsdal.soap;
 
-//import io.nettapotek.kith.M9na;
+//import io.github.mjhaugsdal.kith.M9na;
+import io.github.mjhaugsdal.kith.M9NA1Factory;
 import io.github.mjhaugsdal.soap.interceptor.AuthInterceptor;
-import io.github.mjhaugsdal.kith.xml.M9NA1Factory;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import no.ergo.reseptformidleren.webservices.na.*;
+import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
 import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
+import no.kith.xmlstds.eresept.m9na3._2016_06_06.M9NA3;
+import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.feature.LoggingFeature;
@@ -21,6 +24,8 @@ import org.testng.annotations.Test;
 
 
 import java.io.ByteArrayInputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -71,9 +76,9 @@ public class SoapClientTest {
         httpClient.getRequestContext().put(Message.PROTOCOL_HEADERS, headers);
 
         var m9Na1 = new M9Na1();
-        var m9na = new M9NA1Factory();
+//        var m9na = new M9NA1Factory();
 
-        m9Na1.setDokument(m9na.getM9na1().getBytes(StandardCharsets.UTF_8));
+        m9Na1.setDokument(M9NA1Factory.buildM9na1().getBytes(StandardCharsets.UTF_8));
 
         try {
             var response = client.naWebServiceM9Na1(m9Na1);
@@ -97,18 +102,27 @@ public class SoapClientTest {
 
 
         M9Na3 m9Na3 = new M9Na3();
-        m9Na3.setDokument("<m9na3>test</m9na3>".getBytes(StandardCharsets.UTF_8));
+
+        JAXBContext jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA3.class);
+        var um = jaxbContext.createUnmarshaller();
+        var m = jaxbContext.createMarshaller();
+        var is = M9NA1Factory.class.getClassLoader().getResourceAsStream("M9NA3_eks.xml");
+        var msgHead = (MsgHead) um.unmarshal(is);
+        var sw = new StringWriter();
+        m.marshal(msgHead, sw);
+        m9Na3.setDokument(sw.toString().getBytes(StandardCharsets.UTF_8));
+
         try {
             var response = client.naWebServiceM9Na3(m9Na3);
 
-//        } catch (AppRecFault_Exception e) {
-//            var apprecDocumentBytes = (byte[]) e.getFaultInfo().getDokument();
-//            var jaxbContext = JAXBContext.newInstance(no.kith.xmlstds.apprec._2004_11_21.AppRec.class);
-//            var um = jaxbContext.createUnmarshaller();
-//
-//            no.kith.xmlstds.apprec._2004_11_21.AppRec appRec = (no.kith.xmlstds.apprec._2004_11_21.AppRec) um.unmarshal(new StringReader(new String(apprecDocumentBytes)));
-//
-//            Assert.assertNotNull(appRec.getId());
+        } catch (AppRecFault_Exception e) {
+            var apprecDocumentBytes = (byte[]) e.getFaultInfo().getDokument();
+            jaxbContext = JAXBContext.newInstance(no.kith.xmlstds.apprec._2004_11_21.AppRec.class);
+            um = jaxbContext.createUnmarshaller();
+
+            //no.kith.xmlstds.apprec._2004_11_21.AppRec appRec = (no.kith.xmlstds.apprec._2004_11_21.AppRec) um.unmarshal(new StringReader(new String(apprecDocumentBytes)));
+            no.kith.xmlstds.apprec._2004_11_21.AppRec appRec = (no.kith.xmlstds.apprec._2004_11_21.AppRec) um.unmarshal(new ByteArrayInputStream(apprecDocumentBytes));
+            Assert.assertNotNull(appRec.getId());
         } catch (Exception ex) {
             ex.printStackTrace(); //unmarshaller won't work anymore
         }
