@@ -13,6 +13,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.UUID;
 
+import static io.github.mjhaugsdal.kith.xml.Utils.getXmlgregorianCalendar;
+
 public class AppRecFactory {
 
     public static AppRec buildApprec(MsgHead msgHead) {
@@ -64,17 +66,5 @@ public class AppRecFactory {
                 .withDn(DN)
                 .withV(V)
                 .build();
-    }
-
-    static XMLGregorianCalendar getXmlgregorianCalendar() {
-        XMLGregorianCalendar xmlDate;
-        var gc = new GregorianCalendar();
-        gc.setTime(new Date());
-        try {
-            xmlDate = DatatypeFactory.newInstance().newXMLGregorianCalendar(gc);
-        } catch (DatatypeConfigurationException e) {
-            throw new RuntimeException(e);
-        }
-        return xmlDate;
     }
 }

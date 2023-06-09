@@ -1,12 +1,13 @@
 package io.github.mjhaugsdal.soap.service;
 
-import io.github.mjhaugsdal.kith.xml.AppRecFactory;
+import io.github.mjhaugsdal.kith.xml.MessageType;
+import io.github.mjhaugsdal.kith.xml.MsgHeadBuilder;
 import jakarta.annotation.Resource;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
 import jakarta.xml.ws.WebServiceContext;
 import no.ergo.reseptformidleren.webservices.na.AppRec;
-import no.ergo.reseptformidleren.webservices.na.AppRecFault;
 import no.ergo.reseptformidleren.webservices.na.AppRecFault_Exception;
 import no.ergo.reseptformidleren.webservices.na.M9Na1;
 import no.ergo.reseptformidleren.webservices.na.M9Na2;
@@ -14,22 +15,18 @@ import no.ergo.reseptformidleren.webservices.na.M9Na3;
 import no.ergo.reseptformidleren.webservices.na.M9Na4;
 import no.ergo.reseptformidleren.webservices.na.MV;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
-import no.kith.xmlstds.eresept.m9na1._2016_06_06.M9NA1;
-import no.kith.xmlstds.eresept.m9na2._2016_10_26.M9NA2;
+import no.kith.xmlstds.CS;
 import no.kith.xmlstds.eresept.m9na3._2016_06_06.M9NA3;
+import no.kith.xmlstds.eresept.m9na4._2016_06_06.M9NA4;
+import no.kith.xmlstds.msghead._2006_05_24.Document;
 import no.kith.xmlstds.msghead._2006_05_24.MsgHead;
-import org.w3c.dom.Element;
+import no.kith.xmlstds.msghead._2006_05_24.RefDoc;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringReader;
 import java.io.StringWriter;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NaWebService implements NAWeb {
 
@@ -40,7 +37,8 @@ public class NaWebService implements NAWeb {
     public AppRec naWebServiceVerify(MV parameters) {
         var appRec = new AppRec();
         appRec.setDokument(parameters.getDokument());
-        return appRec;    }
+        return appRec;
+    }
 
     @Override
     public M9Na2 naWebServiceM9Na1(M9Na1 parameters) throws AppRecFault_Exception {
@@ -130,41 +128,51 @@ public class NaWebService implements NAWeb {
 
     @Override
     public M9Na4 naWebServiceM9Na3(M9Na3 parameters) throws AppRecFault_Exception {
-        var m9na4 = new M9Na4();
-        m9na4.setDokument(parameters.getDokument());
-        return m9na4;
+//        var m9na4 = new M9Na4();
+//        m9na4.setDokument(parameters.getDokument());
+//        return m9na4;
 
-//        var byteDokument = (byte[]) parameters.getDokument();
-//        MsgHead m9na3Dokument = null;
-//        try {
-//            var jaxbContext = JAXBContext.newInstance(M9NA3.class, MsgHead.class);
-//            var um = jaxbContext.createUnmarshaller();
-//            m9na3Dokument = (MsgHead) um.unmarshal(new ByteArrayInputStream(byteDokument));
+        var byteDokument = (byte[]) parameters.getDokument();
+        MsgHead m9na3Dokument = null;
+        try {
+            var jaxbContext = JAXBContext.newInstance(M9NA3.class, MsgHead.class);
+            var um = jaxbContext.createUnmarshaller();
+            m9na3Dokument = (MsgHead) um.unmarshal(new ByteArrayInputStream(byteDokument));
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
 //
-//        } catch (Exception ex) {
-//            throw new RuntimeException(ex);
-//        }
-//
-//        var appRec = AppRecFactory.buildApprec(m9na3Dokument);
-//
-//        //var appRec = no.kith.xmlstds.apprec._2004_11_21.AppRec.appRecBuilder().withId(UUID.randomUUID().toString()).build();
-//
-//        AppRecFault appRecFault = new AppRecFault();
-//        String byteDocument;
-//
-//        try {
-//            var jaxbContext = JAXBContext.newInstance(no.kith.xmlstds.apprec._2004_11_21.AppRec.class);
-//            var marshaller = jaxbContext.createMarshaller();
-//            var stringWriter = new StringWriter();
-//            marshaller.marshal(appRec, stringWriter);
-//            byteDocument = stringWriter.toString();
-//        } catch (JAXBException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        appRecFault.setDokument(byteDocument.getBytes(StandardCharsets.UTF_8));
-//
-//        throw new AppRecFault_Exception("", appRecFault);
+        M9NA3 m9na3 = (M9NA3) m9na3Dokument.getDocument().get(0).getRefDoc().getContent().getAny().get(0);
+        var m9na4 = new M9Na4();
+        var m9na4Dokument = M9NA4.m9NA4Builder()
+                .withReseptId(m9na3.getReseptId())
+                .withStatus(CS.CSBuilder().withV("").withDn("").build())
+                .build();
+
+        List<Document> documentList = new ArrayList<>();
+        documentList.add(Document.documentBuilder()
+                .withRefDoc(RefDoc.refDocBuilder()
+                        .withMsgType(no.kith.xmlstds.msghead._2006_05_24.CS.CSBuilder().withV("XML").withDn("XML-instans").build())
+                        .withContent(RefDoc.Content.contentBuilder()
+                                .addAny(m9na4Dokument)
+                                .build())
+                        .build())
+                .build());
+        var msgHead = MsgHeadBuilder.buildResponseMessageHead(m9na3Dokument, MessageType.M9NA4.getCS(), documentList);
+
+        try {
+            var sw = new StringWriter();
+            var jaxbContext = JAXBContext.newInstance(MsgHead.class, M9NA4.class);
+            var m = jaxbContext.createMarshaller();
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            m.marshal(msgHead, sw);
+            m9na4.setDokument(sw.toString().getBytes(StandardCharsets.UTF_8));
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
+        }
+
+        return m9na4;
     }
 
 

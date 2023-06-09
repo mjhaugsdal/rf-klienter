@@ -4,7 +4,6 @@ import org.apache.wss4j.common.ext.WSPasswordCallback;
 
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.CallbackHandler;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class PasswordCallback implements CallbackHandler {
     }
 
     @Override
-    public void handle(Callback[] callbacks) throws IOException {
+    public void handle(Callback[] callbacks) {
         for (Callback callback : callbacks) {
             WSPasswordCallback pc = (WSPasswordCallback) callback;
             String pass = passwords.get(pc.getIdentifier());
@@ -26,6 +25,5 @@ public class PasswordCallback implements CallbackHandler {
                 return;
             }
         }
-        throw new IOException();
     }
 }
