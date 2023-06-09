@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PasswordCallback implements CallbackHandler {
+
     private final Map<String, String> passwords = new HashMap<>();
 
     public PasswordCallback() {

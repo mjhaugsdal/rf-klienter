@@ -1,6 +1,6 @@
 package io.github.mjhaugsdal.soap.service;
 
-import io.github.mjhaugsdal.soap.SoapTestConfiguration;
+import io.github.mjhaugsdal.soap.configuration.SoapTestConfiguration;
 import no.ergo.reseptformidleren.webservices.rekvirent.AppRecFault_Exception;
 import no.ergo.reseptformidleren.webservices.rekvirent.M1;
 import no.ergo.reseptformidleren.webservices.rekvirent.M241;

@@ -1,6 +1,6 @@
 package io.github.mjhaugsdal.soap.service;
 
-import io.github.mjhaugsdal.soap.SoapTestConfiguration;
+import io.github.mjhaugsdal.soap.configuration.SoapTestConfiguration;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import no.ergo.reseptformidleren.webservices.na.AppRecFault_Exception;

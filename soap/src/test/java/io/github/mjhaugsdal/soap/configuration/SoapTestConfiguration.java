@@ -1,4 +1,4 @@
-package io.github.mjhaugsdal.mockservice;
+package io.github.mjhaugsdal.soap.configuration;
 
 import io.github.mjhaugsdal.soap.service.NaWebService;
 import io.github.mjhaugsdal.soap.service.RekvirentWebservice;
@@ -7,7 +7,6 @@ import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.ext.logging.LoggingFeature;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
-import org.apache.cxf.metrics.MetricsFeature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,32 +14,34 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.mjhaugsdal.mockservice.WSTestUtils.setupWSSEServer;
+import static io.github.mjhaugsdal.soap.WSTestUtils.setupWSSEServer;
+
 
 @Configuration
-public class MockServiceJAXWSConfiguration {
+public class SoapTestConfiguration {
 
+    @Value("${soap.sign}")
+    boolean sign;
 
-    @Value("${service.port}")
-    int port;
+    @Value("${soap.encrypt}")
+    boolean encrypt;
 
-    boolean encrypt = true;
-    boolean sign = true;
-
+    @Value("${soap.address}")
+    String address;
     List<Feature> featureList = new ArrayList<>();
 
-    MockServiceJAXWSConfiguration() {
+    SoapTestConfiguration() {
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         featureList.add(loggingFeature);
-        featureList.add(new MetricsFeature());
     }
+
 
     @Bean
     public Server naEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new NaWebService());
-        bean.setAddress("http://localhost:" + port + "/NA");
+        bean.setAddress(address + "/NA"); //TODO portkonfig
         bean.setFeatures(featureList);
         setupWSSEServer(bean, encrypt, sign);
         return bean.create();
@@ -50,7 +51,7 @@ public class MockServiceJAXWSConfiguration {
     public Server rekvirentEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new RekvirentWebservice());
-        bean.setAddress("http://localhost:" + port + "/Rekvirent");
+        bean.setAddress(address + "/Rekvirent"); //TODO portkonfig
         bean.setFeatures(featureList);
         setupWSSEServer(bean, encrypt, sign);
         return bean.create();
@@ -60,7 +61,7 @@ public class MockServiceJAXWSConfiguration {
     public Server utlevererEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new UtlevererWebservice());
-        bean.setAddress("http://localhost:" + port + "/Utleverer");
+        bean.setAddress(address + "/Utleverer"); //TODO portkonfig
         bean.setFeatures(featureList);
         setupWSSEServer(bean, encrypt, sign);
         return bean.create();

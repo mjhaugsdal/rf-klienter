@@ -5,4 +5,7 @@ soap:
 
 rest:
   server:
-    address: http://localhost:8882/
+    address: http://localhost:8882
+
+server:
+  port: 8081
