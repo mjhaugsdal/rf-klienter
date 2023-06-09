@@ -10,9 +10,8 @@ import org.apache.cxf.rs.security.jose.jaxrs.JweClientResponseFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JweWriterInterceptor;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsClientResponseFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsWriterInterceptor;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -80,7 +79,7 @@ public class RestClientTest {
 
         var byteDokument = (byte[]) m9na2.getDokument();
 
-        Assert.assertEquals(new String(byteDokument), "Hello World!");
+        Assertions.assertEquals(new String(byteDokument), "Hello World!");
     }
 
     @Test
@@ -145,7 +144,7 @@ public class RestClientTest {
         var m9na2 = (M9Na2) um.unmarshal((InputStream) response.getEntity());
 
         var byteDokument = (byte[]) m9na2.getDokument();
-        Assert.assertEquals(new String(byteDokument), "Hello World!");
+        Assertions.assertEquals(new String(byteDokument), "Hello World!");
 
     }
 }

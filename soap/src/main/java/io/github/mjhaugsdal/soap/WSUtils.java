@@ -15,22 +15,30 @@ import static org.apache.wss4j.common.ConfigurationConstants.USE_REQ_SIG_CERT;
 
 public class WSUtils {
 
-    public static void setupWSSEServer(JaxWsServerFactoryBean bean) {
+    public static void setupWSSEServer(JaxWsServerFactoryBean bean, boolean encryption, boolean signature) {
 
-        Map<String,Object> inProps = new HashMap<>();
+        String actions = " ";
+        if (encryption) {
+            actions = WSHandlerConstants.ENCRYPTION + " ";
+        }
+        if (signature) {
+            actions += WSHandlerConstants.SIGNATURE;
+        }
+
+        Map<String, Object> inProps = new HashMap<>();
         inProps.put(WSHandlerConstants.SIG_PROP_FILE, "server/server-sign-in.properties");
         inProps.put(WSHandlerConstants.DEC_PROP_FILE, "server/server-enc-in.properties");
-        inProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE + " " + WSHandlerConstants.ENCRYPTION);
+        inProps.put(WSHandlerConstants.ACTION, actions);
         inProps.put(WSHandlerConstants.SIGNATURE_USER, "client"); //alias of signing certificate (public key)
         inProps.put(WSHandlerConstants.ENCRYPTION_USER, "server"); //alias of decryption certificate (private key)
         inProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
 
         WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);
 
-        Map<String,Object> outProps = new HashMap<>();
+        Map<String, Object> outProps = new HashMap<>();
         outProps.put(WSHandlerConstants.SIG_PROP_FILE, "server/server-sign-out.properties");
         //outProps.put(WSHandlerConstants.ENC_PROP_FILE, "server/server-enc-in.properties"); //Not necessary when USE_REQ_SIG_CERT is in use
-        outProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE + " " + WSHandlerConstants.ENCRYPTION);
+        outProps.put(WSHandlerConstants.ACTION, actions);
         outProps.put(WSHandlerConstants.SIGNATURE_USER, "server"); //alias of server certificate (private key)
         outProps.put(WSHandlerConstants.ENCRYPTION_USER, USE_REQ_SIG_CERT); //alias of client certificate (public key)
         outProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
@@ -41,24 +49,30 @@ public class WSUtils {
         bean.getInInterceptors().add(wssIn);
     }
 
-    public static void setupWSSEClient(JaxWsProxyFactoryBean bean) throws WSSecurityException {
-
-        Map<String,Object> inProps = new HashMap<>();
+    public static void setupWSSEClient(JaxWsProxyFactoryBean bean, boolean encryption, boolean signature) throws WSSecurityException {
+        String actions = " ";
+        if (encryption) {
+            actions = WSHandlerConstants.ENCRYPTION + " ";
+        }
+        if (signature) {
+            actions += WSHandlerConstants.SIGNATURE;
+        }
+        Map<String, Object> inProps = new HashMap<>();
         inProps.put(WSHandlerConstants.SIG_PROP_FILE, "client/client-sign-in.properties");
         inProps.put(WSHandlerConstants.DEC_PROP_FILE, "client/client-enc-in.properties");
-        inProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE + " " + WSHandlerConstants.ENCRYPTION);
+        inProps.put(WSHandlerConstants.ACTION, actions);
         inProps.put(WSHandlerConstants.SIGNATURE_USER, "server"); //alias of signing certificate (public key)
         inProps.put(WSHandlerConstants.ENCRYPTION_USER, "client"); //alias of decryption certificate (private key)
         inProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
 
         var wssIn = new WSS4JInInterceptor(inProps);
 
-        Map<String,Object> outProps = new HashMap<>();
+        Map<String, Object> outProps = new HashMap<>();
         outProps.put(WSHandlerConstants.SIG_PROP_FILE, "client/client-sign-out.properties");
         outProps.put(WSHandlerConstants.ENC_PROP_FILE, "client/client-enc-out.properties");
-        outProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE + " " + WSHandlerConstants.ENCRYPTION);
+        outProps.put(WSHandlerConstants.ACTION, actions);
         outProps.put(WSHandlerConstants.SIGNATURE_USER, "client"); //alias of client certificate (private key)
-        outProps.put(WSHandlerConstants.ENCRYPTION_USER, "reseptformidleren"); //alias of server certificate (public key)
+        outProps.put(WSHandlerConstants.ENCRYPTION_USER, "server"); //alias of server certificate (public key)
         outProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
         outProps.put(WSHandlerConstants.ENC_KEY_ID, "DirectReference");
         outProps.put(WSHandlerConstants.SIG_KEY_ID, "SKIKeyIdentifier");

@@ -8,6 +8,12 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.0</version>
+    </parent>
+
     <modules>
         <module>fest</module>
         <module>message-builder</module>
@@ -16,23 +22,9 @@
         <module>rest</module>
     </modules>
     <properties>
-        <jackson.version>2.14.2</jackson.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>17</java.version>
         <cxf.version>4.0.0</cxf.version>
-        <version.jetty>11.0.13</version.jetty>
-        <version.nimbusds.jwt>9.25.6</version.nimbusds.jwt>
-        <version.nimbusds.oauth2>10.4</version.nimbusds.oauth2>
-        <version.slf4j>2.0.6</version.slf4j>
-        <version.swagger>4.15.5</version.swagger>
-        <version.testng>7.7.1</version.testng>
-        <jakarta-xml-bind.version>4.0.0</jakarta-xml-bind.version>
-        <jakarta-xml-soap.version>3.0.0</jakarta-xml-soap.version>
-        <jakarta-xml-ws.version>4.0.0</jakarta-xml-ws.version>
-        <glassfish-jaxb.version>4.0.1</glassfish-jaxb.version>
-        <version.xmlsec>3.0.1</version.xmlsec>
+        <version.xmlsec>3.0.2</version.xmlsec>
         <version.xml-schemas>4.0.0</version.xml-schemas>
     </properties>
 
@@ -84,16 +76,11 @@
             <version>${version.xmlsec}</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>2.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${version.testng}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>
@@ -102,6 +89,10 @@
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-codegen-plugin</artifactId>
                     <version>4.0.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
                 </plugin>
             </plugins>
         </pluginManagement>
