@@ -10,11 +10,6 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-
-    <properties>
-        <cxf.version>4.0.1</cxf.version>
-    </properties>
-
     <artifactId>soap</artifactId>
 
     <dependencies>

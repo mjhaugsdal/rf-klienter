@@ -23,7 +23,7 @@
     </modules>
     <properties>
         <java.version>17</java.version>
-        <cxf.version>4.0.0</cxf.version>
+        <cxf.version>4.0.2</cxf.version>
         <version.xmlsec>3.0.2</version.xmlsec>
         <version.xml-schemas>4.0.0</version.xml-schemas>
     </properties>
@@ -80,7 +80,6 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <build>
         <pluginManagement>
@@ -88,7 +87,7 @@
                 <plugin>
                     <groupId>org.apache.cxf</groupId>
                     <artifactId>cxf-codegen-plugin</artifactId>
-                    <version>4.0.0</version>
+                    <version>${cxf.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
