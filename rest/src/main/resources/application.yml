@@ -1,0 +1,15 @@
+#soap:
+#  encrypt: true
+#  sign: true
+#  address: http://localhost:8881
+#
+rest:
+  na:
+    address: http://localhost:8888
+  rekvirent:
+    address: http://localhost:8889
+#  server:
+#    address: http://localhost:8882
+
+server:
+  port: 8081

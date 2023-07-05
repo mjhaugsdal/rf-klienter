@@ -2,7 +2,7 @@ package io.github.mjhaugsdal.rest;
 
 
 
-import io.github.mjhaugsdal.rest.types.*;
+import io.github.mjhaugsdal.rest.types.na.*;
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
 import jakarta.jws.WebResult;

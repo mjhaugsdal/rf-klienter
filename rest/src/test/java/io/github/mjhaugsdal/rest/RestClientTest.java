@@ -1,7 +1,7 @@
 package io.github.mjhaugsdal.rest;
 
-import io.github.mjhaugsdal.rest.types.M9Na1;
-import io.github.mjhaugsdal.rest.types.M9Na2;
+import io.github.mjhaugsdal.rest.types.na.M9Na1;
+import io.github.mjhaugsdal.rest.types.na.M9Na2;
 import jakarta.xml.bind.JAXBContext;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactoryBean;

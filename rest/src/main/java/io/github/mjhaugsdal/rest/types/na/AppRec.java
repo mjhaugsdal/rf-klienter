@@ -1,5 +1,5 @@
 
-package io.github.mjhaugsdal.rest.types;
+package io.github.mjhaugsdal.rest.types.na;
 
 
 import jakarta.xml.bind.annotation.XmlRootElement;
