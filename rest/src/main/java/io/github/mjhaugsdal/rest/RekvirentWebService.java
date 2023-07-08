@@ -9,6 +9,9 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import no.ergo.reseptformidleren.webservices.rekvirent.RekvirentWeb;
 
+/***
+ * This class extends generated code because these endpoints don't offer JAX-RS
+ */
 @Path("/")
 public interface RekvirentWebService extends RekvirentWeb {
 

@@ -8,7 +8,9 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import no.ergo.reseptformidleren.webservices.utleverer.UtlevererWeb;
 
-
+/***
+ * This class extends generated code because these endpoints don't offer JAX-RS
+ */
 @Path("/")
 public interface UtlevererWebService extends UtlevererWeb {
 
