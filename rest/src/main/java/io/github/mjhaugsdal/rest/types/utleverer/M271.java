@@ -1,5 +1,5 @@
 
-package io.github.mjhaugsdal.rest.types.rekvirent;
+package io.github.mjhaugsdal.rest.types.utleverer;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element ref="{http://rekvirent.webservices.reseptformidleren.ergo.no/types/}dokument"/&gt;
+ *         &lt;element ref="{http://utleverer.webservices.reseptformidleren.ergo.no/types/}dokument"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,7 +34,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlRootElement
 public class M271 {
 
-    @XmlElement(namespace = "http://rekvirent.webservices.reseptformidleren.ergo.no/types/", required = true)
+    @XmlElement(namespace = "http://utleverer.webservices.reseptformidleren.ergo.no/types/", required = true)
     protected Object dokument;
 
     /**

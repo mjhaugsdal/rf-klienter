@@ -1,85 +1,71 @@
 package io.github.mjhaugsdal.rest;
 
+import io.github.mjhaugsdal.rest.types.rekvirent.AppRec;
+import io.github.mjhaugsdal.rest.types.rekvirent.AppRecFault_Exception;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import no.ergo.reseptformidleren.webservices.rekvirent.*;
+import no.ergo.reseptformidleren.webservices.rekvirent.RekvirentWeb;
 
 @Path("/")
 public interface RekvirentWebService extends RekvirentWeb {
 
-
-    @Override
     @Path("/m921")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M922 rekvirentWebServiceM921(M921 m921Element) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M922 rekvirentWebServiceM921(io.github.mjhaugsdal.rest.types.rekvirent.M921 m921Element) throws AppRecFault_Exception;
 
-    @Override
     @Path("/m911")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M912 rekvirentWebServiceM911(M911 m911Element) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M912 rekvirentWebServiceM911(io.github.mjhaugsdal.rest.types.rekvirent.M911 m911Element) throws AppRecFault_Exception;
 
-    @Override
     @Path("/m5")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    AppRec rekvirentWebServiceM5(M5 m5Element);
+    AppRec rekvirentWebServiceM5(io.github.mjhaugsdal.rest.types.rekvirent.M5 m5Element);
 
-    @Override
     @Path("/m911kj")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M912Kj rekvirentWebServiceM911Kj(M911Kj m911KjElement) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M912Kj rekvirentWebServiceM911Kj(io.github.mjhaugsdal.rest.types.rekvirent.M911Kj m911KjElement) throws AppRecFault_Exception;
 
-    @Override
     @Path("/m97")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M98 rekvirentWebServiceM97(M97 m97Element) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M98 rekvirentWebServiceM97(io.github.mjhaugsdal.rest.types.rekvirent.M97 m97Element) throws AppRecFault_Exception;
 
-    @Override
     @Path("/m95kj")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M96Kj rekvirentWebServiceM95Kj(M95Kj m95KjElement) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M96Kj rekvirentWebServiceM95Kj(io.github.mjhaugsdal.rest.types.rekvirent.M95Kj m95KjElement) throws AppRecFault_Exception;
 
-    @Override
     @Path("/m95")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M96 rekvirentWebServiceM95(M95 m95Element);
+    io.github.mjhaugsdal.rest.types.rekvirent.M96 rekvirentWebServiceM95(io.github.mjhaugsdal.rest.types.rekvirent.M95 m95Element);
 
-    @Override
     @Path("/m251")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    AppRec rekvirentWebServiceM251(M251 m251Element);
+    AppRec rekvirentWebServiceM251(io.github.mjhaugsdal.rest.types.rekvirent.M251 m251Element);
 
-    @Override
     @Path("/m271")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M272 rekvirentWebServiceM271(M271 m271Element) throws AppRecFault_Exception;
+    io.github.mjhaugsdal.rest.types.rekvirent.M272 rekvirentWebServiceM271(io.github.mjhaugsdal.rest.types.rekvirent.M271 m271Element) throws AppRecFault_Exception;
 
-    @Override
-    @Path("/m1")
-    @Consumes(MediaType.APPLICATION_XML)
-    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
-    @POST
-    AppRec rekvirentWebServiceM1(M1 m1Element);
 
     @Path("/m1")
     @Consumes(MediaType.APPLICATION_XML)
@@ -87,24 +73,21 @@ public interface RekvirentWebService extends RekvirentWeb {
     @POST
     io.github.mjhaugsdal.rest.types.rekvirent.AppRec rekvirentWebServiceM1(io.github.mjhaugsdal.rest.types.rekvirent.M1 m1Element);
     
-    @Override
     @Path("/m241")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M242 rekvirentWebServiceM241(M241 m241Element);
+    io.github.mjhaugsdal.rest.types.rekvirent.M242 rekvirentWebServiceM241(io.github.mjhaugsdal.rest.types.rekvirent.M241 m241Element);
 
-    @Override
     @Path("/m41")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    M42 rekvirentWebServiceM41(M41 m41Element);
+    io.github.mjhaugsdal.rest.types.rekvirent.M42 rekvirentWebServiceM41(io.github.mjhaugsdal.rest.types.rekvirent.M41 m41Element);
 
-    @Override
     @Path("/verify")
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    AppRec rekvirentWebServiceVerify(MV mvElement);
+    AppRec rekvirentWebServiceVerify(io.github.mjhaugsdal.rest.types.rekvirent.MV mvElement);
 }

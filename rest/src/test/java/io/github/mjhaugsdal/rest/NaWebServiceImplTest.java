@@ -1,5 +1,6 @@
 package io.github.mjhaugsdal.rest;
 
+import io.github.mjhaugsdal.rest.configuration.RestTestConfiguration;
 import io.github.mjhaugsdal.rest.types.na.AppRecFault_Exception;
 import io.github.mjhaugsdal.rest.types.na.M9Na1;
 import io.github.mjhaugsdal.rest.types.na.M9Na3;
@@ -7,10 +8,12 @@ import io.github.mjhaugsdal.rest.types.na.MV;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Import({RestTestConfiguration.class})
 class NaWebServiceImplTest {
 
     @Autowired

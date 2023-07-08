@@ -1,5 +1,5 @@
 
-package io.github.mjhaugsdal.rest.types.rekvirent;
+package io.github.mjhaugsdal.rest.types.utleverer;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -9,16 +9,16 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for M27_1 complex type.
+ * <p>Java class for M9_21 complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="M27_1"&gt;
+ * &lt;complexType name="M9_21"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element ref="{http://rekvirent.webservices.reseptformidleren.ergo.no/types/}dokument"/&gt;
+ *         &lt;element ref="{http://utleverer.webservices.reseptformidleren.ergo.no/types/}dokument"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,13 +28,13 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "M27_1", propOrder = {
+@XmlType(name = "M9_21", propOrder = {
     "dokument"
 })
 @XmlRootElement
-public class M271 {
+public class M921 {
 
-    @XmlElement(namespace = "http://rekvirent.webservices.reseptformidleren.ergo.no/types/", required = true)
+    @XmlElement(namespace = "http://utleverer.webservices.reseptformidleren.ergo.no/types/", required = true)
     protected Object dokument;
 
     /**

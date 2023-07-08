@@ -9,12 +9,12 @@ import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for M27_1 complex type.
+ * <p>Java class for M9_12Kj complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="M27_1"&gt;
+ * &lt;complexType name="M9_12Kj"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -28,11 +28,11 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "M27_1", propOrder = {
+@XmlType(name = "M9_12Kj", propOrder = {
     "dokument"
 })
 @XmlRootElement
-public class M271 {
+public class M912Kj {
 
     @XmlElement(namespace = "http://rekvirent.webservices.reseptformidleren.ergo.no/types/", required = true)
     protected Object dokument;

@@ -8,8 +8,8 @@ rest:
     address: http://localhost:8888
   rekvirent:
     address: http://localhost:8889
-#  server:
-#    address: http://localhost:8882
+  utleverer:
+    address: http://localhost:8890
 
 server:
   port: 8081

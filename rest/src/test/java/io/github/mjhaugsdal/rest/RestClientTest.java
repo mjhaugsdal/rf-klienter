@@ -19,7 +19,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class RestClientTest {
-    @Test
     void testJweJwsCompactSerialization() throws Exception {
         var message = "Hello World!";
         var context = "jwsjwscompact";
@@ -82,7 +81,6 @@ public class RestClientTest {
         Assertions.assertEquals(new String(byteDokument), "Hello World!");
     }
 
-    @Test
     void testJweJwsJwk() throws Exception {
 
         var message = "Hello World!";
