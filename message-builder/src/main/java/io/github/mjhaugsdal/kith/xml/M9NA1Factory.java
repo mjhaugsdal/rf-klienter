@@ -1,4 +1,4 @@
-package io.github.mjhaugsdal.kith;
+package io.github.mjhaugsdal.kith.xml;
 
 
 import jakarta.xml.bind.JAXBContext;

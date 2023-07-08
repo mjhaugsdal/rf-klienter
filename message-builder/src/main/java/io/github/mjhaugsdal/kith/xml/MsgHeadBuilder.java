@@ -16,37 +16,30 @@ import static io.github.mjhaugsdal.kith.xml.Utils.getXmlgregorianCalendar;
 
 public class MsgHeadBuilder {
 
-    private static final Sender sender;
-
-    static {
-        sender = Sender.senderBuilder()
-                .withOrganisation(
-                        Organisation.organisationBuilder().withAddress(
-                                        Address.addressBuilder()
-                                                .withCity("Oslo").build())
+    public static MsgHead buildResponseMessageHead(MsgHead msgHead, CS responseType, List<Document> documentList) {
+        return MsgHead.msgHeadBuilder()
+                .withMsgInfo(MsgInfo.msgInfoBuilder()
+                        .withGenDate(getXmlgregorianCalendar())
+                        .withMsgId(UUID.randomUUID().toString())
+                        .withType(responseType)
+                        .withSender(getSender())
+                        .withReceiver(Receiver.receiverBuilder()
+                                .withOrganisation(msgHead.getMsgInfo().getSender().getOrganisation())
+                                .withComMethod(msgHead.getMsgInfo().getSender().getComMethod())
                                 .build())
+                        .withMiGversion("v1.2 2006-05-24")
+                        .build()
+                ).withDocument(documentList)
                 .build();
     }
 
-    public static MsgHead buildResponseMessageHead(MsgHead msgHead, CS responseType, List<Document> documentList) {
-
-        return MsgHead.msgHeadBuilder()
-                .withMsgInfo(
-                        MsgInfo.msgInfoBuilder()
-                                .withGenDate(getXmlgregorianCalendar())
-                                .withMsgId(UUID.randomUUID().toString())
-                                .withType(responseType)
-                                .withSender(sender)
-                                .withReceiver(
-                                        Receiver.receiverBuilder()
-                                                .withOrganisation(msgHead.getMsgInfo().getSender().getOrganisation())
-                                                .withComMethod(msgHead.getMsgInfo().getSender().getComMethod())
-                                                .build()
-                                )
-                                .withMiGversion("v1.2 2006-05-24")
-                                .build()
-                ).withDocument(documentList)
-
+    public static Sender getSender() {
+        return Sender.senderBuilder()
+                .withOrganisation(Organisation.organisationBuilder()
+                        .withAddress(Address.addressBuilder()
+                                .withCity("Oslo")
+                                .build())
+                        .build())
                 .build();
     }
 }

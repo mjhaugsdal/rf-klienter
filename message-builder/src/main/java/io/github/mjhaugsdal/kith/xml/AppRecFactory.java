@@ -18,8 +18,7 @@ import static io.github.mjhaugsdal.kith.xml.Utils.getXmlgregorianCalendar;
 public class AppRecFactory {
 
     public static AppRec buildApprec(MsgHead msgHead) {
-
-        var apprec = AppRec.appRecBuilder()
+        return AppRec.appRecBuilder()
                 .withGenDate(getXmlgregorianCalendar())
                 .withMsgType(createCS("", ""))
                 .withId(UUID.randomUUID().toString())
@@ -30,8 +29,6 @@ public class AppRecFactory {
                 .withMiGversion("migVersion")
                 .withOriginalMsgId(createOriginalMsgId(msgHead))
                 .build();
-
-        return apprec;
     }
 
     private static AppRec.Receiver createApprecReceiver() {

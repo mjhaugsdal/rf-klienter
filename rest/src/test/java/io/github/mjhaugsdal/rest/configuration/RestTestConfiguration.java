@@ -10,9 +10,12 @@ import org.apache.cxf.rs.security.jose.jaxrs.JweContainerRequestFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JweWriterInterceptor;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsContainerRequestFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsWriterInterceptor;
+import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.util.TestSocketUtils;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -22,21 +25,27 @@ import java.util.Properties;
 @TestConfiguration
 public class RestTestConfiguration {
 
+    static {
+        System.setProperty("rest.na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("rest.rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("rest.utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+    }
+
     @Value("${rest.na.address}")
-    String naaddress;
+    String naAddress;
 
     @Value("${rest.rekvirent.address}")
-    String rekvirentaddress;
+    String rekvirentAddress;
 
     @Value("${rest.utleverer.address}")
-    String utlevereraddress;
+    String utlevererAddress;
 
 
     @Bean
     public Server naServer() {
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(NaWebServiceImpl.class);
-        serverFactoryBean.setAddress(naaddress + "/" + "NA");
+        serverFactoryBean.setAddress(naAddress + "/" + "NA");
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         serverFactoryBean.getFeatures().add(loggingFeature);
@@ -120,11 +129,9 @@ public class RestTestConfiguration {
 
     @Bean
     public Server utlevererServer() {
-
-
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(UtlevererWebServiceImpl.class);
-        serverFactoryBean.setAddress(utlevereraddress + "/" + "Utleverer");
+        serverFactoryBean.setAddress(utlevererAddress + "/" + "Utleverer");
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         serverFactoryBean.getFeatures().add(loggingFeature);
@@ -215,7 +222,7 @@ public class RestTestConfiguration {
 
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(RekvirentWebServiceImpl.class);
-        serverFactoryBean.setAddress(rekvirentaddress + "/" + "Rekvirent");
+        serverFactoryBean.setAddress(rekvirentAddress + "/" + "Rekvirent");
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         serverFactoryBean.getFeatures().add(loggingFeature);

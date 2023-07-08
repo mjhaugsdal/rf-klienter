@@ -22,24 +22,14 @@ import java.util.List;
 @Configuration
 public class RestConfiguration {
 
-    //    @Value("${soap.sign}")
-//    boolean sign;
-//
-//    @Value("${soap.encrypt}")
-//    boolean encrypt;
-//
     @Value("${rest.na.address}")
-    String naaddress;
+    String naAddress;
 
     @Value("${rest.rekvirent.address}")
-    String rekvirentaddress;
+    String rekvirentAddress;
 
     @Value("${rest.utleverer.address}")
-    String utlevereraddress;
-
-    RestConfiguration() {
-
-    }
+    String utlevererAddress;
 
     @Bean
     public NaWebService naWebService() {
@@ -49,7 +39,7 @@ public class RestConfiguration {
 
         JAXRSClientFactoryBean jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(NaWebService.class);
-        jaxrsClientFactoryBean.setAddress(naaddress + "/NA"); //TODO portkonfig
+        jaxrsClientFactoryBean.setAddress(naAddress + "/NA"); //TODO portkonfig
         jaxrsClientFactoryBean.setFeatures(featureList);
 
         var jweWriterInterceptor = new JweWriterInterceptor();
@@ -91,7 +81,7 @@ public class RestConfiguration {
         List<Object> providers = new LinkedList<>();
         var jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(RekvirentWebService.class);
-        jaxrsClientFactoryBean.setAddress(rekvirentaddress + "/Rekvirent"); //TODO portkonfig
+        jaxrsClientFactoryBean.setAddress(rekvirentAddress + "/Rekvirent"); //TODO portkonfig
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         featureList.add(loggingFeature);
@@ -131,15 +121,13 @@ public class RestConfiguration {
         return (RekvirentWebService) jaxrsClientFactoryBean.create();
     }
 
-
-
     @Bean
     public UtlevererWebService utlevererWebService() {
         List<Feature> featureList = new ArrayList<>();
         List<Object> providers = new LinkedList<>();
         var jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(UtlevererWebService.class);
-        jaxrsClientFactoryBean.setAddress(utlevereraddress + "/Utleverer"); //TODO portkonfig
+        jaxrsClientFactoryBean.setAddress(utlevererAddress + "/Utleverer"); //TODO portkonfig
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         featureList.add(loggingFeature);
