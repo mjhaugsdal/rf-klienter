@@ -17,29 +17,29 @@ public class WSTestUtils {
 
         String actions = " ";
         if (encryption) {
-            actions = WSHandlerConstants.ENCRYPTION + " ";
+            actions = ConfigurationConstants.ENCRYPTION + " ";
         }
         if (signature) {
-            actions += WSHandlerConstants.SIGNATURE;
+            actions += ConfigurationConstants.SIGNATURE;
         }
 
         Map<String, Object> inProps = new HashMap<>();
-        inProps.put(WSHandlerConstants.SIG_PROP_FILE, "server/server-sign-in.properties");
-        inProps.put(WSHandlerConstants.DEC_PROP_FILE, "server/server-enc-in.properties");
-        inProps.put(WSHandlerConstants.ACTION, actions);
-        inProps.put(WSHandlerConstants.SIGNATURE_USER, "client"); //alias of signing certificate (public key)
-        inProps.put(WSHandlerConstants.ENCRYPTION_USER, "server"); //alias of decryption certificate (private key)
-        inProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
+        inProps.put(ConfigurationConstants.SIG_PROP_FILE, "server/server-sign-in.properties");
+        inProps.put(ConfigurationConstants.DEC_PROP_FILE, "server/server-enc-in.properties");
+        inProps.put(ConfigurationConstants.ACTION, actions);
+        inProps.put(ConfigurationConstants.SIGNATURE_USER, "client"); //alias of signing certificate (public key)
+        inProps.put(ConfigurationConstants.ENCRYPTION_USER, "server"); //alias of decryption certificate (private key)
+        inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
 
         WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);
 
         Map<String, Object> outProps = new HashMap<>();
-        outProps.put(WSHandlerConstants.SIG_PROP_FILE, "server/server-sign-out.properties");
-        //outProps.put(WSHandlerConstants.ENC_PROP_FILE, "server/server-enc-in.properties"); //Not necessary when USE_REQ_SIG_CERT is in use
-        outProps.put(WSHandlerConstants.ACTION, actions);
-        outProps.put(WSHandlerConstants.SIGNATURE_USER, "server"); //alias of server certificate (private key)
-        outProps.put(WSHandlerConstants.ENCRYPTION_USER, USE_REQ_SIG_CERT); //alias of client certificate (public key)
-        outProps.put(WSHandlerConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
+        outProps.put(ConfigurationConstants.SIG_PROP_FILE, "server/server-sign-out.properties");
+        //outProps.put(ConfigurationConstants.ENC_PROP_FILE, "server/server-enc-in.properties"); //Not necessary when USE_REQ_SIG_CERT is in use
+        outProps.put(ConfigurationConstants.ACTION, actions);
+        outProps.put(ConfigurationConstants.SIGNATURE_USER, "server"); //alias of server certificate (private key)
+        outProps.put(ConfigurationConstants.ENCRYPTION_USER, USE_REQ_SIG_CERT); //alias of client certificate (public key)
+        outProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, PasswordCallback.class.getName());
 
         WSS4JOutInterceptor wssOut = new WSS4JOutInterceptor(outProps);
         bean.getOutInterceptors().add(wssOut);
