@@ -1,5 +1,7 @@
 # Eresept-java
 
+![Status](https://github.com/mjhaugsdal/eresept-java/actions/workflows/maven.yml/badge.svg)
+
 Meldingsdefinisjoner ligger i https://github.com/mjhaugsdal/kith-xml-schemas (Grunnlag hentet
 fra https://sarepta.ehelse.no/)
 

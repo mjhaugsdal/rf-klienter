@@ -15,7 +15,7 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>fest</module>-->
+        <module>fest</module>
         <module>message-builder</module>
         <module>soap</module>
         <module>rest</module>
@@ -36,13 +36,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.glassfish.jaxb</groupId>-->
-<!--                <artifactId>jaxb-bom</artifactId>-->
-<!--                <version>${glassfish-jaxb.version}</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-bom</artifactId>
