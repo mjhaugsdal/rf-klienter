@@ -11,5 +11,8 @@ rest:
   utleverer:
     address: http://localhost:8890
 
+use:
+  jwk: true
+
 server:
   port: 8081
