@@ -10,9 +10,7 @@ import org.apache.cxf.rs.security.jose.jaxrs.JweContainerRequestFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JweWriterInterceptor;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsContainerRequestFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsWriterInterceptor;
-import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.util.TestSocketUtils;
@@ -39,6 +37,9 @@ public class RestTestConfiguration {
 
     @Value("${rest.utleverer.address}")
     String utlevererAddress;
+
+    @Value("${use.jwk}")
+    String jwk;
 
 
     @Bean
@@ -76,52 +77,51 @@ public class RestTestConfiguration {
 
         serverFactoryBean.setProviders(providers);
 
-//        if(jwk) {
-//            //ENCRYPTION properties
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.in.properties",
-//                    "server/jwk/server.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.out.properties",
-//                    "server/jwk/server-out.properties"
-//            );
-//            //SIGNATURE IN
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.in.properties",
-//                    "server/jwk/server-sign.properties"
-//            );
-//            //SIGNATURE OUT
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.out.properties",
-//                    "server/jwk/server-out-sign.properties"
-//            );
-//
-//            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-//            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-//        } else {
-        //ENCRYPTION properties
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.in.properties",
-                "server/server.properties"
-        );
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.out.properties",
-                "server/server-out.properties"
-        );
-        //SIGNATURE IN
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.in.properties",
-                "server/server-sign.properties"
-        );
-        //SIGNATURE OUT
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.out.properties",
-                "server/server-out-sign.properties"
-        );
-        serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        if (Boolean.parseBoolean(jwk)) {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/jwk/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/jwk/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/jwk/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/jwk/server-out-sign.properties"
+            );
 
-//        }
+            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
+        } else {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/server-out-sign.properties"
+            );
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        }
 
         serverFactoryBean.getProperties(true).put("jose.debug", true);
         return serverFactoryBean.create();
@@ -162,52 +162,51 @@ public class RestTestConfiguration {
 
         serverFactoryBean.setProviders(providers);
 
-//        if(jwk) {
-//            //ENCRYPTION properties
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.in.properties",
-//                    "server/jwk/server.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.out.properties",
-//                    "server/jwk/server-out.properties"
-//            );
-//            //SIGNATURE IN
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.in.properties",
-//                    "server/jwk/server-sign.properties"
-//            );
-//            //SIGNATURE OUT
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.out.properties",
-//                    "server/jwk/server-out-sign.properties"
-//            );
-//
-//            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-//            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-//        } else {
-        //ENCRYPTION properties
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.in.properties",
-                "server/server.properties"
-        );
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.out.properties",
-                "server/server-out.properties"
-        );
-        //SIGNATURE IN
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.in.properties",
-                "server/server-sign.properties"
-        );
-        //SIGNATURE OUT
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.out.properties",
-                "server/server-out-sign.properties"
-        );
-        serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        if (Boolean.parseBoolean(jwk)) {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/jwk/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/jwk/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/jwk/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/jwk/server-out-sign.properties"
+            );
 
-//        }
+            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
+        } else {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/server-out-sign.properties"
+            );
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        }
 
         serverFactoryBean.getProperties(true).put("jose.debug", true);
         return serverFactoryBean.create();
@@ -253,52 +252,51 @@ public class RestTestConfiguration {
 
         serverFactoryBean.setProviders(providers);
 
-//        if(jwk) {
-//            //ENCRYPTION properties
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.in.properties",
-//                    "server/jwk/server.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.out.properties",
-//                    "server/jwk/server-out.properties"
-//            );
-//            //SIGNATURE IN
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.in.properties",
-//                    "server/jwk/server-sign.properties"
-//            );
-//            //SIGNATURE OUT
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.out.properties",
-//                    "server/jwk/server-out-sign.properties"
-//            );
-//
-//            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-//            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-//        } else {
-        //ENCRYPTION properties
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.in.properties",
-                "server/server.properties"
-        );
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.encryption.out.properties",
-                "server/server-out.properties"
-        );
-        //SIGNATURE IN
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.in.properties",
-                "server/server-sign.properties"
-        );
-        //SIGNATURE OUT
-        serverFactoryBean.getProperties(true).put(
-                "rs.security.signature.out.properties",
-                "server/server-out-sign.properties"
-        );
-        serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        if (Boolean.parseBoolean(jwk)) {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/jwk/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/jwk/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/jwk/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/jwk/server-out-sign.properties"
+            );
 
-//        }
+            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
+        } else {
+            //ENCRYPTION properties
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.in.properties",
+                    "server/server.properties"
+            );
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.encryption.out.properties",
+                    "server/server-out.properties"
+            );
+            //SIGNATURE IN
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.in.properties",
+                    "server/server-sign.properties"
+            );
+            //SIGNATURE OUT
+            serverFactoryBean.getProperties(true).put(
+                    "rs.security.signature.out.properties",
+                    "server/server-out-sign.properties"
+            );
+            serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
+        }
 
         serverFactoryBean.getProperties(true).put("jose.debug", true);
         return serverFactoryBean.create();
