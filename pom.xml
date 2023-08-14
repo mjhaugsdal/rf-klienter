@@ -3,47 +3,46 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.1.2</version>
+    </parent>
+
     <groupId>io.github.mjhaugsdal</groupId>
     <artifactId>eresept-meldingsender</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version>
-    </parent>
-
     <modules>
-        <module>fest</module>
+<!--        <module>fest</module>-->
         <module>message-builder</module>
         <module>soap</module>
-        <!--    <module>keycloak</module>-->
         <module>rest</module>
     </modules>
     <properties>
         <java.version>17</java.version>
         <cxf.version>4.0.2</cxf.version>
-        <version.xmlsec>3.0.2</version.xmlsec>
-        <version.xml-schemas>4.0.0</version.xml-schemas>
+        <xmlsec.version>3.0.2</xmlsec.version>
+        <xml-schemas.version>4.0.0</xml-schemas.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/io.github.mjhaugsdal/bom -->
             <dependency>
                 <groupId>io.github.mjhaugsdal</groupId>
                 <artifactId>bom</artifactId>
-                <version>${version.xml-schemas}</version>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>org.glassfish.jaxb</groupId>
-                <artifactId>jaxb-bom</artifactId>
-                <version>${glassfish-jaxb.version}</version>
+                <version>${xml-schemas.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.glassfish.jaxb</groupId>-->
+<!--                <artifactId>jaxb-bom</artifactId>-->
+<!--                <version>${glassfish-jaxb.version}</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-bom</artifactId>
@@ -73,7 +72,7 @@
         <dependency>
             <groupId>org.apache.santuario</groupId>
             <artifactId>xmlsec</artifactId>
-            <version>${version.xmlsec}</version>
+            <version>${xmlsec.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
