@@ -27,7 +27,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jetty -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
@@ -74,7 +73,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
-            <artifactId>message-builder</artifactId>
+            <artifactId>messages</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -82,11 +81,6 @@
             <artifactId>nimbus-jose-jwt</artifactId>
             <version>9.31</version>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.santuario</groupId>-->
-        <!--            <artifactId>xmlsec</artifactId>-->
-        <!--            <version>${xmlsec.version}</version>-->
-        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-transports-http-jetty</artifactId>
@@ -99,11 +93,9 @@
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-features-logging</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.cxf/cxf-rt-rs-service-description-openapi-v3 -->
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-rs-service-description-openapi-v3</artifactId>
-            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -134,12 +126,10 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -148,7 +138,6 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-features-metrics</artifactId>
-            <version>${cxf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

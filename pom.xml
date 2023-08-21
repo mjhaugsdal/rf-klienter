@@ -15,8 +15,8 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>messages</module>
         <module>fest</module>
-        <module>message-builder</module>
         <module>soap</module>
         <module>rest</module>
     </modules>
@@ -25,6 +25,7 @@
         <cxf.version>4.0.2</cxf.version>
         <xmlsec.version>3.0.2</xmlsec.version>
         <xml-schemas.version>4.0.0</xml-schemas.version>
+        <snakeyaml.version>2.1</snakeyaml.version>
     </properties>
 
     <dependencyManagement>

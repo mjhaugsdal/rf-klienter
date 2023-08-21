@@ -9,7 +9,7 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>message-builder</artifactId>
+    <artifactId>messages</artifactId>
 
     <dependencyManagement>
         <dependencies>

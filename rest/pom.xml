@@ -77,7 +77,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
-            <artifactId>message-builder</artifactId>
+            <artifactId>messages</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
