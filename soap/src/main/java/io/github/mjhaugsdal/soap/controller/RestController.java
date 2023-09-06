@@ -32,7 +32,7 @@ public class RestController {
     public Response rekvirentM1(String xml) {
         var m1 = new M1();
         m1.setDokument(xml.getBytes(StandardCharsets.UTF_8));
-        var response = soapClient.getRekvirentWeb().rekvirentWebServiceM1(m1);
+        var response = soapClient.rekvirentWeb().rekvirentWebServiceM1(m1);
         return Response.ok(response.getDokument()).build();
     }
 }

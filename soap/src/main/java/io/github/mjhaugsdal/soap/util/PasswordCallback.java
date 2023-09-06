@@ -1,4 +1,4 @@
-package io.github.mjhaugsdal.soap;
+package io.github.mjhaugsdal.soap.util;
 
 import org.apache.wss4j.common.ext.WSPasswordCallback;
 

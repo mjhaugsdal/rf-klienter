@@ -1,20 +1,14 @@
 package io.github.mjhaugsdal.soap.configuration;
 
 import io.github.mjhaugsdal.soap.SoapClient;
-import io.github.mjhaugsdal.soap.WSUtils;
-import jakarta.xml.ws.Endpoint;
+import io.github.mjhaugsdal.soap.util.WSUtils;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
 import no.ergo.reseptformidleren.webservices.rekvirent.RekvirentWeb;
 import no.ergo.reseptformidleren.webservices.utleverer.UtlevererWeb;
-import org.apache.cxf.Bus;
 import org.apache.cxf.ext.logging.LoggingFeature;
 import org.apache.cxf.feature.Feature;
-import org.apache.cxf.jaxws.EndpointImpl;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
-import org.apache.cxf.metrics.MetricsFeature;
-import org.apache.cxf.metrics.MetricsProvider;
 import org.apache.wss4j.common.ext.WSSecurityException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

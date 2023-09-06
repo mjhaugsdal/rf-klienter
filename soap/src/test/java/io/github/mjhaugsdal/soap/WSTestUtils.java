@@ -1,5 +1,6 @@
 package io.github.mjhaugsdal.soap;
 
+import io.github.mjhaugsdal.soap.util.PasswordCallback;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
 import org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor;

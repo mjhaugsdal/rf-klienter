@@ -1,4 +1,4 @@
-package io.github.mjhaugsdal.soap;
+package io.github.mjhaugsdal.soap.util;
 
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
