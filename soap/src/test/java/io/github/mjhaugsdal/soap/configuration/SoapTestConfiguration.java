@@ -10,7 +10,6 @@ import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.test.util.TestSocketUtils;
 
 import java.util.ArrayList;
@@ -23,17 +22,37 @@ import static io.github.mjhaugsdal.soap.WSTestUtils.setupWSSEServer;
 public class SoapTestConfiguration {
 
     static {
-        System.setProperty("soap.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
     }
 
-    @Value("${soap.sign}")
-    boolean sign;
+    @Value("${rekvirent.sign}")
+    boolean rekvirentSign;
 
-    @Value("${soap.encrypt}")
-    boolean encrypt;
+    @Value("${rekvirent.encrypt}")
+    boolean rekvirentEncrypt;
 
-    @Value("${soap.address}")
-    String address;
+    @Value("${rekvirent.address}")
+    String rekvirentAddress;
+
+    @Value("${utleverer.sign}")
+    boolean utlevererSign;
+
+    @Value("${utleverer.encrypt}")
+    boolean utlevererEncrypt;
+
+    @Value("${utleverer.address}")
+    String utlevererAddress;
+
+    @Value("${na.sign}")
+    boolean naSign;
+
+    @Value("${na.encrypt}")
+    boolean naEncrypt;
+
+    @Value("${na.address}")
+    String naAddress;
     List<Feature> featureList = new ArrayList<>();
 
     SoapTestConfiguration() {
@@ -47,9 +66,9 @@ public class SoapTestConfiguration {
     public Server naEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new NaWebService());
-        bean.setAddress(address + "/NA"); //TODO portkonfig
+        bean.setAddress(naAddress + "/NA");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        setupWSSEServer(bean, naEncrypt, naSign);
         return bean.create();
     }
 
@@ -57,9 +76,9 @@ public class SoapTestConfiguration {
     public Server rekvirentEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new RekvirentWebservice());
-        bean.setAddress(address + "/Rekvirent"); //TODO portkonfig
+        bean.setAddress(rekvirentAddress + "/Rekvirent");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        setupWSSEServer(bean, rekvirentEncrypt, rekvirentSign);
         return bean.create();
     }
 
@@ -67,9 +86,9 @@ public class SoapTestConfiguration {
     public Server utlevererEndpoint() {
         var bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new UtlevererWebservice());
-        bean.setAddress(address + "/Utleverer"); //TODO portkonfig
+        bean.setAddress(utlevererAddress + "/Utleverer");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        setupWSSEServer(bean, utlevererEncrypt, utlevererSign);
         return bean.create();
     }
 }

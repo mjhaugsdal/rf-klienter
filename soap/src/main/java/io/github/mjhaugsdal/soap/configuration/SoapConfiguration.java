@@ -2,13 +2,19 @@ package io.github.mjhaugsdal.soap.configuration;
 
 import io.github.mjhaugsdal.soap.SoapClient;
 import io.github.mjhaugsdal.soap.WSUtils;
+import jakarta.xml.ws.Endpoint;
 import no.ergo.reseptformidleren.webservices.na.NAWeb;
 import no.ergo.reseptformidleren.webservices.rekvirent.RekvirentWeb;
 import no.ergo.reseptformidleren.webservices.utleverer.UtlevererWeb;
+import org.apache.cxf.Bus;
 import org.apache.cxf.ext.logging.LoggingFeature;
 import org.apache.cxf.feature.Feature;
+import org.apache.cxf.jaxws.EndpointImpl;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
+import org.apache.cxf.metrics.MetricsFeature;
+import org.apache.cxf.metrics.MetricsProvider;
 import org.apache.wss4j.common.ext.WSSecurityException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,14 +25,32 @@ import java.util.List;
 @Configuration
 public class SoapConfiguration {
 
-    @Value("${soap.sign}")
-    boolean sign;
+    @Value("${rekvirent.sign}")
+    boolean rekvirentSign;
 
-    @Value("${soap.encrypt}")
-    boolean encrypt;
+    @Value("${rekvirent.encrypt}")
+    boolean rekvirentEncrypt;
 
-    @Value("${soap.address}")
-    String address;
+    @Value("${rekvirent.address}")
+    String rekvirentAddress;
+
+    @Value("${utleverer.sign}")
+    boolean utlevererSign;
+
+    @Value("${utleverer.encrypt}")
+    boolean utlevererEncrypt;
+
+    @Value("${utleverer.address}")
+    String utlevererAddress;
+
+    @Value("${na.sign}")
+    boolean naSign;
+
+    @Value("${na.encrypt}")
+    boolean naEncrypt;
+
+    @Value("${na.address}")
+    String naAddress;
 
     List<Feature> featureList = new ArrayList<>();
 
@@ -41,9 +65,9 @@ public class SoapConfiguration {
     public NAWeb naWeb() throws WSSecurityException {
         var bean = new JaxWsProxyFactoryBean();
         bean.setServiceClass(NAWeb.class);
-        bean.setAddress(address + "/NA"); //TODO portkonfig
+        bean.setAddress(naAddress + "/NA"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, encrypt, sign);
+        WSUtils.setupWSSEClient(bean, naEncrypt, naSign);
         return (NAWeb) bean.create();
     }
 
@@ -51,9 +75,9 @@ public class SoapConfiguration {
     public RekvirentWeb rekvirentWeb() throws WSSecurityException {
         var bean = new JaxWsProxyFactoryBean();
         bean.setServiceClass(RekvirentWeb.class);
-        bean.setAddress(address + "/Rekvirent"); //TODO portkonfig
+        bean.setAddress(rekvirentAddress + "/Rekvirent"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, encrypt, sign);
+        WSUtils.setupWSSEClient(bean, rekvirentEncrypt, utlevererSign);
         return (RekvirentWeb) bean.create();
     }
 
@@ -61,9 +85,9 @@ public class SoapConfiguration {
     public UtlevererWeb utlevererWeb() throws WSSecurityException {
         var bean = new JaxWsProxyFactoryBean();
         bean.setServiceClass(UtlevererWeb.class);
-        bean.setAddress(address + "/Utleverer"); //TODO portkonfig
+        bean.setAddress(utlevererAddress + "/Utleverer"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, encrypt, sign);
+        WSUtils.setupWSSEClient(bean, utlevererEncrypt, utlevererSign);
         return (UtlevererWeb) bean.create();
     }
 
@@ -71,5 +95,4 @@ public class SoapConfiguration {
     public SoapClient soapClient(final NAWeb naWeb, final UtlevererWeb utlevererWeb, final RekvirentWeb rekvirentWeb) {
         return new SoapClient(naWeb, rekvirentWeb, utlevererWeb);
     }
-
 }

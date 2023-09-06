@@ -1,119 +1,25 @@
 package io.github.mjhaugsdal.rest;
 
 
-import java.io.IOException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
-
-
-import io.github.mjhaugsdal.rest.types.na.*;
+import io.github.mjhaugsdal.rest.types.na.AppRec;
+import io.github.mjhaugsdal.rest.types.na.AppRecFault_Exception;
+import io.github.mjhaugsdal.rest.types.na.M9Na1;
+import io.github.mjhaugsdal.rest.types.na.M9Na2;
+import io.github.mjhaugsdal.rest.types.na.M9Na3;
+import io.github.mjhaugsdal.rest.types.na.M9Na4;
+import io.github.mjhaugsdal.rest.types.na.MV;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import org.apache.cxf.feature.LoggingFeature;
-import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
-import org.apache.cxf.rs.security.jose.jaxrs.*;
 
 
 public class NaWebServiceImpl implements NaWebService {
 
-    /*static {
-
-    }*/
 
     public NaWebServiceImpl() {
         //
-    }
-
-    public NaWebServiceImpl(boolean jwk, String context) {
-//        var serverFactoryBean = new JAXRSServerFactoryBean();
-//        serverFactoryBean.setServiceClass(NaWebServiceImpl.class);
-//        serverFactoryBean.setAddress("http://localhost:8890/" + context);
-//        LoggingFeature loggingFeature = new LoggingFeature();
-//        loggingFeature.setPrettyLogging(true);
-//        serverFactoryBean.getFeatures().add(loggingFeature);
-//
-//        List<Object> providers = new LinkedList<>();
-//        providers.add("com.fasterxml.jackson.jaxrs.xml.JacksonJaxbXMLProvider");
-//
-//        var jweContainerRequestFilter = new JweContainerRequestFilter();
-//        var jwsContainerRequestFilter = new JwsContainerRequestFilter();
-//        //var jwsContainerRequestFilter = new JwsJsonContainerRequestFilter();
-//
-//        Properties properties = new Properties();
-//        try {
-//            properties.load(NaWebServiceImpl.class.getClassLoader().getResourceAsStream("server/server.properties"));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        //CustomJwsContainerRequestFilter jwsContainerRequestFilter = new CustomJwsContainerRequestFilter();
-//        //CustomJweWriterInterceptor jweWriterInterceptor = new CustomJweWriterInterceptor(properties); //This combined with CustomJwsWriterInterceptor implements encryption using request signing certificate
-//        var jweWriterInterceptor = new JweWriterInterceptor();
-//        jweWriterInterceptor.setUseJweOutputStream(true);
-//
-//        var jwsWriterInterceptor = new JwsWriterInterceptor();
-//        jwsWriterInterceptor.setUseJwsOutputStream(true);
-//
-//        providers.add(jweContainerRequestFilter);
-//        providers.add(jwsContainerRequestFilter);
-//        providers.add(jweWriterInterceptor);
-//        providers.add(jwsWriterInterceptor);
-//
-//        serverFactoryBean.setProviders(providers);
-//
-//        if(jwk) {
-//            //ENCRYPTION properties
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.in.properties",
-//                    "server/jwk/server.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.out.properties",
-//                    "server/jwk/server-out.properties"
-//            );
-//            //SIGNATURE IN
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.in.properties",
-//                    "server/jwk/server-sign.properties"
-//            );
-//            //SIGNATURE OUT
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.out.properties",
-//                    "server/jwk/server-out-sign.properties"
-//            );
-//
-//            serverFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-//            serverFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-//        } else {
-//            //ENCRYPTION properties
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.in.properties",
-//                    "server/server.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.encryption.out.properties",
-//                    "server/server-out.properties"
-//            );
-//            //SIGNATURE IN
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.in.properties",
-//                    "server/server-sign.properties"
-//            );
-//            //SIGNATURE OUT
-//            serverFactoryBean.getProperties(true).put(
-//                    "rs.security.signature.out.properties",
-//                    "server/server-out-sign.properties"
-//            );
-//            serverFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
-//
-//        }
-//
-//        serverFactoryBean.getProperties(true).put("jose.debug", true);
-//        serverFactoryBean.create();
     }
 
     @Override
@@ -131,9 +37,7 @@ public class NaWebServiceImpl implements NaWebService {
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public M9Na2 naWebServiceM9Na1(M9Na1 parameters) throws AppRecFault_Exception {
-        var m9na2 = new M9Na2();
-        m9na2.setDokument(parameters.getDokument());
-        return m9na2;
+        return new M9Na2();
     }
 
     @Override
@@ -146,17 +50,20 @@ public class NaWebServiceImpl implements NaWebService {
     }
 
     @Override
+    @Deprecated
     public no.ergo.reseptformidleren.webservices.na.AppRec naWebServiceVerify(no.ergo.reseptformidleren.webservices.na.MV parameters) {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public no.ergo.reseptformidleren.webservices.na.M9Na2 naWebServiceM9Na1(no.ergo.reseptformidleren.webservices.na.M9Na1 parameters) throws no.ergo.reseptformidleren.webservices.na.AppRecFault_Exception {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override
+    @Deprecated
     public no.ergo.reseptformidleren.webservices.na.M9Na4 naWebServiceM9Na3(no.ergo.reseptformidleren.webservices.na.M9Na3 parameters) throws no.ergo.reseptformidleren.webservices.na.AppRecFault_Exception {
-        return null;
+        throw new UnsupportedOperationException();
     }
 }

@@ -5,14 +5,10 @@ import io.github.mjhaugsdal.rest.types.na.AppRecFault_Exception;
 import io.github.mjhaugsdal.rest.types.na.M9Na1;
 import io.github.mjhaugsdal.rest.types.na.M9Na3;
 import io.github.mjhaugsdal.rest.types.na.MV;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.util.TestSocketUtils;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Import({RestTestConfiguration.class})

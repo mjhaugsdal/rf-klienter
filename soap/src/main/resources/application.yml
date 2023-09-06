@@ -1,11 +1,21 @@
-soap:
+rekvirent:
   encrypt: true
   sign: true
   address: http://localhost:8881
 
+utleverer:
+  encrypt: true
+  sign: true
+  address: http://localhost:8882
+
+na:
+  encrypt: true
+  sign: true
+  address: http://localhost:8883
+
 rest:
   server:
-    address: http://localhost:8882
+    address: http://localhost:8884/
 
 server:
   port: 8081

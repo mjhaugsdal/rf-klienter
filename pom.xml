@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.1.3</version>
     </parent>
 
     <groupId>io.github.mjhaugsdal</groupId>
@@ -23,9 +23,10 @@
     <properties>
         <java.version>17</java.version>
         <cxf.version>4.0.2</cxf.version>
-        <xmlsec.version>3.0.2</xmlsec.version>
+        <xmlsec.version>4.0.0-M1</xmlsec.version>
         <xml-schemas.version>4.0.0</xml-schemas.version>
-        <snakeyaml.version>2.1</snakeyaml.version>
+        <snakeyaml.version>2.2</snakeyaml.version>
+        <opensaml.version>4.0.1</opensaml.version>
     </properties>
 
     <dependencyManagement>

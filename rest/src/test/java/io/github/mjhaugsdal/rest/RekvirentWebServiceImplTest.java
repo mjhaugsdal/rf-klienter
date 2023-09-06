@@ -27,7 +27,6 @@ class RekvirentWebServiceImplTest {
     @Autowired
     RekvirentWebService rekvirentWebService;
 
-
     @Test
     void rekvirentWebServiceM921() throws AppRecFault_Exception {
         rekvirentWebService.rekvirentWebServiceM921(new M921());

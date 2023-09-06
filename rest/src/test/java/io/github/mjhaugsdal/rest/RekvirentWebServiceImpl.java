@@ -140,54 +140,54 @@ public class RekvirentWebServiceImpl implements RekvirentWebService {
     }
     @Override
     public M922 rekvirentWebServiceM921(M921 m921Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M912 rekvirentWebServiceM911(M911 m911Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public AppRec rekvirentWebServiceM5(M5 m5Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M912Kj rekvirentWebServiceM911Kj(M911Kj m911KjElement) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M98 rekvirentWebServiceM97(M97 m97Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M96Kj rekvirentWebServiceM95Kj(M95Kj m95KjElement) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M96 rekvirentWebServiceM95(M95 m95Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public AppRec rekvirentWebServiceM251(M251 m251Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M272 rekvirentWebServiceM271(M271 m271Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public AppRec rekvirentWebServiceM1(M1 m1Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M242 rekvirentWebServiceM241(M241 m241Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public M42 rekvirentWebServiceM41(M41 m41Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
     @Override
     public AppRec rekvirentWebServiceVerify(MV mvElement) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 }

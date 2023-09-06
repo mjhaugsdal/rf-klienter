@@ -36,154 +36,34 @@ public class RestConfiguration {
 
     @Bean
     public NaWebService naWebService() {
-
-        List<Feature> featureList = new ArrayList<>();
-        List<Object> providers = new LinkedList<>();
-
-        JAXRSClientFactoryBean jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
+        var jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(NaWebService.class);
         jaxrsClientFactoryBean.setAddress(naAddress + "/NA"); //TODO portkonfig
-        jaxrsClientFactoryBean.setFeatures(featureList);
-
-        var jweWriterInterceptor = new JweWriterInterceptor();
-        var jwsWriterInterceptor = new JwsWriterInterceptor();
-        var jweClientResponseFilter = new JweClientResponseFilter();
-        var jwsClientResponseFilter = new JwsClientResponseFilter();
-
-        providers.add(jwsWriterInterceptor);
-        providers.add(jweWriterInterceptor);
-        providers.add(jweClientResponseFilter);
-        providers.add(jwsClientResponseFilter);
-        providers.add("com.fasterxml.jackson.jaxrs.xml.JacksonJaxbXMLProvider");
-        jaxrsClientFactoryBean.setProviders(providers);
-
-        if (Boolean.parseBoolean(jwk)) {
-            //ENCRYPTION properties
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.in.properties",
-                    "client/jwk/client-in.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.out.properties",
-                    "client/jwk/client.properties"
-            );
-            //SIGNATURE IN
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.in.properties",
-                    "client/jwk/client-in-sign.properties"
-            );
-            //SIGNATURE OUT
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.out.properties",
-                    "client/jwk/client-sign.properties"
-            );
-
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-        } else {
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.out.properties",
-                    "client/client.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.out.properties",
-                    "client/client-sign.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.in.properties",
-                    "client/client-in.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.in.properties",
-                    "client/client-in-sign.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
-        }
-
-        jaxrsClientFactoryBean.getProperties(true).put("jose.debug", true);
-
+        setupCommon(jaxrsClientFactoryBean, jwk);
         return (NaWebService) jaxrsClientFactoryBean.create();
     }
 
     @Bean
     public RekvirentWebService rekvirentWebService() {
-        List<Feature> featureList = new ArrayList<>();
-        List<Object> providers = new LinkedList<>();
         var jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(RekvirentWebService.class);
         jaxrsClientFactoryBean.setAddress(rekvirentAddress + "/Rekvirent"); //TODO portkonfig
-        var loggingFeature = new LoggingFeature();
-        loggingFeature.setPrettyLogging(true);
-        featureList.add(loggingFeature);
-        jaxrsClientFactoryBean.setFeatures(featureList);
-
-        var jweWriterInterceptor = new JweWriterInterceptor();
-        var jwsWriterInterceptor = new JwsWriterInterceptor();
-        var jweClientResponseFilter = new JweClientResponseFilter();
-        var jwsClientResponseFilter = new JwsClientResponseFilter();
-
-        providers.add(jwsWriterInterceptor);
-        providers.add(jweWriterInterceptor);
-        providers.add(jweClientResponseFilter);
-        providers.add(jwsClientResponseFilter);
-        providers.add("com.fasterxml.jackson.jaxrs.xml.JacksonJaxbXMLProvider");
-
-        jaxrsClientFactoryBean.setProviders(providers);
-
-        if (Boolean.parseBoolean(jwk)) {
-            //ENCRYPTION properties
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.in.properties",
-                    "client/jwk/client-in.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.out.properties",
-                    "client/jwk/client.properties"
-            );
-            //SIGNATURE IN
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.in.properties",
-                    "client/jwk/client-in-sign.properties"
-            );
-            //SIGNATURE OUT
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.out.properties",
-                    "client/jwk/client-sign.properties"
-            );
-
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.accept.public.key", "true");
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.signature.include.public.key", "true");
-        } else {
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.out.properties",
-                    "client/client.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.out.properties",
-                    "client/client-sign.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.encryption.in.properties",
-                    "client/client-in.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put(
-                    "rs.security.signature.in.properties",
-                    "client/client-in-sign.properties"
-            );
-            jaxrsClientFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
-        }
-        jaxrsClientFactoryBean.getProperties(true).put("jose.debug", true);
-
+        setupCommon(jaxrsClientFactoryBean, jwk);
         return (RekvirentWebService) jaxrsClientFactoryBean.create();
     }
 
     @Bean
     public UtlevererWebService utlevererWebService() {
-        List<Feature> featureList = new ArrayList<>();
-        List<Object> providers = new LinkedList<>();
         var jaxrsClientFactoryBean = new JAXRSClientFactoryBean();
         jaxrsClientFactoryBean.setServiceClass(UtlevererWebService.class);
         jaxrsClientFactoryBean.setAddress(utlevererAddress + "/Utleverer"); //TODO portkonfig
+        setupCommon(jaxrsClientFactoryBean, jwk);
+        return (UtlevererWebService) jaxrsClientFactoryBean.create();
+    }
+
+    private static void setupCommon(JAXRSClientFactoryBean jaxrsClientFactoryBean, String jwk) {
+        List<Feature> featureList = new ArrayList<>();
+        List<Object> providers = new LinkedList<>();
         var loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
         featureList.add(loggingFeature);
@@ -245,7 +125,5 @@ public class RestConfiguration {
             jaxrsClientFactoryBean.getProperties(true).put("rs.security.signature.include.cert", "true");
         }
         jaxrsClientFactoryBean.getProperties(true).put("jose.debug", true);
-
-        return (UtlevererWebService) jaxrsClientFactoryBean.create();
     }
 }

@@ -1,4 +1,4 @@
-package io.github.mjhaugsdal.rest;
+package io.github.mjhaugsdal.rest.util;
 
 import org.apache.cxf.ext.logging.LoggingFeature;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactoryBean;

@@ -1,5 +1,6 @@
 package io.github.mjhaugsdal.mockservice;
 
+import io.github.mjhaugsdal.soap.WSTestUtils;
 import io.github.mjhaugsdal.soap.service.NaWebService;
 import io.github.mjhaugsdal.soap.service.RekvirentWebservice;
 import io.github.mjhaugsdal.soap.service.UtlevererWebservice;
@@ -7,62 +8,71 @@ import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.ext.logging.LoggingFeature;
 import org.apache.cxf.feature.Feature;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
-import org.apache.cxf.metrics.MetricsFeature;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.github.mjhaugsdal.mockservice.WSTestUtils.setupWSSEServer;
 
 @Configuration
 public class MockServiceJAXWSConfiguration {
 
-
-    @Value("${service.port}")
-    int port;
-
-    boolean encrypt = true;
-    boolean sign = true;
-
-    List<Feature> featureList = new ArrayList<>();
+    @Value("${rekvirent.sign}")
+    boolean rekvirentSign;
+    @Value("${rekvirent.encrypt}")
+    boolean rekvirentEncrypt;
+    @Value("${rekvirent.address}")
+    String rekvirentAddress;
+    @Value("${utleverer.sign}")
+    boolean utlevererSign;
+    @Value("${utleverer.encrypt}")
+    boolean utlevererEncrypt;
+    @Value("${utleverer.address}")
+    String utlevererAddress;
+    @Value("${na.sign}")
+    boolean naSign;
+    @Value("${na.encrypt}")
+    boolean naEncrypt;
+    @Value("${na.address}")
+    String naAddress;
+    List<Feature> featureList = new ArrayList();
 
     MockServiceJAXWSConfiguration() {
-        var loggingFeature = new LoggingFeature();
+        LoggingFeature loggingFeature = new LoggingFeature();
         loggingFeature.setPrettyLogging(true);
-        featureList.add(loggingFeature);
-        featureList.add(new MetricsFeature());
+        this.featureList.add(loggingFeature);
     }
 
     @Bean
     public Server naEndpoint() {
-        var bean = new JaxWsServerFactoryBean();
+        JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new NaWebService());
-        bean.setAddress("http://localhost:" + port + "/NA");
-        bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        bean.setAddress(this.naAddress + "/NA");
+        bean.setFeatures(this.featureList);
+        WSTestUtils.setupWSSEServer(bean, this.naEncrypt, this.naSign);
         return bean.create();
     }
 
     @Bean
     public Server rekvirentEndpoint() {
-        var bean = new JaxWsServerFactoryBean();
+        JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new RekvirentWebservice());
-        bean.setAddress("http://localhost:" + port + "/Rekvirent");
-        bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        bean.setAddress(this.rekvirentAddress + "/Rekvirent");
+        bean.setFeatures(this.featureList);
+        WSTestUtils.setupWSSEServer(bean, this.rekvirentEncrypt, this.rekvirentSign);
         return bean.create();
     }
 
     @Bean
     public Server utlevererEndpoint() {
-        var bean = new JaxWsServerFactoryBean();
+        JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new UtlevererWebservice());
-        bean.setAddress("http://localhost:" + port + "/Utleverer");
-        bean.setFeatures(featureList);
-        setupWSSEServer(bean, encrypt, sign);
+        bean.setAddress(this.utlevererAddress + "/Utleverer");
+        bean.setFeatures(this.featureList);
+        WSTestUtils.setupWSSEServer(bean, this.utlevererEncrypt, this.utlevererSign);
         return bean.create();
     }
 }

@@ -75,51 +75,51 @@ public class UtlevererWebServiceImpl implements UtlevererWebService {
 
     @Override
     public AppRec utlevererWebServiceM10(M10 m10Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AppRec utlevererWebServiceM253(M253 m253Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public M272 utlevererWebServiceM271(M271 m271Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AppRec utlevererWebServiceVerify(MV mvElement) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AppRec utlevererWebServiceM252(M252 m252Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public M94 utlevererWebServiceM93(M93 m93Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public M92 utlevererWebServiceM91(M91 m91Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public AppRec utlevererWebServiceM3(M3 m3Element) {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public M912 utlevererWebServiceM911(M911 m911Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public M922 utlevererWebServiceM921(M921 m921Element) throws AppRecFault_Exception {
-        throw new NotAllowedException("");
+        throw new UnsupportedOperationException();
     }
 }
