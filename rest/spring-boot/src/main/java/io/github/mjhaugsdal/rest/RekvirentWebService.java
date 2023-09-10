@@ -74,7 +74,7 @@ public interface RekvirentWebService extends RekvirentWeb {
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
-    io.github.mjhaugsdal.rest.types.rekvirent.AppRec rekvirentWebServiceM1(io.github.mjhaugsdal.rest.types.rekvirent.M1 m1Element);
+    AppRec rekvirentWebServiceM1(io.github.mjhaugsdal.rest.types.rekvirent.M1 m1Element);
     
     @Path("/m241")
     @Consumes(MediaType.APPLICATION_XML)

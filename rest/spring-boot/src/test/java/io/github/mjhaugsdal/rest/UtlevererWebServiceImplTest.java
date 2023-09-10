@@ -70,7 +70,7 @@ class UtlevererWebServiceImplTest {
     }
 
     @Test
-    void utlevererWebServiceM921() throws io.github.mjhaugsdal.rest.types.utleverer.AppRecFault_Exception {
+    void utlevererWebServiceM921() throws AppRecFault_Exception {
         utlevererWebService.utlevererWebServiceM921(new M921());
     }
 }
