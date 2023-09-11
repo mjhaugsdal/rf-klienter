@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://rekvirent.webservices.reseptformidleren.ergo.no/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="RekvirentWebServiceImpl" targetNamespace="http://rekvirent.webservices.reseptformidleren.ergo.no/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://rekvirent.webservices.reseptformidleren.ergo.no/types/" version="1.0">
+
+  <xs:element name="dokument" type="xs:anyType"/>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://rekvirent.webservices.reseptformidleren.ergo.no/types/" xmlns="http://rekvirent.webservices.reseptformidleren.ergo.no/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://rekvirent.webservices.reseptformidleren.ergo.no/" version="1.0">
+  <xs:import namespace="http://rekvirent.webservices.reseptformidleren.ergo.no/types/"/>
+  <xs:complexType name="M9_21">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_22">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_11">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_12">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M5">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AppRec">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_11Kj">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_12Kj">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_7">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_8">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M95Kj">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M96Kj">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_5">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_6">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M25_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M27_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M27_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M24_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M24_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M4_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M4_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MV">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppRecFault" type="AppRecFault"/>
+  <xs:complexType name="AppRecFault">
+    <xs:sequence>
+      <xs:element name="dokument" type="xs:anyType"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="M9_21Element" nillable="true" type="M9_21"/>
+  <xs:element name="M9_22Element" nillable="true" type="M9_22"/>
+  <xs:element name="M9_11Element" nillable="true" type="M9_11"/>
+  <xs:element name="M9_12Element" nillable="true" type="M9_12"/>
+  <xs:element name="M5Element" nillable="true" type="M5"/>
+  <xs:element name="AppRecElement" nillable="true" type="AppRec"/>
+  <xs:element name="M9_11kjElement" nillable="true" type="M9_11Kj"/>
+  <xs:element name="M9_12kjElement" nillable="true" type="M9_12Kj"/>
+  <xs:element name="M9_7Element" nillable="true" type="M9_7"/>
+  <xs:element name="M9_8Element" nillable="true" type="M9_8"/>
+  <xs:element name="M95kjElement" nillable="true" type="M95Kj"/>
+  <xs:element name="M96kjElement" nillable="true" type="M96Kj"/>
+  <xs:element name="M9_5Element" nillable="true" type="M9_5"/>
+  <xs:element name="M9_6Element" nillable="true" type="M9_6"/>
+  <xs:element name="M25_1Element" nillable="true" type="M25_1"/>
+  <xs:element name="M27_1Element" nillable="true" type="M27_1"/>
+  <xs:element name="M27_2Element" nillable="true" type="M27_2"/>
+  <xs:element name="M1Element" nillable="true" type="M1"/>
+  <xs:element name="M24_1Element" nillable="true" type="M24_1"/>
+  <xs:element name="M24_2Element" nillable="true" type="M24_2"/>
+  <xs:element name="M4_1Element" nillable="true" type="M4_1"/>
+  <xs:element name="M4_2Element" nillable="true" type="M4_2"/>
+  <xs:element name="MVElement" nillable="true" type="MV"/>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="RekvirentWebService_m27_1Response">
+    <wsdl:part element="tns:M27_2Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_11">
+    <wsdl:part element="tns:M9_11Element" name="M9_11Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_21Response">
+    <wsdl:part element="tns:M9_22Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_M95kjResponse">
+    <wsdl:part element="tns:M96kjElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m5">
+    <wsdl:part element="tns:M5Element" name="M5Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_11kj">
+    <wsdl:part element="tns:M9_11kjElement" name="M9_11kjElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m4_1Response">
+    <wsdl:part element="tns:M4_2Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_5Response">
+    <wsdl:part element="tns:M9_6Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_M95kj">
+    <wsdl:part element="tns:M95kjElement" name="M95kjElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_7Response">
+    <wsdl:part element="tns:M9_8Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_11Response">
+    <wsdl:part element="tns:M9_12Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m25_1Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_21">
+    <wsdl:part element="tns:M9_21Element" name="M9_21Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_verifyResponse">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_7">
+    <wsdl:part element="tns:M9_7Element" name="M9_7Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_5">
+    <wsdl:part element="tns:M9_5Element" name="M9_5Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m5Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m25_1">
+    <wsdl:part element="tns:M25_1Element" name="M25_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m27_1">
+    <wsdl:part element="tns:M27_1Element" name="M27_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m9_11kjResponse">
+    <wsdl:part element="tns:M9_12kjElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m1">
+    <wsdl:part element="tns:M1Element" name="M1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m1Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m24_1">
+    <wsdl:part element="tns:M24_1Element" name="M24_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m4_1">
+    <wsdl:part element="tns:M4_1Element" name="M4_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_m24_1Response">
+    <wsdl:part element="tns:M24_2Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="RekvirentWebService_verify">
+    <wsdl:part element="tns:MVElement" name="MVElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AppRecFault">
+    <wsdl:part element="tns:AppRecFault" name="AppRecFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RekvirentWeb">
+    <wsdl:operation name="RekvirentWebService_m9_21">
+      <wsdl:input message="tns:RekvirentWebService_m9_21" name="RekvirentWebService_m9_21">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m9_21Response" name="RekvirentWebService_m9_21Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_11">
+      <wsdl:input message="tns:RekvirentWebService_m9_11" name="RekvirentWebService_m9_11">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m9_11Response" name="RekvirentWebService_m9_11Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m5">
+      <wsdl:input message="tns:RekvirentWebService_m5" name="RekvirentWebService_m5">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m5Response" name="RekvirentWebService_m5Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_11kj">
+      <wsdl:input message="tns:RekvirentWebService_m9_11kj" name="RekvirentWebService_m9_11kj">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m9_11kjResponse" name="RekvirentWebService_m9_11kjResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_7">
+      <wsdl:input message="tns:RekvirentWebService_m9_7" name="RekvirentWebService_m9_7">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m9_7Response" name="RekvirentWebService_m9_7Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_M95kj">
+      <wsdl:input message="tns:RekvirentWebService_M95kj" name="RekvirentWebService_M95kj">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_M95kjResponse" name="RekvirentWebService_M95kjResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_5">
+      <wsdl:input message="tns:RekvirentWebService_m9_5" name="RekvirentWebService_m9_5">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m9_5Response" name="RekvirentWebService_m9_5Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m25_1">
+      <wsdl:input message="tns:RekvirentWebService_m25_1" name="RekvirentWebService_m25_1">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m25_1Response" name="RekvirentWebService_m25_1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m27_1">
+      <wsdl:input message="tns:RekvirentWebService_m27_1" name="RekvirentWebService_m27_1">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m27_1Response" name="RekvirentWebService_m27_1Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m1">
+      <wsdl:input message="tns:RekvirentWebService_m1" name="RekvirentWebService_m1">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m1Response" name="RekvirentWebService_m1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m24_1">
+      <wsdl:input message="tns:RekvirentWebService_m24_1" name="RekvirentWebService_m24_1">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m24_1Response" name="RekvirentWebService_m24_1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m4_1">
+      <wsdl:input message="tns:RekvirentWebService_m4_1" name="RekvirentWebService_m4_1">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_m4_1Response" name="RekvirentWebService_m4_1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_verify">
+      <wsdl:input message="tns:RekvirentWebService_verify" name="RekvirentWebService_verify">
+    </wsdl:input>
+      <wsdl:output message="tns:RekvirentWebService_verifyResponse" name="RekvirentWebService_verifyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RekvirentWebServiceImplSoapBinding" type="tns:RekvirentWeb">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RekvirentWebService_m9_21">
+      <soap:operation soapAction="M9_21" style="document"/>
+      <wsdl:input name="RekvirentWebService_m9_21">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m9_21Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_11">
+      <soap:operation soapAction="M9_11" style="document"/>
+      <wsdl:input name="RekvirentWebService_m9_11">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m9_11Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m5">
+      <soap:operation soapAction="M5" style="document"/>
+      <wsdl:input name="RekvirentWebService_m5">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m5Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_11kj">
+      <soap:operation soapAction="M9_11kj" style="document"/>
+      <wsdl:input name="RekvirentWebService_m9_11kj">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m9_11kjResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_7">
+      <soap:operation soapAction="M9_7" style="document"/>
+      <wsdl:input name="RekvirentWebService_m9_7">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m9_7Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_M95kj">
+      <soap:operation soapAction="M9_5kj" style="document"/>
+      <wsdl:input name="RekvirentWebService_M95kj">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_M95kjResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m9_5">
+      <soap:operation soapAction="M9_5" style="document"/>
+      <wsdl:input name="RekvirentWebService_m9_5">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m9_5Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m25_1">
+      <soap:operation soapAction="M25_1" style="document"/>
+      <wsdl:input name="RekvirentWebService_m25_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m25_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m27_1">
+      <soap:operation soapAction="M27_1" style="document"/>
+      <wsdl:input name="RekvirentWebService_m27_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m27_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m1">
+      <soap:operation soapAction="M1" style="document"/>
+      <wsdl:input name="RekvirentWebService_m1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m24_1">
+      <soap:operation soapAction="M24_1" style="document"/>
+      <wsdl:input name="RekvirentWebService_m24_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m24_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_m4_1">
+      <soap:operation soapAction="M4_1" style="document"/>
+      <wsdl:input name="RekvirentWebService_m4_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_m4_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RekvirentWebService_verify">
+      <soap:operation soapAction="Verify" style="document"/>
+      <wsdl:input name="RekvirentWebService_verify">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="RekvirentWebService_verifyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RekvirentWebServiceImpl">
+    <wsdl:port binding="tns:RekvirentWebServiceImplSoapBinding" name="RekvirentWebPort">
+      <soap:address location="http://rf.test2-int.reseptformidleren.net/Rekvirent/RekvirentWebServiceSoapHttpPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.mjhaugsdal</groupId>
-        <artifactId>rest</artifactId>
+        <artifactId>spring-boot</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.github.mjhaugsdal.rest</groupId>
-    <artifactId>spring-boot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>io.github.mjhaugsdal.spring-boot</groupId>
+    <artifactId>spring-boot-rest</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -81,6 +82,7 @@
             <artifactId>messages</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -93,7 +95,7 @@
                         <id>generate-na</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
@@ -115,7 +117,7 @@
                         <id>generate-utleverer</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
@@ -137,7 +139,7 @@
                         <id>generate-rekvirent</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>

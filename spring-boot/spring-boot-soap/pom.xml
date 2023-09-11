@@ -3,16 +3,15 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>io.github.mjhaugsdal</groupId>
-        <artifactId>soap</artifactId>
+        <artifactId>spring-boot</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.github.mjhaugsdal.soap</groupId>
-    <artifactId>spring-boot</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>io.github.mjhaugsdal.spring-boot</groupId>
+    <artifactId>spring-boot-soap</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -123,6 +122,29 @@
             <artifactId>cxf-rt-features-metrics</artifactId>
         </dependency>
         <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.soap</groupId>
+            <artifactId>jakarta.xml.soap-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>${xmlsec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-test</artifactId>
             <scope>test</scope>
@@ -139,7 +161,7 @@
                         <id>generate-na</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
@@ -154,7 +176,7 @@
                         <id>generate-rek</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>
@@ -169,7 +191,7 @@
                         <id>generate-utl</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>target/generated-sources/cxf</sourceRoot>
+                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
