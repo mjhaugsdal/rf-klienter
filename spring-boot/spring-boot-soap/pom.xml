@@ -161,7 +161,6 @@
                         <id>generate-na</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
@@ -176,7 +175,6 @@
                         <id>generate-rek</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>
@@ -191,7 +189,6 @@
                         <id>generate-utl</id>
                         <phase>generate-sources</phase>
                         <configuration>
-                            <sourceRoot>../../soap/spring-boot-soap/target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
