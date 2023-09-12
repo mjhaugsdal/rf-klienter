@@ -46,6 +46,7 @@ public class ServerInterceptor implements ReaderInterceptor, WriterInterceptor {
             // Parse into JWE object again...
             var jweObject = JWEObject.parse(str);
 
+
             // Decrypt
             jweObject.decrypt(new RSADecrypter((PrivateKey) key));
 
