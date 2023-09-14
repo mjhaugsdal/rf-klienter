@@ -1,0 +1,374 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://utleverer.webservices.reseptformidleren.ergo.no/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="UtlevererWebServiceImpl" targetNamespace="http://utleverer.webservices.reseptformidleren.ergo.no/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://utleverer.webservices.reseptformidleren.ergo.no/types/" version="1.0">
+
+  <xs:element name="dokument" type="xs:anyType"/>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://utleverer.webservices.reseptformidleren.ergo.no/types/" xmlns="http://utleverer.webservices.reseptformidleren.ergo.no/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://utleverer.webservices.reseptformidleren.ergo.no/" version="1.0">
+  <xs:import namespace="http://utleverer.webservices.reseptformidleren.ergo.no/types/"/>
+  <xs:complexType name="M10">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AppRec">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M25_3">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M27_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M27_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MV">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M25_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_3">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_4">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_1">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_2">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M3">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_11">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_12">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_21">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="M9_22">
+    <xs:sequence>
+      <xs:element ref="ns1:dokument"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AppRecFault" type="AppRecFault"/>
+  <xs:complexType name="AppRecFault">
+    <xs:sequence>
+      <xs:element name="dokument" type="xs:anyType"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="M10Element" nillable="true" type="M10"/>
+  <xs:element name="AppRecElement" nillable="true" type="AppRec"/>
+  <xs:element name="M25_3Element" nillable="true" type="M25_3"/>
+  <xs:element name="M27_1Element" nillable="true" type="M27_1"/>
+  <xs:element name="M27_2Element" nillable="true" type="M27_2"/>
+  <xs:element name="MVElement" nillable="true" type="MV"/>
+  <xs:element name="M25_2Element" nillable="true" type="M25_2"/>
+  <xs:element name="M9_3Element" nillable="true" type="M9_3"/>
+  <xs:element name="M9_4Element" nillable="true" type="M9_4"/>
+  <xs:element name="M9_1Element" nillable="true" type="M9_1"/>
+  <xs:element name="M9_2Element" nillable="true" type="M9_2"/>
+  <xs:element name="M3Element" nillable="true" type="M3"/>
+  <xs:element name="M9_11Element" nillable="true" type="M9_11"/>
+  <xs:element name="M9_12Element" nillable="true" type="M9_12"/>
+  <xs:element name="M9_21Element" nillable="true" type="M9_21"/>
+  <xs:element name="M9_22Element" nillable="true" type="M9_22"/>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="UtlevererWebService_verifyResponse">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m3Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m25_3">
+    <wsdl:part element="tns:M25_3Element" name="M25_3Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m27_1">
+    <wsdl:part element="tns:M27_1Element" name="M27_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m25_2">
+    <wsdl:part element="tns:M25_2Element" name="M25_2Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_3Response">
+    <wsdl:part element="tns:M9_4Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m10Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AppRecFault">
+    <wsdl:part element="tns:AppRecFault" name="AppRecFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m3">
+    <wsdl:part element="tns:M3Element" name="M3Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_1Response">
+    <wsdl:part element="tns:M9_2Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m10">
+    <wsdl:part element="tns:M10Element" name="M10Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_verify">
+    <wsdl:part element="tns:MVElement" name="MVElement">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_3">
+    <wsdl:part element="tns:M9_3Element" name="M9_3Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_11Response">
+    <wsdl:part element="tns:M9_12Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_1">
+    <wsdl:part element="tns:M9_1Element" name="M9_1Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_21Response">
+    <wsdl:part element="tns:M9_22Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m27_1Response">
+    <wsdl:part element="tns:M27_2Element" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m25_3Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_11">
+    <wsdl:part element="tns:M9_11Element" name="M9_11Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m25_2Response">
+    <wsdl:part element="tns:AppRecElement" name="result">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UtlevererWebService_m9_21">
+    <wsdl:part element="tns:M9_21Element" name="M9_21Element">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="UtlevererWeb">
+    <wsdl:operation name="UtlevererWebService_m10">
+      <wsdl:input message="tns:UtlevererWebService_m10" name="UtlevererWebService_m10">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m10Response" name="UtlevererWebService_m10Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m25_3">
+      <wsdl:input message="tns:UtlevererWebService_m25_3" name="UtlevererWebService_m25_3">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m25_3Response" name="UtlevererWebService_m25_3Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m27_1">
+      <wsdl:input message="tns:UtlevererWebService_m27_1" name="UtlevererWebService_m27_1">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m27_1Response" name="UtlevererWebService_m27_1Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_verify">
+      <wsdl:input message="tns:UtlevererWebService_verify" name="UtlevererWebService_verify">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_verifyResponse" name="UtlevererWebService_verifyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m25_2">
+      <wsdl:input message="tns:UtlevererWebService_m25_2" name="UtlevererWebService_m25_2">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m25_2Response" name="UtlevererWebService_m25_2Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_3">
+      <wsdl:input message="tns:UtlevererWebService_m9_3" name="UtlevererWebService_m9_3">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m9_3Response" name="UtlevererWebService_m9_3Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_1">
+      <wsdl:input message="tns:UtlevererWebService_m9_1" name="UtlevererWebService_m9_1">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m9_1Response" name="UtlevererWebService_m9_1Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m3">
+      <wsdl:input message="tns:UtlevererWebService_m3" name="UtlevererWebService_m3">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m3Response" name="UtlevererWebService_m3Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_11">
+      <wsdl:input message="tns:UtlevererWebService_m9_11" name="UtlevererWebService_m9_11">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m9_11Response" name="UtlevererWebService_m9_11Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_21">
+      <wsdl:input message="tns:UtlevererWebService_m9_21" name="UtlevererWebService_m9_21">
+    </wsdl:input>
+      <wsdl:output message="tns:UtlevererWebService_m9_21Response" name="UtlevererWebService_m9_21Response">
+    </wsdl:output>
+      <wsdl:fault message="tns:AppRecFault" name="AppRecFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UtlevererWebServiceImplSoapBinding" type="tns:UtlevererWeb">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="UtlevererWebService_m10">
+      <soap:operation soapAction="M10" style="document"/>
+      <wsdl:input name="UtlevererWebService_m10">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m10Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m25_3">
+      <soap:operation soapAction="M25_3" style="document"/>
+      <wsdl:input name="UtlevererWebService_m25_3">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m25_3Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m27_1">
+      <soap:operation soapAction="M27_1" style="document"/>
+      <wsdl:input name="UtlevererWebService_m27_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m27_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_verify">
+      <soap:operation soapAction="Verify" style="document"/>
+      <wsdl:input name="UtlevererWebService_verify">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_verifyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m25_2">
+      <soap:operation soapAction="M25_2" style="document"/>
+      <wsdl:input name="UtlevererWebService_m25_2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m25_2Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_3">
+      <soap:operation soapAction="M9_3" style="document"/>
+      <wsdl:input name="UtlevererWebService_m9_3">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m9_3Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_1">
+      <soap:operation soapAction="M9_1" style="document"/>
+      <wsdl:input name="UtlevererWebService_m9_1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m9_1Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m3">
+      <soap:operation soapAction="M3" style="document"/>
+      <wsdl:input name="UtlevererWebService_m3">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m3Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_11">
+      <soap:operation soapAction="M9_11" style="document"/>
+      <wsdl:input name="UtlevererWebService_m9_11">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m9_11Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UtlevererWebService_m9_21">
+      <soap:operation soapAction="M9_21" style="document"/>
+      <wsdl:input name="UtlevererWebService_m9_21">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="UtlevererWebService_m9_21Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="AppRecFault">
+        <soap:fault name="AppRecFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UtlevererWebServiceImpl">
+    <wsdl:port binding="tns:UtlevererWebServiceImplSoapBinding" name="UtlevererWebPort">
+      <soap:address location="http://rf.test2-int.reseptformidleren.net/Utleverer/UtlevererWebServiceSoapHttpPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
