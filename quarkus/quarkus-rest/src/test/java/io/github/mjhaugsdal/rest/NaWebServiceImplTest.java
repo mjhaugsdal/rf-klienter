@@ -5,12 +5,8 @@ import io.github.mjhaugsdal.rest.types.na.M9Na1;
 import io.github.mjhaugsdal.rest.types.na.M9Na3;
 import io.github.mjhaugsdal.rest.types.na.MV;
 import io.quarkus.test.junit.QuarkusTest;
-import org.awaitility.Awaitility;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.time.Duration;
 
 @QuarkusTest
 class NaWebServiceImplTest {
@@ -19,16 +15,21 @@ class NaWebServiceImplTest {
     @RestClient
     NaWebService naWebService;
 
+    String testMessage = "Hello world!";
+
     @Test
     void naWebServiceVerify() {
-        naWebService.naWebServiceVerify(new MV());
+        var mv = new MV();
+        mv.setDokument(testMessage.getBytes());
+        naWebService.naWebServiceVerify(mv);
     }
 
     @Test
     void naWebServiceM9Na1() {
         try {
-//            Awaitility.await().pollDelay(Duration.ofMinutes(5)).timeout(Duration.ofMinutes(10)).untilAsserted(() -> Assertions.assertTrue(true));
-            naWebService.naWebServiceM9Na1(new M9Na1());
+            var m9na1 = new M9Na1();
+            m9na1.setDokument(testMessage.getBytes());
+            naWebService.naWebServiceM9Na1(m9na1);
         } catch (AppRecFault_Exception e) {
             throw new RuntimeException(e);
         }
@@ -38,7 +39,9 @@ class NaWebServiceImplTest {
     @Test
     void naWebServiceM9Na3() {
         try {
-            naWebService.naWebServiceM9Na3(new M9Na3());
+            var m9na3 = new M9Na3();
+            m9na3.setDokument(testMessage.getBytes());
+            naWebService.naWebServiceM9Na3(m9na3);
         } catch (AppRecFault_Exception e) {
             throw new RuntimeException(e);
         }
