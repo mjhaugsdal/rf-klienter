@@ -14,17 +14,4 @@ public class CustomJaxbContext {
     JAXBContext jaxbContext() throws JAXBException {
         return JAXBContext.newInstance("io.github.mjhaugsdal.rest.types");
     }
-
-    @Singleton
-    @Produces
-    Marshaller marshaller(JAXBContext jaxbContext) {
-        try {
-            var marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            return marshaller;
-
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

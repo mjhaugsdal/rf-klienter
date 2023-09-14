@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
-@QuarkusTestResource(CustomResource.class)
+@QuarkusTestResource(QuarkusRestTestServerContainer.class)
 class NaWebServiceImplTest {
 
 

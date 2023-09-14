@@ -1,6 +1,5 @@
 package io.github.mjhaugsdal.rest;
 
-import io.github.mjhaugsdal.rest.types.rekvirent.M242;
 import io.github.mjhaugsdal.rest.types.utleverer.AppRec;
 import io.github.mjhaugsdal.rest.types.utleverer.M272;
 import io.github.mjhaugsdal.rest.types.utleverer.M912;
@@ -14,7 +13,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
 
-public class UtlevererWebServiceImpl implements UtlevererWebService{
+public class UtlevererWebServiceImpl implements UtlevererWebService {
 
     @Path("/m10")
     @Consumes(MediaType.APPLICATION_XML)

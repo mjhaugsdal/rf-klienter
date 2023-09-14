@@ -22,8 +22,8 @@
     </properties>
 
     <modules>
-        <module>quarkus-rest</module>
         <module>quarkus-soap</module>
+        <module>quarkus-rest</module>
     </modules>
 
     <dependencyManagement>
