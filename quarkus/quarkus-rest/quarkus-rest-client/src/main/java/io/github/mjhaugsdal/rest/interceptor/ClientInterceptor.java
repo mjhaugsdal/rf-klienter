@@ -7,7 +7,7 @@ import com.nimbusds.jose.JWEObject;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSHeader;
 import com.nimbusds.jose.JWSObject;
-import com.nimbusds.jose.JWSVerifier;
+import com.nimbusds.jose.JWSSigner;
 import com.nimbusds.jose.Payload;
 import com.nimbusds.jose.crypto.RSADecrypter;
 import com.nimbusds.jose.crypto.RSAEncrypter;
@@ -30,8 +30,12 @@ import org.slf4j.LoggerFactory;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.security.Key;
 import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.PrivateKey;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.util.ArrayList;
@@ -47,49 +51,58 @@ public class ClientInterceptor implements ReaderInterceptor, WriterInterceptor {
     @Inject
     Unmarshaller unmarshaller;
 
+
+    KeyStore keyStore = KeyStore.getInstance("JKS");
+
+    CertificateFactory certificateFactory = CertificateFactory.getInstance("X509");
+
+    JWSSigner jwsSigner;
+
+    Key rsaDecryptionKey;
+
+    Certificate clientCertificate;
+
+    Certificate serverPublicCertificate;
+
+    ClientInterceptor() throws KeyStoreException, CertificateException {
+        try {
+            keyStore.load(ServerInterceptor.class.getClassLoader().getResourceAsStream("client/client.keystore"), "password".toCharArray());
+            rsaDecryptionKey = keyStore.getKey("client", "password".toCharArray());
+            jwsSigner = new RSASSASigner((PrivateKey) keyStore.getKey("client", "password".toCharArray()));
+            clientCertificate = keyStore.getCertificate("client");
+            serverPublicCertificate = keyStore.getCertificate("server");
+        } catch (Exception ex) {
+            throw new RuntimeException();
+        }
+    }
+
     @Override
     public Object aroundReadFrom(ReaderInterceptorContext context) throws IOException, WebApplicationException {
         try {
 
-            var ks = KeyStore.getInstance("JKS");
-            ks.load(ServerInterceptor.class.getClassLoader().getResourceAsStream("client/client.keystore"), "password".toCharArray());
-            var key = ks.getKey("client", "password".toCharArray());
-            System.err.println("Before reading " + context.getGenericType());
-//            Object entity = context.proceed();
-
             var is = context.getInputStream();
-//            var sw = new StringWriter();
-
-
-//            marshaller.marshal(entity, sw);
-
             var str = new String(is.readAllBytes());
-            // Parse into JWE object again...
             var jweObject = JWEObject.parse(str);
 
-
             // Decrypt
-            jweObject.decrypt(new RSADecrypter((PrivateKey) key));
-
+            jweObject.decrypt(new RSADecrypter((PrivateKey) rsaDecryptionKey));
             String s = jweObject.getPayload().toString();
-
-// To parse the JWS and verify it, e.g. on client-side
             var jwsObject = JWSObject.parse(s);
 
+            //Get key from JWS x5c header
             var x5c = jwsObject.getHeader().getX509CertChain().get(0).decode();
-            var certFactory = CertificateFactory.getInstance("X509");
-            var x509Certificate = certFactory.generateCertificate(new ByteArrayInputStream(x5c));
+            var x509Certificate = certificateFactory.generateCertificate(new ByteArrayInputStream(x5c));
+            var verifier = new RSASSAVerifier((RSAPublicKey) x509Certificate.getPublicKey());
 
-            JWSVerifier verifier = new RSASSAVerifier((RSAPublicKey) x509Certificate.getPublicKey());
+            var validSignature = jwsObject.verify(verifier);
+            if (!validSignature)
+                throw new RuntimeException(); //TODO
 
-            LOGGER.info(String.valueOf(jwsObject.verify(verifier)));
-            LOGGER.info(jwsObject.getPayload().toString());
+            LOGGER.info("After decryption: {}", jwsObject.getPayload().toString());
 
             var unmarshalled = unmarshaller.unmarshal(new ByteArrayInputStream(jwsObject.getPayload().toBytes()));
 
-            LOGGER.info(unmarshalled.toString());
             return unmarshalled;
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -98,31 +111,26 @@ public class ClientInterceptor implements ReaderInterceptor, WriterInterceptor {
     @Override
     public void aroundWriteTo(WriterInterceptorContext context) throws IOException, WebApplicationException {
         try {
-
-            var ks = KeyStore.getInstance("JKS");
-            var is = ClientInterceptor.class.getClassLoader().getResourceAsStream("client/client.keystore");
-            ks.load(is, "password".toCharArray());
-            var cert = ks.getCertificate("client");
-            var list = new ArrayList<Base64>();
-
-            var base64 = new com.nimbusds.jose.util.Base64(java.util.Base64.getEncoder().encodeToString(cert.getEncoded()));
-            list.add(base64);
+            var x5cHeader = new ArrayList<Base64>();
+            var base64EncodedCertificate = new com.nimbusds.jose.util.Base64(java.util.Base64.getEncoder().encodeToString(clientCertificate.getEncoded()));
+            x5cHeader.add(base64EncodedCertificate);
 
             var entity = context.getEntity();
             var sw = new StringWriter();
             marshaller.marshal(entity, sw);
-            var jwsSigner = new RSASSASigner((PrivateKey) ks.getKey("client", "password".toCharArray()));
+
+            LOGGER.info("Before encryption: {}", sw);
+
             var jwsObject = new JWSObject(
-                    new JWSHeader.Builder(JWSAlgorithm.RS256).contentType(MediaType.APPLICATION_XML).x509CertChain(list).build(),
+                    new JWSHeader.Builder(JWSAlgorithm.RS256).contentType(MediaType.APPLICATION_XML).x509CertChain(x5cHeader).build(),
                     new Payload(sw.toString()));
 
             jwsObject.sign(jwsSigner);
-            String serializedJws = jwsObject.serialize();
-
+            var serializedJws = jwsObject.serialize();
             var header = new JWEHeader(JWEAlgorithm.RSA_OAEP_256, EncryptionMethod.A256GCM);
             var payload = new Payload(serializedJws);
             var jweObject = new JWEObject(header, payload);
-            jweObject.encrypt(new RSAEncrypter((RSAPublicKey) ks.getCertificate("server").getPublicKey()));
+            jweObject.encrypt(new RSAEncrypter((RSAPublicKey) serverPublicCertificate.getPublicKey()));
             var serializedJwe = jweObject.serialize();
 
             context.setMediaType(MediaType.APPLICATION_JSON_TYPE);

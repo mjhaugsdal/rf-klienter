@@ -1,5 +1,6 @@
 package io.github.mjhaugsdal.rest;
 
+import io.github.mjhaugsdal.rest.types.na.M9Na3;
 import io.github.mjhaugsdal.rest.types.rekvirent.AppRecFault_Exception;
 import io.github.mjhaugsdal.rest.types.rekvirent.M1;
 import io.github.mjhaugsdal.rest.types.rekvirent.M241;
@@ -24,68 +25,96 @@ class RekvirentWebServiceImplTest {
     @RestClient
     RekvirentWebService rekvirentWebService;
 
+    static String testMessage = "Hello world!";
+
     @Test
     void rekvirentWebServiceM921() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM921(new M921());
+        var fagmelding = new M921();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM921(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM911() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM911(new M911());
+        var fagmelding = new M911();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM911(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM5() {
-        rekvirentWebService.rekvirentWebServiceM5(new M5());
+        var fagmelding = new M5();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM5(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM911Kj() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM911Kj(new M911Kj());
+        var fagmelding = new M911Kj();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM911Kj(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM97() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM97(new M97());
+        var fagmelding = new M97();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM97(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM95Kj() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM95Kj(new M95Kj());
+        var fagmelding = new M95Kj();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM95Kj(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM95() {
-        rekvirentWebService.rekvirentWebServiceM95(new M95());
+        var fagmelding = new M95();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM95(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM251() {
-        rekvirentWebService.rekvirentWebServiceM251(new M251());
+        var fagmelding = new M251();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM251(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM271() throws AppRecFault_Exception {
-        rekvirentWebService.rekvirentWebServiceM271(new M271());
+        var fagmelding = new M271();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM271(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM1() {
-        rekvirentWebService.rekvirentWebServiceM1(new M1());
+        var fagmelding = new M1();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM1(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM241() {
-        rekvirentWebService.rekvirentWebServiceM241(new M241());
+        var fagmelding = new M241();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM241(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceM41() {
-        rekvirentWebService.rekvirentWebServiceM241(new M241());
+        var fagmelding = new M241();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceM241(fagmelding);
     }
 
     @Test
     void rekvirentWebServiceVerify() {
-        rekvirentWebService.rekvirentWebServiceVerify(new MV());
+        var fagmelding = new MV();
+        fagmelding.setDokument(testMessage.getBytes());
+        rekvirentWebService.rekvirentWebServiceVerify(fagmelding);
     }
 }

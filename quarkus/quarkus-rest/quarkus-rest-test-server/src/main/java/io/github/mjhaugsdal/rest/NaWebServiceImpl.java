@@ -18,17 +18,20 @@ public class NaWebServiceImpl implements NaWebService {
 
 
     public AppRec naWebServiceVerify(MV parameters) {
-        LOGGER.info("Hello {}", parameters);
-        return new AppRec();
+        var response = new AppRec();
+        response.setDokument(parameters.getDokument());
+        return response;
     }
 
     public M9Na2 naWebServiceM9Na1(M9Na1 parameters) throws AppRecFault_Exception {
-        LOGGER.info("Hello {}", parameters);
-        return new M9Na2();
+        var response = new M9Na2();
+        response.setDokument(parameters.getDokument());
+        return response;
     }
 
     public M9Na4 naWebServiceM9Na3(M9Na3 parameters) throws AppRecFault_Exception {
-        LOGGER.info("Hello {}", parameters);
-        return new M9Na4();
+        var response = new M9Na4();
+        response.setDokument(parameters.getDokument());
+        return response;
     }
 }

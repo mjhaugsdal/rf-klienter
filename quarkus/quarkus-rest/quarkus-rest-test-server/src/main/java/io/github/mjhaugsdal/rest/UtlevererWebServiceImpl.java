@@ -1,5 +1,12 @@
 package io.github.mjhaugsdal.rest;
 
+import io.github.mjhaugsdal.rest.types.rekvirent.M242;
+import io.github.mjhaugsdal.rest.types.utleverer.AppRec;
+import io.github.mjhaugsdal.rest.types.utleverer.M272;
+import io.github.mjhaugsdal.rest.types.utleverer.M912;
+import io.github.mjhaugsdal.rest.types.utleverer.M92;
+import io.github.mjhaugsdal.rest.types.utleverer.M922;
+import io.github.mjhaugsdal.rest.types.utleverer.M94;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
@@ -14,7 +21,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.AppRec utlevererWebServiceM10(io.github.mjhaugsdal.rest.types.utleverer.M10 m10Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.AppRec();
+        var response = new AppRec();
+        response.setDokument(m10Element.getDokument());
+        return response;
     }
 
     @Path("/m253")
@@ -22,7 +31,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.AppRec utlevererWebServiceM253(io.github.mjhaugsdal.rest.types.utleverer.M253 m253Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.AppRec();
+        var response = new AppRec();
+        response.setDokument(m253Element.getDokument());
+        return response;
     }
 
     @Path("/m271")
@@ -30,7 +41,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.M272 utlevererWebServiceM271(io.github.mjhaugsdal.rest.types.utleverer.M271 m271Element) throws io.github.mjhaugsdal.rest.types.utleverer.AppRecFault_Exception {
-        return new io.github.mjhaugsdal.rest.types.utleverer.M272();
+        var response = new M272();
+        response.setDokument(m271Element.getDokument());
+        return response;
     }
 
     @Path("/verify")
@@ -38,7 +51,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.AppRec utlevererWebServiceVerify(io.github.mjhaugsdal.rest.types.utleverer.MV mvElement) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.AppRec();
+        var response = new AppRec();
+        response.setDokument(mvElement.getDokument());
+        return response;
     }
 
     @Path("/m252")
@@ -46,7 +61,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.AppRec utlevererWebServiceM252(io.github.mjhaugsdal.rest.types.utleverer.M252 m252Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.AppRec();
+        var response = new AppRec();
+        response.setDokument(m252Element.getDokument());
+        return response;
     }
 
     @Path("/m93")
@@ -54,7 +71,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.M94 utlevererWebServiceM93(io.github.mjhaugsdal.rest.types.utleverer.M93 m93Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.M94();
+        var response = new M94();
+        response.setDokument(m93Element.getDokument());
+        return response;
     }
 
     @Path("/m91")
@@ -62,7 +81,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.M92 utlevererWebServiceM91(io.github.mjhaugsdal.rest.types.utleverer.M91 m91Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.M92();
+        var response = new M92();
+        response.setDokument(m91Element.getDokument());
+        return response;
     }
 
     @Path("/m3")
@@ -71,7 +92,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @POST
 
     public io.github.mjhaugsdal.rest.types.utleverer.AppRec utlevererWebServiceM3(io.github.mjhaugsdal.rest.types.utleverer.M3 m3Element) {
-        return new io.github.mjhaugsdal.rest.types.utleverer.AppRec();
+        var response = new AppRec();
+        response.setDokument(m3Element.getDokument());
+        return response;
     }
 
     @Path("/m911")
@@ -79,7 +102,9 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.M912 utlevererWebServiceM911(io.github.mjhaugsdal.rest.types.utleverer.M911 m911Element) throws io.github.mjhaugsdal.rest.types.utleverer.AppRecFault_Exception {
-        return new io.github.mjhaugsdal.rest.types.utleverer.M912();
+        var response = new M912();
+        response.setDokument(m911Element.getDokument());
+        return response;
     }
 
     @Path("/m921")
@@ -87,6 +112,8 @@ public class UtlevererWebServiceImpl implements UtlevererWebService{
     @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")
     @POST
     public io.github.mjhaugsdal.rest.types.utleverer.M922 utlevererWebServiceM921(io.github.mjhaugsdal.rest.types.utleverer.M921 m921Element) throws io.github.mjhaugsdal.rest.types.utleverer.AppRecFault_Exception {
-        return new io.github.mjhaugsdal.rest.types.utleverer.M922();
+        var response = new M922();
+        response.setDokument(m921Element.getDokument());
+        return response;
     }
 }
