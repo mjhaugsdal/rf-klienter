@@ -6,16 +6,16 @@
     <parent>
         <groupId>io.github.mjhaugsdal.quarkus</groupId>
         <artifactId>quarkus-rest</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>quarkus-rest-test-server</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>io.github.mjhaugsdal.quarkus</groupId>
             <artifactId>quarkus-rest-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
-            <version>9.31</version>
+            <version>${nimbus-jose.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>

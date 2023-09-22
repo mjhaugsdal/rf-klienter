@@ -6,22 +6,22 @@
     <parent>
         <groupId>io.github.mjhaugsdal.quarkus</groupId>
         <artifactId>quarkus-rest</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>quarkus-rest-client</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
             <groupId>io.github.mjhaugsdal.quarkus</groupId>
             <artifactId>quarkus-rest-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.mjhaugsdal.quarkus</groupId>
             <artifactId>quarkus-rest-test-server</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -53,16 +53,14 @@
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
         <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
-            <version>9.31</version>
+            <version>${nimbus-jose.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
-<!--            <version>5.7.0</version>-->
             <scope>test</scope>
         </dependency>
     </dependencies>
