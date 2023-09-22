@@ -26,6 +26,7 @@
         <xml-schemas.version>4.0.0</xml-schemas.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <opensaml.version>4.0.1</opensaml.version>
+        <junit-bom.version>5.10.0</junit-bom.version>
     </properties>
 
     <dependencyManagement>
@@ -34,6 +35,14 @@
                 <groupId>io.github.mjhaugsdal</groupId>
                 <artifactId>bom</artifactId>
                 <version>${xml-schemas.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit-bom.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

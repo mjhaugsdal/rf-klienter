@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Utils {
-    static XMLGregorianCalendar getXmlgregorianCalendar() {
+    public static XMLGregorianCalendar getXmlgregorianCalendar() {
         XMLGregorianCalendar xmlDate;
         var gc = new GregorianCalendar();
         gc.setTime(new Date());
