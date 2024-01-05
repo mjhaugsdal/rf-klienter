@@ -37,10 +37,6 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jetty -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-        </dependency>
-        <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>soap</artifactId>
             <version>1.0.1-SNAPSHOT</version>
