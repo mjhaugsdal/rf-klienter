@@ -20,6 +20,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.junit/junit-bom -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.10.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -39,6 +47,14 @@
         <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>er-m9na2-2016-10-26</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.mjhaugsdal</groupId>
+            <artifactId>er-m9na3-2016-06-06</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.mjhaugsdal</groupId>
+            <artifactId>er-m9na4-2016-06-06</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
@@ -67,7 +83,23 @@
         <dependency>
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
-            <version>4.0.0</version> <!-- TODO remove? -->
+            <version>4.0.1</version> <!-- TODO remove? -->
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.3</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>

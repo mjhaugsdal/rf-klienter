@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MsgHead xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kith.no/xmlstds/msghead/2006-05-24 MsgHead-v1_2.xsd" xmlns="http://www.kith.no/xmlstds/msghead/2006-05-24">
 	<MsgInfo>
-		<Type V="ERM9NA1" DN="Forespørsel om reseptliste fra nettkunde" />
+		<Type V="ERM9NA3" DN="Forespørsel om utvidet informasjon på resept fra nettkunde" />
 		<MIGversion>v1.2 2006-05-24</MIGversion>
-		<GenDate>2022-01-31T16:17:11+01:00</GenDate>
-		<MsgId>730912f6-d3fd-4bae-95b7-42627fda155e</MsgId>
+		<GenDate>2022-01-31T16:17:18+01:00</GenDate>
+		<MsgId>caca2501-51e0-420c-a502-c11d7f6b4504</MsgId><ConversationRef><RefToParent>7a0aa67e-6aa4-4c32-a7fd-87631aa707d7</RefToParent><RefToConversation>730912f6-d3fd-4bae-95b7-42627fda155e</RefToConversation></ConversationRef>
 		<Sender>
 			<Organisation>
 				<OrganisationName>Testapotek Monier</OrganisationName>
@@ -47,7 +47,7 @@
 			<Ident>
 				<Id>07059616301</Id>
 				<TypeId V="FNR" S="2.16.578.1.12.4.1.1.8116" DN="Fødselsnummer" />
-			</Ident>
+			</Ident>                
 		</Patient>
 	</MsgInfo>
 	<Document>
@@ -55,12 +55,13 @@
 		<RefDoc>
 			<MsgType V="XML" DN="XML-instans" />
 			<Content>
-				<M9NA1 xmlns="http://www.kith.no/xmlstds/eresept/m9na1/2016-06-06">
+				<M9NA3 xmlns="http://www.kith.no/xmlstds/eresept/m9na3/2016-06-06">
 					<IdKunde>
 						<fk:Id xmlns:fk="http://www.kith.no/xmlstds/felleskomponent1">07059616301</fk:Id>
 						<fk:TypeId xmlns:fk="http://www.kith.no/xmlstds/felleskomponent1" V="FNR" S="2.16.578.1.12.4.1.1.8116" DN="Fødselsnummer" />
 					</IdKunde>
-				</M9NA1>
+					<ReseptId>758013da-95ac-4b0f-8383-0737a1817839</ReseptId>
+				</M9NA3>
 			</Content>
 		</RefDoc>
 	</Document>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MsgHead xsi:schemaLocation="http://www.kith.no/xmlstds/msghead/2006-05-24 ../felles/MsgHead-v1_2.xsd" xmlns="http://www.kith.no/xmlstds/msghead/2006-05-24" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MsgInfo>
+		<Type DN="Reseptliste nettkunde" V="ERM9NA2"/>
+		<MIGversion>v1.2 2006-05-24</MIGversion>
+		<GenDate>2022-01-31T16:17:09.936+01:00</GenDate>
+		<MsgId>7a0aa67e-6aa4-4c32-a7fd-87631aa707d7</MsgId>
+		<ConversationRef>
+			<RefToParent>730912f6-d3fd-4bae-95b7-42627fda155e</RefToParent>
+			<RefToConversation>730912f6-d3fd-4bae-95b7-42627fda155e</RefToConversation>
+		</ConversationRef>
+		<Sender>
+			<Organisation>
+				<OrganisationName>Reseptformidleren</OrganisationName>
+				<Ident>
+					<Id>994598759</Id>
+					<TypeId V="ENH" DN="Organisasjonsnummeret i Enhetsregister" S="2.16.578.1.12.4.1.1.9051"/>
+				</Ident>
+				<Ident>
+					<Id>80624</Id>
+					<TypeId V="HER" DN="HER-id" S="2.16.578.1.12.4.1.1.9051"/>
+				</Ident>
+			</Organisation>
+		</Sender>
+		<Receiver>
+			<Organisation>
+				<OrganisationName>Testapotek Monier</OrganisationName>
+				<Ident>
+					<Id>100149184</Id>
+					<TypeId V="ENH" S="2.16.578.1.12.4.1.1.9051" DN="Organisasjonsnummeret i Enhetsregister (Brønnøysund)"/>
+				</Ident>
+				<Ident>
+					<Id>100100185</Id>
+					<TypeId V="LOK" S="2.16.578.1.12.4.1.1.9051" DN="Lokal identifikator uten nærmere angivelse"/>
+				</Ident>
+				<Ident>
+					<Id>8069</Id>
+					<TypeId V="AKO" S="2.16.578.1.12.4.1.1.9051" DN="Apotekets konsesjonsnummer"/>
+				</Ident>
+				<Ident>
+					<Id>8094938</Id>
+					<TypeId V="HER" S="2.16.578.1.12.4.1.1.9051" DN="Identifikator fra Helsetjenesteenhetsregisteret (HER-id)"/>
+				</Ident>
+				<TeleCom>
+					<TypeTelecom V="HP" DN="Hovedtelefon"/>
+					<TeleAddress V="tel:23 20 41 00"/>
+				</TeleCom>
+			</Organisation>
+		</Receiver>
+		<Patient>
+			<FamilyName>HANSEN</FamilyName>
+			<MiddleName/>
+			<GivenName>GEIR</GivenName>
+			<Ident>
+				<Id>07059616301</Id>
+				<TypeId V="FNR" S="2.16.578.1.12.4.1.1.8116" DN="Fødselsnummer"/>
+			</Ident>                
+		</Patient>
+	</MsgInfo>
+	<Document>
+		<RefDoc>
+			<MsgType DN="XML-instans" V="XML"/>
+			<ns:Content xsi:schemaLocation="http://www.kith.no/xmlstds/eresept/m9na2/2016-10-26 ER-M9NA2-2016-10-26.xsd" xmlns="http://www.kith.no/xmlstds/eresept/m9na2/2016-10-26" xmlns:kith="http://www.kith.no/xmlstds" xmlns:ns="http://www.kith.no/xmlstds/msghead/2006-05-24">
+				<M9NA2>
+					<Antall>4</Antall>
+					<Reseptinfo>
+						<Forskrivningsdato>2021-08-20+02:00</Forskrivningsdato>
+						<ReseptId>758013da-95ac-4b0f-8383-0737a1817839</ReseptId>
+						<Nr>487256</Nr>
+						<NavnFormStyrke>Pinex Forte Stikkpille 500 mg/30 mg</NavnFormStyrke>
+						<Antall>1</Antall>
+						<RekvirentId>431001901</RekvirentId>
+						<NavnRekvirent>Sondre Psa Guttormsen</NavnRekvirent>
+						<Status DN="Ekspederbar" V="E"/>
+						<SisteUtlevering>2021-09-02+02:00</SisteUtlevering>
+					</Reseptinfo>
+					<Reseptinfo>
+						<Forskrivningsdato>2021-02-22+01:00</Forskrivningsdato>
+						<ReseptId>bfc6330a-1b09-443c-a495-1b292423593e</ReseptId>
+						<Nr>122275</Nr>
+						<NavnFormStyrke>Rinexin DEPOTtab 25 mg</NavnFormStyrke>
+						<Bruksomrade>AVFØRENDE MIDDEL</Bruksomrade>
+						<Antall>1</Antall>
+						<RekvirentId>431001901</RekvirentId>
+						<NavnRekvirent>Sondre Psa Guttormsen</NavnRekvirent>
+						<Status DN="Ekspederbar" V="E"/>
+					</Reseptinfo>
+					<Reseptinfo>
+						<Forskrivningsdato>2021-09-28+02:00</Forskrivningsdato>
+						<ReseptId>309D6295-5B68-4747-B3BB-999EB2813FC4</ReseptId>
+						<Nr>424036</Nr>
+						<NavnFormStyrke>Dolcontin DEPOTtab 10 mg</NavnFormStyrke>
+						<Bruksomrade>MOT SMERTER</Bruksomrade>
+						<Antall>1</Antall>
+						<RekvirentId>431001984</RekvirentId>
+						<NavnRekvirent>Mina Høk</NavnRekvirent>
+						<Status DN="Ekspederbar" V="E"/>
+						<RefHjemmel V="302" DN="§5-14 §3b" S="2.16.578.1.12.4.1.1.7427"/>
+					</Reseptinfo>
+					<Reseptinfo>
+						<Forskrivningsdato>2021-09-02+02:00</Forskrivningsdato>
+						<ReseptId>FFF54FF0-C8D6-4AEF-85F6-B8226135AF4B</ReseptId>
+						<Nr>551739</Nr>
+						<NavnFormStyrke>Morfin Tab 10 mg</NavnFormStyrke>
+						<Bruksomrade>MOT SMERTER</Bruksomrade>
+						<Antall>1</Antall>
+						<RekvirentId>431001984</RekvirentId>
+						<NavnRekvirent>Mina Høk</NavnRekvirent>
+						<Status DN="Ekspederbar" V="E"/>
+						<RefHjemmel V="302" DN="§5-14 §3b" S="2.16.578.1.12.4.1.1.7427"/>
+					</Reseptinfo>
+				</M9NA2>
+			</ns:Content>
+		</RefDoc>
+	</Document>
+</MsgHead>
