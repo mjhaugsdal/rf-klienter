@@ -36,7 +36,7 @@ public class XMLUtil {
     }
 
     public String marshall(Object objectToBeMarshalled) throws JAXBException {
-        StringWriter sw = new StringWriter();
+        var sw = new StringWriter();
         marshaller.marshal(objectToBeMarshalled, sw);
         return sw.toString();
     }
