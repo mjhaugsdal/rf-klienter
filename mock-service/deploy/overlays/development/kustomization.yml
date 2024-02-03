@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+  - ingress-route-tcp.yml
+components:
+  - ../../components/mock-service
+
+
+configMapGenerator:
+  - name: mock-service
+    behavior: merge
+    literals:
+      - rekvirent.address=http://0.0.0.0:8881
+      - utleverer.address=http://0.0.0.0:8882
+      - na.address=http://0.0.0.0:8883
+      - rest.na.address=http://0.0.0.0:8888
+      - rest.utleverer.address=http://0.0.0.0:8889
+      - rest.rekvirent.address=http://0.0.0.0:8890

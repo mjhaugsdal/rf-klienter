@@ -10,7 +10,6 @@ import org.apache.cxf.feature.Feature;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class MockServiceJAXWSConfiguration {
     public Server naEndpoint() {
         JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new NaWebService());
-        bean.setAddress(this.naAddress + "/NA");
+        bean.setAddress(this.naAddress + "/v1/" + "NA");
         bean.setFeatures(this.featureList);
         WSTestUtils.setupWSSEServer(bean, this.naEncrypt, this.naSign);
         return bean.create();
@@ -60,7 +59,7 @@ public class MockServiceJAXWSConfiguration {
     public Server rekvirentEndpoint() {
         JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new RekvirentWebservice());
-        bean.setAddress(this.rekvirentAddress + "/Rekvirent");
+        bean.setAddress(this.rekvirentAddress + "/v1/" +"Rekvirent");
         bean.setFeatures(this.featureList);
         WSTestUtils.setupWSSEServer(bean, this.rekvirentEncrypt, this.rekvirentSign);
         return bean.create();
@@ -70,7 +69,7 @@ public class MockServiceJAXWSConfiguration {
     public Server utlevererEndpoint() {
         JaxWsServerFactoryBean bean = new JaxWsServerFactoryBean();
         bean.setServiceBean(new UtlevererWebservice());
-        bean.setAddress(this.utlevererAddress + "/Utleverer");
+        bean.setAddress(this.utlevererAddress + "/v1/" +"Utleverer");
         bean.setFeatures(this.featureList);
         WSTestUtils.setupWSSEServer(bean, this.utlevererEncrypt, this.utlevererSign);
         return bean.create();

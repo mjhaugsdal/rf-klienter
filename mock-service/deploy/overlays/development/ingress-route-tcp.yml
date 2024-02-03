@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-mock-service-traffic
+  namespace: default # Make sure this matches the namespace of your service
+spec:
+  podSelector:
+    matchLabels:
+      app: mock-service
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - ipBlock:
+            cidr: 0.0.0.0/0 # Allows traffic from any source, adjust as necessary
+      ports:
+        - protocol: TCP
+          port: 8881
+        - protocol: TCP
+          port: 8882
+        - protocol: TCP
+          port: 8883
+        - protocol: TCP
+          port: 8888
+        - protocol: TCP
+          port: 8889
+        - protocol: TCP
+          port: 8890

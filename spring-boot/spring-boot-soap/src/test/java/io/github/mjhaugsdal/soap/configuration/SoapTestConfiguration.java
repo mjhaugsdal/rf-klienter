@@ -10,6 +10,7 @@ import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.test.util.TestSocketUtils;
 
 import java.util.ArrayList;
@@ -19,12 +20,13 @@ import static io.github.mjhaugsdal.soap.WSTestUtils.setupWSSEServer;
 
 
 @TestConfiguration
+@Profile("default")
 public class SoapTestConfiguration {
 
     static {
-        System.setProperty("rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
-        System.setProperty("utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
-        System.setProperty("na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort() + "/v1");
+        System.setProperty("utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v1");
+        System.setProperty("na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v1");
     }
 
     @Value("${rekvirent.sign}")

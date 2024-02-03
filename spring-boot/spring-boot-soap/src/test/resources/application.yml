@@ -1,22 +1,17 @@
-#soap:
-#  encrypt: true
-#  sign: true
-#  address: http://localhost:8881/
-
 rekvirent:
   encrypt: true
   sign: true
-  address: http://localhost:8881
+  address: http://localhost:8881/v1
 
 utleverer:
   encrypt: true
   sign: true
-  address: http://localhost:8882
+  address: http://localhost:8882/v1
 
 na:
   encrypt: true
   sign: true
-  address: http://localhost:8883
+  address: http://localhost:8883/v1
 
 rest:
   server:

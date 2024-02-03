@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-service
+  labels:
+    app: mock-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-service
+  template:
+    metadata:
+      name: mock-service
+      labels:
+        app: mock-service
+    spec:
+      containers:
+        - name: mock-service
+          image: docker.io/library/mock-service:latest #TODO
+          ports:
+            - containerPort: 8888
+            - containerPort: 8889
+            - containerPort: 8890
+            - containerPort: 8881
+            - containerPort: 8882
+            - containerPort: 8883
+            - containerPort: 8884
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: mock-service
+      restartPolicy: Always
+#      hostNetwork: true #TODO
+      

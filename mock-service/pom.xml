@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.2</version>
+        <version>3.2.2</version>
         <relativePath/>
     </parent>
 
@@ -16,9 +16,27 @@
     <description>mock-service</description>
     <properties>
         <java.version>17</java.version>
-        <cxf.version>4.0.2</cxf.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <xmlsec.version>4.0.1</xmlsec.version>
         <snakeyaml.version>2.2</snakeyaml.version>
+        <cxf.version>4.0.3</cxf.version>
+        <native-image-agent.argLine>
+            -agentlib:native-image-agent=config-merge-dir=${project.build.outputDirectory}/META-INF/native-image
+        </native-image-agent.argLine>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-bom</artifactId>
+                <version>${cxf.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -35,7 +53,16 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jetty -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http-netty-server</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.github.mjhaugsdal</groupId>
             <artifactId>soap</artifactId>
@@ -68,9 +95,14 @@
             <artifactId>cxf-spring-boot-starter-jaxws</artifactId>
             <version>${cxf.version}</version>
         </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.cxf</groupId>-->
+        <!--            <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>-->
+        <!--            <version>${cxf.version}</version>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+            <artifactId>cxf-rt-ws-security</artifactId>
             <version>${cxf.version}</version>
         </dependency>
         <dependency>
@@ -92,13 +124,50 @@
             <artifactId>cxf-rt-features-logging</artifactId>
             <version>${cxf.version}</version>
         </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+        </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>native</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.1.2</version>
+                        <configuration>
+                            <argLine>${native-image-agent.argLine}</argLine>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <image>
+                        <name>${project.artifactId}:latest</name>
+                        <!--                        <network>host</network>-->
+                        <builder>paketobuildpacks/builder-jammy-tiny:latest</builder>
+                        <runImage>paketobuildpacks/run-jammy-tiny:latest</runImage>
+                        <env>
+                            <BP_JVM_VERSION>17</BP_JVM_VERSION>
+                        </env>
+                    </image>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

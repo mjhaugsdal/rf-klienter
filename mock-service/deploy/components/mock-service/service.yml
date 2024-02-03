@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mock-service
+spec:
+  selector:
+    app: mock-service
+  ports:
+    - protocol: TCP
+      name: rekvirent-soap
+      port: 8881
+      targetPort: 8881
+    - protocol: TCP
+      name: utleverer-soap
+      port: 8882
+      targetPort: 8882
+    - protocol: TCP
+      name: na-soap
+      port: 8883
+      targetPort: 8883
+    - protocol: TCP
+      name: na-rest
+      port: 8888
+      targetPort: 8888
+    - protocol: TCP
+      name: rekvirent-rest
+      port: 8889
+      targetPort: 8889
+    - protocol: TCP
+      name: utleverer-rest
+      port: 8890
+      targetPort: 8890
+    - protocol: TCP
+      name: swagger
+      port: 8884
+      targetPort: 8884
+  type: LoadBalancer
+  

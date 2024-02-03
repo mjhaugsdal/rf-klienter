@@ -4,6 +4,11 @@ import io.github.mjhaugsdal.rest.NaWebServiceImpl;
 import io.github.mjhaugsdal.rest.RekvirentWebServiceImpl;
 import io.github.mjhaugsdal.rest.UtlevererWebServiceImpl;
 import io.github.mjhaugsdal.rest.configuration.RestTestConfiguration;
+import io.github.mjhaugsdal.soap.SoapClient;
+import io.github.mjhaugsdal.soap.controller.RestController;
+import no.ergo.reseptformidleren.webservices.na.NAWeb;
+import no.ergo.reseptformidleren.webservices.rekvirent.RekvirentWeb;
+import no.ergo.reseptformidleren.webservices.utleverer.UtlevererWeb;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
@@ -36,12 +41,11 @@ public class MockServiceJAXRSConfiguration {
     @Value("${use.jwk}")
     String jwk;
 
-
     @Bean
     public Server naServer() {
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(NaWebServiceImpl.class);
-        serverFactoryBean.setAddress(naAddress + "/" + "NA");
+        serverFactoryBean.setAddress(naAddress + "/v2/" + "NA");
         commonSetup(serverFactoryBean, jwk);
         return serverFactoryBean.create();
     }
@@ -50,7 +54,7 @@ public class MockServiceJAXRSConfiguration {
     public Server utlevererServer() {
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(UtlevererWebServiceImpl.class);
-        serverFactoryBean.setAddress(utlevererAddress + "/" + "Utleverer");
+        serverFactoryBean.setAddress(utlevererAddress + "/v2/" + "Utleverer");
         commonSetup(serverFactoryBean, jwk);
         return serverFactoryBean.create();
     }
@@ -60,7 +64,7 @@ public class MockServiceJAXRSConfiguration {
     public Server rekvirentServer() {
         var serverFactoryBean = new JAXRSServerFactoryBean();
         serverFactoryBean.setServiceClass(RekvirentWebServiceImpl.class);
-        serverFactoryBean.setAddress(rekvirentAddress + "/" + "Rekvirent");
+        serverFactoryBean.setAddress(rekvirentAddress + "/v2/" + "Rekvirent");
         commonSetup(serverFactoryBean, jwk);
         return serverFactoryBean.create();
     }

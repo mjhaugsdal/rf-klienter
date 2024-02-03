@@ -13,6 +13,7 @@ import org.apache.cxf.rs.security.jose.jaxrs.JwsWriterInterceptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.test.util.TestSocketUtils;
 
 
@@ -22,12 +23,13 @@ import java.util.List;
 import java.util.Properties;
 
 @TestConfiguration
+@Profile("default")
 public class RestTestConfiguration {
 
     static {
-        System.setProperty("rest.na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
-        System.setProperty("rest.rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
-        System.setProperty("rest.utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort());
+        System.setProperty("rest.na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort() + "/v2");
+        System.setProperty("rest.rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v2");
+        System.setProperty("rest.utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v2");
     }
 
     @Value("${rest.na.address}")
