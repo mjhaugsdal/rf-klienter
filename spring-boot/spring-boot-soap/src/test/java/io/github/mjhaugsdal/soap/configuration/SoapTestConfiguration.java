@@ -25,8 +25,8 @@ public class SoapTestConfiguration {
 
     static {
         System.setProperty("rekvirent.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort() + "/v1");
-        System.setProperty("utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v1");
-        System.setProperty("na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort()+ "/v1");
+        System.setProperty("utleverer.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort() + "/v1");
+        System.setProperty("na.address", "http://localhost:" + TestSocketUtils.findAvailableTcpPort() + "/v1");
     }
 
     @Value("${rekvirent.sign}")
@@ -53,6 +53,9 @@ public class SoapTestConfiguration {
     @Value("${na.encrypt}")
     boolean naEncrypt;
 
+    @Value("${ecdh:false}")
+    boolean ecdh;
+
     @Value("${na.address}")
     String naAddress;
     List<Feature> featureList = new ArrayList<>();
@@ -70,7 +73,7 @@ public class SoapTestConfiguration {
         bean.setServiceBean(new NaWebService());
         bean.setAddress(naAddress + "/NA");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, naEncrypt, naSign);
+        setupWSSEServer(bean, naEncrypt, naSign, ecdh);
         return bean.create();
     }
 
@@ -80,7 +83,7 @@ public class SoapTestConfiguration {
         bean.setServiceBean(new RekvirentWebservice());
         bean.setAddress(rekvirentAddress + "/Rekvirent");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, rekvirentEncrypt, rekvirentSign);
+        setupWSSEServer(bean, rekvirentEncrypt, rekvirentSign, ecdh);
         return bean.create();
     }
 
@@ -90,7 +93,7 @@ public class SoapTestConfiguration {
         bean.setServiceBean(new UtlevererWebservice());
         bean.setAddress(utlevererAddress + "/Utleverer");
         bean.setFeatures(featureList);
-        setupWSSEServer(bean, utlevererEncrypt, utlevererSign);
+        setupWSSEServer(bean, utlevererEncrypt, utlevererSign, ecdh);
         return bean.create();
     }
 }

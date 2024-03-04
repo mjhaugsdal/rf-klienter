@@ -43,6 +43,9 @@ public class SoapConfiguration {
     @Value("${na.encrypt}")
     boolean naEncrypt;
 
+    @Value("${ecdh:false}")
+    boolean ecdh;
+
     @Value("${na.address}")
     String naAddress;
 
@@ -61,7 +64,7 @@ public class SoapConfiguration {
         bean.setServiceClass(NAWeb.class);
         bean.setAddress(naAddress + "/NA"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, naEncrypt, naSign);
+        WSUtils.setupWSSEClient(bean, naEncrypt, naSign, ecdh);
         return (NAWeb) bean.create();
     }
 
@@ -71,7 +74,7 @@ public class SoapConfiguration {
         bean.setServiceClass(RekvirentWeb.class);
         bean.setAddress(rekvirentAddress + "/Rekvirent"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, rekvirentEncrypt, utlevererSign);
+        WSUtils.setupWSSEClient(bean, rekvirentEncrypt, utlevererSign, ecdh);
         return (RekvirentWeb) bean.create();
     }
 
@@ -81,7 +84,7 @@ public class SoapConfiguration {
         bean.setServiceClass(UtlevererWeb.class);
         bean.setAddress(utlevererAddress + "/Utleverer"); //TODO portkonfig
         bean.setFeatures(featureList);
-        WSUtils.setupWSSEClient(bean, utlevererEncrypt, utlevererSign);
+        WSUtils.setupWSSEClient(bean, utlevererEncrypt, utlevererSign, ecdh);
         return (UtlevererWeb) bean.create();
     }
 

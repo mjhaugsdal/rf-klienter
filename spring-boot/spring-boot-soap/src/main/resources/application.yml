@@ -19,3 +19,5 @@ rest:
 
 server:
   port: 8081
+
+ecdh: true
