@@ -18,9 +18,9 @@
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <xmlsec.version>4.0.1</xmlsec.version>
+        <xmlsec.version>4.0.2</xmlsec.version>
         <snakeyaml.version>2.2</snakeyaml.version>
-        <cxf.version>4.0.3</cxf.version>
+        <cxf.version>4.0.4</cxf.version>
         <native-image-agent.argLine>
             -agentlib:native-image-agent=config-merge-dir=${project.build.outputDirectory}/META-INF/native-image
         </native-image-agent.argLine>
