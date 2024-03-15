@@ -95,13 +95,6 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${project.basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
-                                    <bindingFiles>
-                                        <bindingFile>${project.basedir}/src/test/resources/bindings/bindings.xjb</bindingFile>
-                                    </bindingFiles>
-                                    <extraargs>
-                                        <extraarg>-databinding</extraarg>
-                                        <extraarg>jaxb</extraarg>
-                                    </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
@@ -117,13 +110,6 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${project.basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
-                                    <bindingFiles>
-                                        <bindingFile>${project.basedir}/src/test/resources/bindings/bindings.xjb</bindingFile>
-                                    </bindingFiles>
-                                    <extraargs>
-                                        <extraarg>-databinding</extraarg>
-                                        <extraarg>jaxb</extraarg>
-                                    </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
@@ -139,13 +125,6 @@
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>${project.basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>
-                                    <bindingFiles>
-                                        <bindingFile>${project.basedir}/src/test/resources/bindings/bindings.xjb</bindingFile>
-                                    </bindingFiles>
-                                    <extraargs>
-                                        <extraarg>-databinding</extraarg>
-                                        <extraarg>jaxb</extraarg>
-                                    </extraargs>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
