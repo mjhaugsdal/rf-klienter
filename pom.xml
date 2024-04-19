@@ -20,12 +20,12 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <cxf.version>4.0.3</cxf.version>
-        <xmlsec.version>4.0.1</xmlsec.version>
+        <cxf.version>4.0.4</cxf.version>
+        <xmlsec.version>4.0.2</xmlsec.version>
         <xml-schemas.version>4.2.0</xml-schemas.version>
         <snakeyaml.version>2.2</snakeyaml.version>
         <opensaml.version>4.0.1</opensaml.version>
-        <surefire-plugin.version>3.2.3</surefire-plugin.version>
+        <surefire-plugin.version>3.2.5</surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
