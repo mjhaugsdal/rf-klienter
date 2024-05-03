@@ -6,6 +6,8 @@ import io.github.mjhaugsdal.rest.UtlevererWebServiceImpl;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
+import org.apache.cxf.jaxrs.openapi.OpenApiFeature;
+import org.apache.cxf.jaxrs.swagger.ui.SwaggerUiConfig;
 import org.apache.cxf.rs.security.jose.jaxrs.JweContainerRequestFilter;
 import org.apache.cxf.rs.security.jose.jaxrs.JweWriterInterceptor;
 import org.apache.cxf.rs.security.jose.jaxrs.JwsContainerRequestFilter;
@@ -78,6 +80,15 @@ public class RestTestConfiguration {
         loggingFeature.setPrettyLogging(true);
         serverFactoryBean.getFeatures().add(loggingFeature);
 
+        final OpenApiFeature feature = new OpenApiFeature();
+        feature.setContactEmail("cxf@apache.org");
+        feature.setLicense("Apache 2.0 License");
+        feature.setLicenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html");
+        var config = new SwaggerUiConfig();
+        config.setQueryConfigEnabled(true);
+        feature.setSwaggerUiConfig(config);
+        serverFactoryBean.getFeatures().add(feature);
+
         List<Object> providers = new LinkedList<>();
         providers.add("com.fasterxml.jackson.jaxrs.xml.JacksonJaxbXMLProvider");
 
@@ -101,6 +112,7 @@ public class RestTestConfiguration {
         providers.add(jwsContainerRequestFilter);
         providers.add(jweWriterInterceptor);
         providers.add(jwsWriterInterceptor);
+
 
         serverFactoryBean.setProviders(providers);
 

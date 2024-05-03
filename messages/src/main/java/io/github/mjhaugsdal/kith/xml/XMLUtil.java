@@ -11,15 +11,13 @@ import java.nio.charset.StandardCharsets;
 
 public class XMLUtil {
 
-    private static JAXBContext jaxbContext;
-
     private static Marshaller marshaller;
 
     private static jakarta.xml.bind.Unmarshaller unmarshaller;
 
     public XMLUtil(Class<?>... classes) {
         try {
-            jaxbContext = JAXBContext.newInstance(classes);
+            var jaxbContext = JAXBContext.newInstance(classes);
             unmarshaller = jaxbContext.createUnmarshaller();
             marshaller = jaxbContext.createMarshaller();
         } catch (JAXBException e) {
