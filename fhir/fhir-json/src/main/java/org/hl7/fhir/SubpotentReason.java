@@ -1,4 +1,8 @@
-public class SubPotentReason{
+package org.hl7.fhir;
+
+import jakarta.json.bind.annotation.JsonbProperty;
+
+public class SubpotentReason{
 
 	@JsonbProperty("description")
 	private String description;

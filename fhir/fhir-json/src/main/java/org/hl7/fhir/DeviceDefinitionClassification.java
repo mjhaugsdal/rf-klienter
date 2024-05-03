@@ -1,3 +1,8 @@
+package org.hl7.fhir;
+
+import java.util.List;
+import jakarta.json.bind.annotation.JsonbProperty;
+
 public class DeviceDefinitionClassification{
 
 	@JsonbProperty("description")

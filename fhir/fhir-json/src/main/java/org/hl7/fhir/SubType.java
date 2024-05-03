@@ -1,4 +1,8 @@
-public class Subtype{
+package org.hl7.fhir;
+
+import jakarta.json.bind.annotation.JsonbProperty;
+
+public class SubType{
 
 	@JsonbProperty("description")
 	private String description;
@@ -8,6 +12,9 @@ public class Subtype{
 
 	@JsonbProperty("items")
 	private Items items;
+
+	@JsonbProperty("$ref")
+	private String ref;
 
 	public String getDescription(){
 		return description;
@@ -19,5 +26,9 @@ public class Subtype{
 
 	public Items getItems(){
 		return items;
+	}
+
+	public String getRef(){
+		return ref;
 	}
 }

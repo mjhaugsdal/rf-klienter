@@ -1,4 +1,8 @@
-public class IsSubpotent{
+package org.hl7.fhir;
+
+import jakarta.json.bind.annotation.JsonbProperty;
+
+public class IsSubPotent{
 
 	@JsonbProperty("description")
 	private String description;

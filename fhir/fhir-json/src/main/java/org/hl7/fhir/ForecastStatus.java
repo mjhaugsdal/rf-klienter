@@ -1,3 +1,7 @@
+package org.hl7.fhir;
+
+import jakarta.json.bind.annotation.JsonbProperty;
+
 public class ForecastStatus{
 
 	@JsonbProperty("description")
