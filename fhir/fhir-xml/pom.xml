@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>io.github.mjhaugsdal</groupId>
+        <artifactId>eresept-meldingsender</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>fhir-xml</artifactId>
+
+    <properties>
+        <cxf-plugin.version>4.0.1</cxf-plugin.version>
+        <immutable-plugin.version>2.0.2</immutable-plugin.version>
+        <jakarta.xml-bind-api.version>4.0.1</jakarta.xml-bind-api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-xjc-plugin</artifactId>
+                <version>${cxf-plugin.version}</version>
+                <configuration>
+                    <extensions>
+                        <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:${cxf-plugin.version}</extension>
+                    </extensions>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.github.sabomichal</groupId>
+                        <artifactId>immutable-xjc-plugin</artifactId>
+                        <version>${immutable-plugin.version}</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>fhir</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>xsdtojava</goal>
+                        </goals>
+                        <configuration>
+                            <sourceRoot>${project.build.directory}/generated-sources</sourceRoot>
+                            <xsdOptions>
+                                <xsdOption>
+<!--                                    <packagename>hl7.fhir</packagename>-->
+                                    <xsd>
+                                        ${project.basedir}/src/main/resources/fhir-single.xsd
+                                    </xsd>
+                                    <bindingFiles>
+                                        <bindingFile>${project.basedir}/src/main/resources/xjb/fhir-single.xjb</bindingFile>
+                                        <bindingFile>${project.basedir}/src/main/resources/xjb/fhir-xhtml.xjb</bindingFile>
+                                    </bindingFiles>
+                                    <extensionArgs>
+                                        <extensionArg>-Ximm</extensionArg>
+                                        <extensionArg>-Ximm-builder</extensionArg>
+                                        <extensionArg>-Ximm-skipcollections</extensionArg>
+                                    </extensionArgs>
+                                </xsdOption>
+                            </xsdOptions>
+                        </configuration>
+                    </execution>
+
+                </executions>
+
+            </plugin>
+<!--            <plugin>-->
+<!--                &lt;!&ndash; http://mojo.codehaus.org/xmlbeans-maven-plugin/index.html &ndash;&gt;-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>xmlbeans-maven-plugin</artifactId>-->
+<!--                <version>2.3.3</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>xmlbeans</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <inherited>true</inherited>-->
+<!--                <configuration>-->
+<!--                    <schemaDirectory>src/main/resources</schemaDirectory>-->
+<!--                    <javaSource>8</javaSource>-->
+<!--                    <download>true</download>-->
+<!--                    <verbose>true</verbose>-->
+<!--                    &lt;!&ndash; <classGenerationDirectory></classGenerationDirectory> &ndash;&gt;-->
+<!--                    &lt;!&ndash;sourceGenerationDirectory>src/main/java</sourceGenerationDirectory&ndash;&gt;-->
+<!--                    &lt;!&ndash; <outputJar></outputJar> &ndash;&gt;-->
+<!--                    &lt;!&ndash;xmlConfigs>-->
+<!--                        <xmlConfig implementation="java.io.File">src/main/xsdconfig/config.xsdconfig</xmlConfig>-->
+<!--                    </xmlConfigs&ndash;&gt;-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <groupId>org.apache.cxf</groupId>-->
+<!--                <artifactId>cxf-xjc-plugin</artifactId>-->
+<!--                <version>${cxf-plugin.version}</version>-->
+<!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <extensions>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <extension>org.apache.cxf.xjcplugins:cxf-xjc-dv:${cxf-plugin.version}</extension>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </extensions>&ndash;&gt;-->
+<!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
+<!--&lt;!&ndash;                <dependencies>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <dependency>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <groupId>com.github.sabomichal</groupId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <artifactId>immutable-xjc-plugin</artifactId>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <version>${immutable-plugin.version}</version>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </dependency>&ndash;&gt;-->
+<!--&lt;!&ndash;                </dependencies>&ndash;&gt;-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>generate-sources</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>xsdtojava</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <xsdOptions>-->
+<!--                                <xsdOption>-->
+<!--                                    <xsd>${project.basedir}/src/main/resources/fhir-single.xsd</xsd>-->
+<!--&lt;!&ndash;                                    <extensionArgs>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <extensionArg>-Ximm</extensionArg>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        <extensionArg>-Ximm-builder</extensionArg>&ndash;&gt;-->
+<!--&lt;!&ndash;                                    </extensionArgs>&ndash;&gt;-->
+<!--                                </xsdOption>-->
+<!--                            </xsdOptions>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+        </plugins>
+    </build>
+</project>

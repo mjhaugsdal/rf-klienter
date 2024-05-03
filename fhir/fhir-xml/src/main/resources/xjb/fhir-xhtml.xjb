@@ -1,0 +1,33 @@
+<bindings xmlns="https://jakarta.ee/xml/ns/jaxb"
+          xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+          xmlns:xs="http://www.w3.org/2001/XMLSchema"
+          version="3.0">
+  <bindings schemaLocation="../fhir-xhtml.xsd" version="1.0">
+
+    <!--
+    Fixes:-
+
+    com.sun.istack.SAXParseException2; systemId: file:../xsd/fhir-xhtml.xsd;
+    lineNumber: 283; columnNumber: 52; Property "Lang" is already defined. Use
+    &lt;jaxb:property> to resolve this conflict.
+    -->
+    <bindings node="//xs:attributeGroup[@name='i18n']">
+      <bindings node=".//xs:attribute[@name='lang']">
+        <property name="xml:lang"/>
+      </bindings>
+    </bindings>
+
+    <!--
+    Fixes:-
+
+    com.sun.istack.SAXParseException2; systemId: file:../xsd/fhir-xhtml.xsd;
+    lineNumber: 1106; columnNumber: 58; Property "Lang" is already defined. Use
+    &lt;jaxb:property> to resolve this conflict.
+    -->
+    <bindings node="//xs:element[@name='bdo']">
+      <bindings node=".//xs:attribute[@name='lang']">
+        <property name="xml:lang"/>
+      </bindings>
+    </bindings>
+  </bindings>
+</bindings>
