@@ -1,4 +1,4 @@
-# Eresept-java
+# Hobbyprosjekt.. eresept-java
 
 ![Status](https://github.com/mjhaugsdal/eresept-java/actions/workflows/maven.yml/badge.svg)
 
@@ -13,6 +13,4 @@ fra https://sarepta.ehelse.no/)
     - REST webservice laget med Apache CXF jax-rs https://cxf.apache.org/docs/jax-rs.html
         - Sikret med https://cxf.apache.org/docs/jax-rs-jose.html
 
-
-
-
+Splittet i Spring-boot og Quarkus implementasjoner
