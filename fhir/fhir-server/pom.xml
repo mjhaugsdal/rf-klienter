@@ -11,7 +11,7 @@
 
     <artifactId>fhir-server</artifactId>
     <properties>
-        <spring-boot.version>3.2.5</spring-boot.version>
+        <spring-boot.version>3.1.9</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -40,22 +40,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>org.springframework.boot</groupId>-->
-<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
         </dependency>
         <dependency>
-            <groupId>ca.uhn.hapi.fhir</groupId>
-            <artifactId>org.hl7.fhir.dstu3</artifactId>
-            <version>6.3.6</version>
-        </dependency>
-        <dependency>
-            <groupId>ca.uhn.hapi.fhir</groupId>
-            <artifactId>hapi-fhir-structures-dstu3</artifactId>
-            <version>7.0.2</version>
+            <groupId>io.github.mjhaugsdal</groupId>
+            <artifactId>fhir-xml</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -64,7 +53,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-transports-http-netty-server</artifactId>
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.cxf</groupId>

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>io.github.mjhaugsdal</groupId>
-        <artifactId>eresept-meldingsender</artifactId>
+        <artifactId>fhir</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 

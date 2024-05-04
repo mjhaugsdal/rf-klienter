@@ -7,8 +7,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import org.hl7.fhir.dstu3.model.Patient;
+import jakarta.xml.bind.JAXBElement;
+import org.hl7.fhir.Patient;
 
 @Path("/fhir/patient")
 public interface PatientService {
@@ -16,12 +16,12 @@ public interface PatientService {
 
     @GET
     @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    Response getPatient(@QueryParam("id") int id);
+    @Produces(MediaType.APPLICATION_XML)
+    JAXBElement<Patient> getPatient(@QueryParam("id") int id);
 
     @POST
     @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    Response createPatient(Patient patient);
+    @Produces(MediaType.APPLICATION_XML)
+    @Consumes(MediaType.APPLICATION_XML)
+    JAXBElement<Patient> postPatient(JAXBElement<Patient> patient);
 }
