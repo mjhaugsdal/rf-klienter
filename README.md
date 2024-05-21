@@ -1,6 +1,8 @@
-# Eresept-java
+# eresept-java
 
 ![Status](https://github.com/mjhaugsdal/eresept-java/actions/workflows/maven.yml/badge.svg)
+
+Hobbyprosjekt :) 
 
 Meldingsdefinisjoner ligger i https://github.com/mjhaugsdal/kith-xml-schemas (Grunnlag hentet
 fra https://sarepta.ehelse.no/)
@@ -13,6 +15,4 @@ fra https://sarepta.ehelse.no/)
     - REST webservice laget med Apache CXF jax-rs https://cxf.apache.org/docs/jax-rs.html
         - Sikret med https://cxf.apache.org/docs/jax-rs-jose.html
 
-
-
-
+Splittet i Spring-boot og Quarkus implementasjoner
