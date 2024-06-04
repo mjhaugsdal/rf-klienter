@@ -10,7 +10,7 @@
     </parent>
 
     <properties>
-        <spring-boot.version>3.2.5</spring-boot.version>
+        <spring-boot.version>3.3.0</spring-boot.version>
     </properties>
 
     <artifactId>spring-boot</artifactId>
@@ -41,7 +41,4 @@
         <module>spring-boot-rest</module>
         <module>spring-boot-soap</module>
     </modules>
-
-
-
 </project>

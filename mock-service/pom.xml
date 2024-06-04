@@ -15,7 +15,7 @@
     <name>mock-service</name>
     <description>mock-service</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <xmlsec.version>4.0.2</xmlsec.version>
@@ -138,7 +138,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.1.2</version>
+<!--                        <version>3.1.2</version>-->
                         <configuration>
                             <argLine>${native-image-agent.argLine}</argLine>
                         </configuration>
@@ -160,7 +160,7 @@
                         <builder>paketobuildpacks/builder-jammy-tiny:latest</builder>
                         <runImage>paketobuildpacks/run-jammy-tiny:latest</runImage>
                         <env>
-                            <BP_JVM_VERSION>17</BP_JVM_VERSION>
+                            <BP_JVM_VERSION>21</BP_JVM_VERSION>
                         </env>
                     </image>
                 </configuration>
@@ -171,5 +171,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
