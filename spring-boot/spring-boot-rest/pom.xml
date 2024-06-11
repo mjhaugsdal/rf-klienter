@@ -94,7 +94,7 @@
                             <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
+                                    <wsdl>${project.basedir}/src/main/resources/NAWebServiceSoapHttpPort.wsdl</wsdl>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
@@ -109,7 +109,7 @@
                             <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
+                                    <wsdl>${project.basedir}/src/main/resources/UtlevererWebServiceSoapHttpPort.wsdl</wsdl>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>
@@ -124,7 +124,7 @@
                             <sourceRoot>target/generated-sources/cxf</sourceRoot>
                             <wsdlOptions>
                                 <wsdlOption>
-                                    <wsdl>${basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>
+                                    <wsdl>${project.basedir}/src/main/resources/RekvirentWebServiceSoapHttpPort.wsdl</wsdl>
                                 </wsdlOption>
                             </wsdlOptions>
                         </configuration>

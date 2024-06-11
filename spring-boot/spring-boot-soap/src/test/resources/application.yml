@@ -16,3 +16,5 @@ na:
 rest:
   server:
     address: http://localhost:8884/
+
+ecdh: true

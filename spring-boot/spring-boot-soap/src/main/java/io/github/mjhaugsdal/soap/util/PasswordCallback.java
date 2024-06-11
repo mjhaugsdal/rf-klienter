@@ -14,6 +14,8 @@ public class PasswordCallback implements CallbackHandler {
     public PasswordCallback() {
         passwords.put("client", "password");
         passwords.put("server", "password");
+        passwords.put("client-ecdh", "");
+        passwords.put("server-ecdh", "");
     }
 
     @Override
