@@ -10,29 +10,36 @@ spec:
       name: rekvirent-soap
       port: 8881
       targetPort: 8881
+      nodePort: 30001
     - protocol: TCP
       name: utleverer-soap
       port: 8882
       targetPort: 8882
+      nodePort: 30002
     - protocol: TCP
       name: na-soap
       port: 8883
       targetPort: 8883
+      nodePort: 30003
     - protocol: TCP
       name: na-rest
       port: 8888
       targetPort: 8888
+      nodePort: 30004
     - protocol: TCP
       name: rekvirent-rest
       port: 8889
       targetPort: 8889
+      nodePort: 30005
     - protocol: TCP
       name: utleverer-rest
       port: 8890
       targetPort: 8890
+      nodePort: 30006
     - protocol: TCP
       name: swagger
       port: 8884
       targetPort: 8884
+      nodePort: 30007
   type: LoadBalancer
   
