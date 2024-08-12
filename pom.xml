@@ -20,7 +20,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <cxf.version>4.0.4</cxf.version>
+        <cxf.version>4.0.5</cxf.version>
         <xmlsec.version>4.0.2</xmlsec.version>
         <xml-schemas.version>4.2.0</xml-schemas.version>
         <snakeyaml.version>2.2</snakeyaml.version>
