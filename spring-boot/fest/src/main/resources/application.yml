@@ -1,0 +1,2 @@
+soap:
+  address: https://fest-test.legemiddelverket.no/TestFest/FestService251.svc
