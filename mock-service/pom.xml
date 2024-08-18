@@ -156,13 +156,15 @@
                 <configuration>
                     <image>
                         <name>${project.artifactId}:latest</name>
-                        <!--                        <network>host</network>-->
                         <builder>paketobuildpacks/builder-jammy-tiny:latest</builder>
                         <runImage>paketobuildpacks/run-jammy-tiny:latest</runImage>
                         <env>
                             <BP_JVM_VERSION>21</BP_JVM_VERSION>
                         </env>
                     </image>
+                    <docker>
+                        <host>//./pipe/dockerDesktopLinuxEngine</host>
+                    </docker>
                 </configuration>
             </plugin>
             <plugin>
